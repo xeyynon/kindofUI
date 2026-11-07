@@ -1,7 +1,11 @@
+<!doctype html>
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var kt=localStorage.getItem("kui-theme");if(kt==="light"||kt==="dark")document.documentElement.setAttribute("data-theme",kt)}catch(e){}</script>
 <title>kindofui</title>
+<meta name="author" content="Surya Pratik">
+<link rel="author" href="https://suryapratik.vercel.app/">
 <link rel="icon" type="image/png" sizes="64x64" href="data:image/png;base64,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">
 <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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S/FCEARYLBaMHj0a3bp1g81mgyAIsFqtGDhwIOLj42G1Wn2SnWAuiU6ng81mw/LlyzF+/HgcOHAAWq223oOBqpfjffXiEdB1XBIjIyMfuCSyZTokJARffvklpk6diqtXr0Kn0/nMX67Jd/7Vr36F6dOny/4yc0H0ej2mTZvm89I287ENBgPOnDmDadOmYf78+aioqJAPHNQVTo/HA5VK5dUBXwLaywjcYDDgiSeeeGC7Ko/HA41Gg08//RQvv/wyjEYj1Gq13xoRsrZfqampiIuLu8dfZn02hg0bhvHjx/t8Ez9r36tWq8FxHNavX4+xY8di//790Gg0dYoTmIWOiYlBixYtgnJMRVBdLau+tWjRAu3bt78v0CwAXLt2LebNmwe32+3z4K+6VCoVKioqMGHCBEyePLlGYNm1Lly4EL169YLJZPqf4T6+SrkZDAacO3cO06dPxxtvvIGSkpIHWmvWsLFly5bo1KmTT7unEtC1BCusjS7rkFnTDZckCXq9Hvv378eSJUsgCILfRpfxPA+FQoHy8nKMHDkS7777bq2WrbqP+tFHHyEuLg5VVVXyhFd/ZHR4nsenn36KsWPHYu/evdDpdLILdL844A9/+ANUKlXQuRwKUa1bGCwwO51OtG7dGkuXLkVoaKi8oagmH7CoqEh2M1gvZV+DzHxmSZLw4osvYunSpXKeuLaluroV7N+/Py5fvowff/xR3qTk68CZuV2lpaX46quvUF5ejvj4eGi12hpXODbAs23btsjPz8f58+eh1WqDpnljUADNonU2i69///6wWq01bstkrsU777yD3Nxc+fyfLyFmILO2AwsXLsScOXPA83yd/E62z6NFixZ45plnEBoaioKCApSXl8tg+9J3ZUM5eZ5HTk4OCgoKkJSUVGuzS2YUunbtisOHD6O0tBQajSYogsSABJptumEP1WKxQKVSYeHChZg8eXKtR5VYCisnJwfLli3zmWVmOVmn0wmbzQa3240uXbrgtddew7vvvovExERYLBb5Z+v6mQz+/v37Y8CAAVCr1bh58yZu374tW0+WEWkoTOzf63Q6FBQUoLi4GE8//bTcaqw61GwViY6ORt++fXH8+HH89NNPEEUx4A8fcCFhEQH52tlsNjm46dmzJ15//XU89dRT983hut1uKBQKzJgxA3v37m1Qj4zqn8mG0UdHR6NXr14Y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">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -42,16 +46,16 @@ header.top{display:block}
 .kh-intro h1{margin:0;font:700 clamp(28px,4.2vw,36px)/1.15 var(--display);letter-spacing:-.02em}
 .kh-intro h1 em{font-style:normal;color:var(--accent)}
 /* rotating word: each word slides up into place while the old one slides out; the slot follows the word's width so the full stop stays attached */
-.kh-rot{--kh-slide:.38s}
+.kh-rot{--kh-slide:.56s}
 .kh-tail{white-space:nowrap}
 @media (max-width:640px){.kh-pre,.kh-tail{display:block}.kh-pre{text-wrap:balance}}
 .kh-rot.is-live{display:inline-block;position:relative;vertical-align:top;height:1.15em;padding-block:.09em;margin-block:-.09em;overflow:hidden;white-space:nowrap;transition:width var(--kh-slide) cubic-bezier(.2,.8,.2,1)}
 .kh-rot.is-live em{position:absolute;left:0;top:.09em;visibility:hidden}
 .kh-rot.is-live em.on{visibility:visible}
 .kh-rot.is-live.go em.on{animation:kh-in var(--kh-slide) cubic-bezier(.2,.8,.2,1) both}
-.kh-rot.is-live.go em.out{visibility:visible;animation:kh-out var(--kh-slide) cubic-bezier(.4,0,1,1) both}
-@keyframes kh-in{from{transform:translateY(105%);opacity:0}to{transform:none;opacity:1}}
-@keyframes kh-out{from{transform:none;opacity:1}to{transform:translateY(-105%);opacity:0}}
+.kh-rot.is-live.go em.out{visibility:visible;animation:kh-out calc(var(--kh-slide) * .75) cubic-bezier(.4,0,.6,1) both}
+@keyframes kh-in{from{transform:translateY(.6em);opacity:0}to{transform:none;opacity:1}}
+@keyframes kh-out{from{transform:none;opacity:1}to{transform:translateY(-.6em);opacity:0}}
 .kh-lead{margin:0;max-width:60ch;color:var(--muted);font-size:16px;line-height:1.55}
 
 .kf{margin-top:72px;padding:28px 0 40px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px}
@@ -62,12 +66,16 @@ header.top{display:block}
 .kf-user{display:inline-flex;align-items:center;gap:8px;margin-left:10px;padding:6px 4px;border-radius:6px;color:var(--fg);font-weight:600;text-decoration:none}
 .kf-user:hover{text-decoration:underline;text-underline-offset:3px}
 .kf-user svg{width:18px;height:18px}
+.kf-folio{position:relative;display:inline-flex;align-items:center;gap:5px;margin-left:18px;padding:6px 4px;color:var(--fg);font-weight:600;text-decoration:none}
+.kf-folio svg{width:11px;height:11px;opacity:.65}
+.kf-folio::after{content:"";position:absolute;left:4px;right:4px;bottom:3px;height:2px;border-radius:1px;opacity:.6;transition:opacity .2s;background:linear-gradient(90deg,#9b7ede 0 16.67%,#7b93e0 0 33.33%,#4fd8e0 0 50%,#6fe07d 0 66.67%,#f2a65a 0 83.33%,#e8536b 0)}
+.kf-folio:hover::after,.kf-folio:focus-visible::after{opacity:1}
 .kf-sep{width:1px;height:20px;margin:0 20px;background:var(--line)}
 .kf-top{display:inline-flex;align-items:center;gap:6px;padding:8px 4px;border:0;border-radius:6px;background:none;color:var(--muted);font:inherit}
 .kf-top:hover{color:var(--fg)}
 .kf-top svg{width:14px;height:14px}
-@media (max-width:520px){.kf-sep{display:none}.kf-end{gap:2px 22px}.kf-user{margin-left:6px}}
-@media (pointer:coarse){.kf-user,.kf-top{min-height:44px}}
+@media (max-width:520px){.kf-sep{display:none}.kf-end{gap:2px 22px}.kf-user{margin-left:6px}.kf-folio{margin-left:0}}
+@media (pointer:coarse){.kf-user,.kf-folio,.kf-top{min-height:44px}}
 section.group{padding-block:44px 8px;scroll-margin-top:60px}
 section.group > h2{font:700 clamp(1.6rem,4vw,2.4rem)/1.05 var(--display);margin:0 0 6px;letter-spacing:-.01em}
 section.group > p{margin:0 0 14px;color:var(--muted);max-width:62ch}
@@ -76,6 +84,9 @@ section.group > p{margin:0 0 14px;color:var(--muted);max-width:62ch}
 .jump a:hover{border-color:var(--accent)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:18px}
 .demo[hidden],section.group[hidden],.stage [hidden]{display:none!important}
+/* Cards far from the screen are skipped (no layout, paint or animation) until they are about to scroll into view.
+   The second size line uses "auto" so the browser remembers each card's real height; older browsers ignore it and use the first. */
+.demo{content-visibility:auto;contain-intrinsic-size:560px;contain-intrinsic-size:auto 560px}
 .demo{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:70px;min-width:0}
 .stage{height:290px;position:relative;overflow:hidden;font-family:system-ui,sans-serif;border-bottom:1px solid var(--line)}
 .meta{padding:14px 16px 16px;display:grid;gap:6px;min-width:0}
@@ -97,11 +108,13 @@ button{font:inherit;cursor:pointer}
 .ln{height:6px;border-radius:3px;background:#d6dbe4}
 
 /* ===== VISUAL STYLES ===== */
-.s-bento{background:#ebebee;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:8px}
+.s-bento{background:#ebebee;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:8px;container-type:inline-size}
 .s-bento > div{background:#fff;border-radius:14px;padding:10px;color:#111;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;font-size:10.5px;line-height:1.25}
 .s-bento big{font:700 20px/1 var(--display);display:block}
 .s-bento .b1{grid-column:span 2;grid-row:span 2;background:linear-gradient(155deg,#1d1d20,#43444b);color:#fff}
 .s-bento .b1 big{font-size:24px}
+@container (max-width:380px){.s-bento > div{padding:8px}.s-bento big{font-size:15px}.s-bento .b1 big{font-size:21px}}
+@container (max-width:300px){.s-bento > div{padding:7px}.s-bento big{font-size:12.5px}.s-bento .b1 big{font-size:18px}}
 .s-bento .b3{background:#d9f99d}
 .s-bento .b4{grid-column:span 2}
 .s-bento .b6{grid-column:span 2;background:#dbe7ff}
@@ -197,10 +210,11 @@ button{font:inherit;cursor:pointer}
 .s-aur p{margin:0;font-size:13px;opacity:.8}
 .s-aur button{border:0;background:#fff;color:#070b1a;padding:9px 18px;border-radius:999px;font-weight:700}
 
-.s-clay{background:#efe4ff;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;align-content:center;padding:12px;font-family:var(--body);color:#3b2a5c}
+.s-clay{background:#efe4ff;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;align-content:center;padding:12px;font-family:var(--body);color:#3b2a5c;container-type:inline-size}
 .s-clay .c{width:118px;padding:12px 12px;border-radius:30px;background:#fff;text-align:center;box-shadow:12px 14px 26px rgba(138,99,210,.35),inset -6px -6px 14px rgba(160,120,220,.25),inset 6px 6px 12px #fff;display:grid;gap:6px;justify-items:center;font-weight:700;font-size:13px}
 .s-clay .ic{width:44px;height:44px;border-radius:18px;box-shadow:inset -5px -5px 10px rgba(0,0,0,.15),inset 5px 5px 10px rgba(255,255,255,.6)}
 .s-clay small{font-weight:500;font-size:11px;color:#7a6a99}
+@container (max-width:300px){.s-clay{gap:10px;padding:8px}.s-clay .c{width:100px;padding:9px 8px;gap:4px;font-size:12px}.s-clay .ic{width:34px;height:34px;border-radius:14px}}
 
 .s-retro{background:#008080;padding:16px;display:grid;place-items:center;font-family:"VT323",monospace;font-size:18px;color:#000}
 .s-retro .win{width:min(100%,300px);background:#c0c0c0;border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:1px 1px 0 #000}
@@ -247,10 +261,10 @@ button{font:inherit;cursor:pointer}
 .s-neon button{background:transparent;color:#ff7ae9;border:2px solid #ff2bd6;padding:7px 18px;border-radius:4px;font:700 12px var(--mono);letter-spacing:.15em;box-shadow:0 0 12px #ff2bd6,inset 0 0 10px #ff2bd6;text-shadow:0 0 6px #ff2bd6}
 
 /* ===== LAYOUTS ===== */
-.s-cards{padding:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-content:center}
+.s-cards{padding:10px 12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:center}
 .s-cards .cd{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:11px;min-width:0}
-.s-cards .im{aspect-ratio:4/3;max-width:100%}
-.s-cards .tx{padding:7px 8px;display:grid;gap:2px}
+.s-cards .im{aspect-ratio:16/9;max-width:100%}
+.s-cards .tx{padding:6px 8px;display:grid;gap:1px}
 .s-cards .tx b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s-cards .pr{color:#555}
 
@@ -296,7 +310,7 @@ button{font:inherit;cursor:pointer}
 .s-scrolly .step.on{color:#fff}
 .s-scrolly .step:first-child{min-height:150px}
 .s-scrolly .step:last-child{min-height:240px}
-.s-scrolly .hint{position:absolute;bottom:8px;right:10px;font:10px var(--mono);color:#64748b}
+.s-scrolly .hint{position:absolute;bottom:8px;left:0;width:50%;text-align:center;white-space:nowrap;font:9.5px var(--mono);color:#64748b}
 
 .s-asym{background:#f0ede6;color:#1a1a1a}
 .s-asym .img{position:absolute;left:8%;top:12%;width:46%;height:68%;background:linear-gradient(150deg,#c2410c,#7c2d12);transform:rotate(-4deg)}
@@ -346,7 +360,7 @@ button{font:inherit;cursor:pointer}
 .s-tabbar .scr{padding:10px;display:grid;gap:8px}
 .s-tabbar .scr h5{margin:0;font:700 15px var(--display)}
 .s-tabbar .tb{position:absolute;bottom:0;left:0;right:0;display:flex;border-top:1px solid #e5e7eb;background:#fff;padding:5px 0 7px}
-.s-tabbar .tb button{flex:1;border:0;background:none;display:grid;justify-items:center;gap:1px;font-size:9px;color:#9aa0aa}
+.s-tabbar .tb button{flex:1;min-width:0;padding:0 1px;border:0;background:none;display:grid;justify-items:center;gap:1px;font-size:9px;color:#9aa0aa}
 .s-tabbar .tb button span{font-size:16px;line-height:1}
 .s-tabbar .tb button.on{color:#e1306c}
 
@@ -506,7 +520,7 @@ button{font:inherit;cursor:pointer}
 .s-dark-p .flag{font:700 9px var(--mono);color:#fff;background:#dc2626;border-radius:3px;padding:1px 5px;margin-left:6px;vertical-align:middle;letter-spacing:.04em}
 
 /* ===== APPROACHES ===== */
-.s-resp{background:#f3f4f7;display:flex;align-items:flex-end;justify-content:center;gap:12px;padding:14px;color:#2b3040}
+.s-resp{background:#f3f4f7;display:flex;align-items:flex-end;justify-content:center;gap:12px;padding:14px;color:#2b3040;container-type:inline-size}
 .s-resp .dv{background:#fff;border:3px solid #2b3040;border-radius:8px;padding:6px;display:grid;gap:5px;align-content:start;overflow:hidden}
 .s-resp .ph{width:62px;height:120px;border-radius:12px}
 .s-resp .tb{width:110px;height:150px}
@@ -517,6 +531,8 @@ button{font:inherit;cursor:pointer}
 .s-resp .c{height:26px;background:#c7d2fe;border-radius:3px}
 .s-resp .ds .c{height:30px}
 .s-resp figure{margin:0;display:grid;justify-items:center;gap:6px;font:10px var(--mono);color:#6b7280}
+@container (max-width:380px){.s-resp{gap:8px;padding:10px}.s-resp .dv{padding:5px;gap:4px;border-width:2px}.s-resp .ph{width:46px;height:96px}.s-resp .tb{width:84px;height:122px}.s-resp .ds{width:120px;height:92px;border-bottom-width:8px}.s-resp .c{height:20px}.s-resp .ds .c{height:22px}}
+@container (max-width:300px){.s-resp{gap:6px;padding:8px}.s-resp .ph{width:38px;height:84px}.s-resp .tb{width:66px;height:108px}.s-resp .ds{width:96px;height:80px}.s-resp figure{font-size:9px}.s-resp .c{height:16px}.s-resp .ds .c{height:18px}}
 
 .s-ds{background:#fff;color:#1f2430;padding:14px 16px;display:grid;gap:12px;align-content:start;font-size:12px}
 .s-ds .lbl{font:10px var(--mono);color:#888;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
@@ -585,7 +601,7 @@ section.group{scroll-margin-top:120px}
 @keyframes blink{50%{opacity:.25}}
 @keyframes mq{to{transform:translateX(-50%)}}
 .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:grid;gap:8px;padding-block:8px 4px}
-@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) and (background:color-mix(in srgb,red,blue)){.topbar{background:color-mix(in srgb,var(--bg) 93%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}
+@media (hover:hover) and (pointer:fine){@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) and (background:color-mix(in srgb,red,blue)){.topbar{background:color-mix(in srgb,var(--bg) 93%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}}
 .kh-search{display:flex;align-items:center;gap:14px}
 .kh-field{position:relative;flex:1;min-width:0}
 .kh-field .mag{position:absolute;left:15px;top:50%;translate:0 -50%;width:18px;height:18px;color:var(--muted);pointer-events:none}
@@ -728,7 +744,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .s-org .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .s-org button{border:0;background:#c46d3b;color:#fff;border-radius:999px;padding:8px 14px;font-weight:600}
 
-.s-genz{background:#c6ff00;color:#111}
+.s-genz{background:#c6ff00;color:#111;container-type:inline-size}
 .s-genz .strip{background:#111;color:#c6ff00;font:700 11px var(--mono);padding:5px 0;white-space:nowrap;overflow:hidden}
 .s-genz .strip span{display:inline-block;animation:mq 12s linear infinite}
 .s-genz .t1{position:absolute;left:18px;top:46px;font:800 34px/1 var(--display);transform:rotate(-4deg)}
@@ -738,6 +754,8 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .s-genz .s1{left:20px;bottom:60px;background:#7cc7ff;transform:rotate(-6deg)}
 .s-genz .s2{right:28px;bottom:96px;background:#fff;transform:rotate(8deg);font:400 18px "VT323",monospace}
 .s-genz .note{position:absolute;left:24px;bottom:18px;font:500 20px "Caveat",cursive;transform:rotate(-3deg)}
+/* on the narrowest cards the headline and starburst shrink so the sticker no longer covers the words */
+@container (max-width:300px){.s-genz .t1{left:14px;font-size:27px}.s-genz .t2{left:46px;font-size:30px}.s-genz .burst{width:62px;height:62px;right:10px;top:52px;font-size:11px}}
 .s-genz .cta{position:absolute;right:18px;bottom:18px;border:2px solid #111;background:#111;color:#c6ff00;font:800 12px var(--mono);padding:9px 12px;box-shadow:4px 4px 0 #ff3ea5}
 
 .s-asc{background:#0b0b0b;color:#d4d4d4;font:11px/1.15 var(--mono);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;gap:12px;padding:16px;align-items:center}
@@ -872,7 +890,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .s-car .sl b{font:800 22px var(--display)}
 .s-car .ar{position:absolute;top:calc(50% - 28px);width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 2px 6px rgba(0,0,0,.2);font-size:18px;line-height:1;color:#1f2430}
 .s-car .ar.l{left:22px}.s-car .ar.r{right:22px}
-.s-car .dots{display:flex;gap:6px;justify-content:center}
+.s-car .dots{display:flex;gap:16px;justify-content:center}
 .s-car .dots button{width:8px;height:8px;border-radius:4px;border:0;background:#d1d5db;padding:0;transition:width .2s}
 .s-car .dots button.on{width:22px;background:#3557e0}
 
@@ -926,7 +944,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .s-fs .scr > div{height:100%;scroll-snap-align:start;display:grid;place-content:center;justify-items:center;gap:4px;text-align:center}
 .s-fs .scr b{font:800 34px var(--display)}
 .s-fs .scr span{font-size:13px;opacity:.85}
-.s-fs .dots{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:grid;gap:8px}
+.s-fs .dots{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:grid;gap:18px}
 .s-fs .dots button{width:8px;height:8px;border-radius:4px;border:0;padding:0;background:rgba(255,255,255,.45);transition:height .2s}
 .s-fs .dots button.on{background:#fff;height:20px}
 
@@ -945,9 +963,11 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .s-dd .menu .out{color:#dc2626}
 .s-dd .wfb{padding:14px;display:grid;gap:8px;width:50%}
 
-.s-ff{background:#111827;color:#9ca3af;padding:16px;display:grid;grid-template-rows:1fr auto;gap:12px;font-size:11px}
+.s-ff{background:#111827;color:#9ca3af;padding:16px;display:grid;grid-template-rows:1fr auto;gap:12px;font-size:11px;container-type:inline-size}
 .s-ff .cols5{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:12px}
-.s-ff .cols5 > div{display:grid;align-content:start;gap:5px;min-width:0}
+.s-ff .cols5 > div{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:5px;min-width:0}
+/* sized to the card, not the screen: narrow cards put the brand and newsletter on top and the three link columns below */
+@container (max-width:520px){.s-ff .cols5{grid-template-columns:repeat(3,minmax(0,1fr))}.s-ff .brand{grid-column:1/-1}}
 .s-ff .brand b{color:#fff;font:700 15px var(--display)}
 .s-ff p{margin:0 0 4px}
 .s-ff form{display:flex;gap:4px}
@@ -1391,11 +1411,12 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .s-aes .pf input{border:1px solid #d6dae1;border-radius:6px;padding:5px 7px;font:11px var(--body);min-width:0;color:#1f2430}
 .s-aes .pf button{margin-top:4px;border:0;background:#16a34a;color:#fff;border-radius:6px;padding:7px;font-weight:600}
 
-.s-nh{background:#fff;color:#1f2430;padding:9px;font-size:10px}
+.s-nh{background:#fff;color:#1f2430;padding:9px;font-size:10px;container-type:inline-size}
 .s-nh ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px;counter-reset:h}
 .s-nh li{counter-increment:h;background:#f7f8fa;border-radius:6px;padding:3px 6px 3px 21px;position:relative;display:grid;align-content:center;color:#666;line-height:1.2}
 .s-nh li::before{content:counter(h);position:absolute;left:6px;top:3px;font:700 11px var(--mono);color:#3557e0}
 .s-nh li b{color:#1f2430;font-size:11px}
+@container (max-width:300px){.s-nh li{font-size:0;line-height:0;padding-block:4px}.s-nh li b{font-size:10.5px;line-height:1.2}.s-nh li::before{top:4px}}
 
 /* ================= v2: accessibility & motion ================= */
 .s-cb .vs2 > div{padding-bottom:44px}
@@ -1962,7 +1983,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="eink">
   <div class="stage s-eink">
-    <div class="tp"><span>Chapter 4 · The Harbour</span><span class="bat" aria-label="Battery 60%"></span></div>
+    <div class="tp"><span>Chapter 4 · The Harbour</span><span class="bat" role="img" aria-label="Battery 60%"></span></div>
     <p>The boats came in before dawn, their lamps still lit, and the whole town seemed to lean toward the water. Meena stood at the end of the pier with her father's old coat around her shoulders and counted the hulls the way he had taught her: by their sound against the posts, not by sight.</p>
     <div class="ft"><span>Page 87 of 312</span><span>12 min left in chapter</span></div>
   </div>
@@ -2060,12 +2081,12 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 <article class="demo" id="scrolly">
   <div class="stage s-scrolly">
     <div class="vis"><div class="dot" id="sc-dot">2015</div></div>
-    <div class="steps" id="sc-steps">
+    <div class="steps" id="sc-steps" tabindex="0" role="region" aria-label="Story steps">
       <div class="step on" data-c="#38bdf8" data-s="70" data-l="2015">In 2015, the city had 40 km of metro line.</div>
       <div class="step" data-c="#a78bfa" data-s="100" data-l="2020">By 2020 it had doubled, and daily riders crossed one million.</div>
       <div class="step" data-c="#f472b6" data-s="130" data-l="2025">Today 160 km of track carry three million people a day.</div>
     </div>
-    <span class="hint">scroll the right side ↓</span>
+    <span class="hint">scroll the right side →</span>
   </div>
   <div class="meta"><h3>Scrollytelling</h3><p>A visual stays pinned while text scrolls past it, and the visual changes with each step of the story. Scroll inside the right half.</p><p class="seen"><b>Seen in:</b> NYT and Guardian data stories, Apple AirPods pages</p></div>
 </article>
@@ -2128,7 +2149,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="carousel">
   <div class="stage s-car">
-    <div class="tr" id="car-tr"><div class="sl" style="background:linear-gradient(135deg,#f6d365,#fda085)"><b>Summer sale</b><span>Up to 40% off sandals</span></div><div class="sl" style="background:linear-gradient(135deg,#43cea2,#185a9d)"><b>New: Trail series</b><span>Built for monsoon hikes</span></div><div class="sl" style="background:linear-gradient(135deg,#a18cd1,#7b4397)"><b>Members get more</b><span>Free delivery, always</span></div><div class="sl" style="background:linear-gradient(135deg,#30cfd0,#330867)"><b>Gift cards</b><span>From ₹500</span></div></div>
+    <div class="tr" id="car-tr" tabindex="0" role="region" aria-label="Carousel slides"><div class="sl" style="background:linear-gradient(135deg,#f6d365,#fda085)"><b>Summer sale</b><span>Up to 40% off sandals</span></div><div class="sl" style="background:linear-gradient(135deg,#43cea2,#185a9d)"><b>New: Trail series</b><span>Built for monsoon hikes</span></div><div class="sl" style="background:linear-gradient(135deg,#a18cd1,#7b4397)"><b>Members get more</b><span>Free delivery, always</span></div><div class="sl" style="background:linear-gradient(135deg,#30cfd0,#330867)"><b>Gift cards</b><span>From ₹500</span></div></div>
     <button class="ar l" id="car-p" aria-label="Previous slide">‹</button><button class="ar r" id="car-n" aria-label="Next slide">›</button>
     <div class="dots" id="car-d"></div>
   </div>
@@ -2162,7 +2183,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="parallax">
   <div class="stage s-plx">
-    <div class="scr" id="plx"><div class="pin">
+    <div class="scr" id="plx" tabindex="0" role="region" aria-label="Parallax scene"><div class="pin">
       <span class="ly sky"></span>
       <svg class="ly" data-f=".15" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,200 0,120 60,70 120,110 190,50 260,105 330,60 400,100 400,200" fill="#7b8fd1"/></svg>
       <svg class="ly" data-f=".35" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,200 0,150 80,100 150,140 230,90 310,140 400,110 400,200" fill="#45599a"/></svg>
@@ -2175,7 +2196,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="fullscreen">
   <div class="stage s-fs">
-    <div class="scr" id="fs"><div style="background:#0f172a"><b>Fast</b><span>Loads in under a second</span></div><div style="background:#3557e0"><b>Private</b><span>Your data stays on your phone</span></div><div style="background:#15803d"><b>Free</b><span>No ads, no trials</span></div><div style="background:#b45309"><b>Get the app</b><span>iOS and Android</span></div></div>
+    <div class="scr" id="fs" tabindex="0" role="region" aria-label="Full-screen sections"><div style="background:#0f172a"><b>Fast</b><span>Loads in under a second</span></div><div style="background:#3557e0"><b>Private</b><span>Your data stays on your phone</span></div><div style="background:#15803d"><b>Free</b><span>No ads, no trials</span></div><div style="background:#b45309"><b>Get the app</b><span>iOS and Android</span></div></div>
     <div class="dots" id="fs-d"></div>
   </div>
   <div class="meta"><h3>Full-screen sections (scroll snap)</h3><p>Each section fills the screen and scrolling snaps from one to the next, like slides. Scroll or use the dots.</p><p class="seen"><b>Seen in:</b> app launch pages, product reveals, presentations</p></div>
@@ -2193,7 +2214,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="stickynav">
   <div class="stage s-sticky" style="background:#fff;color:#1f2430">
-    <div class="scr">
+    <div class="scr" tabindex="0" role="region" aria-label="Page content">
       <div class="hd"><b>Brewly</b><span><span>Shop</span><span>Learn</span><span>Cart (2)</span></span></div>
       <div class="body wf" style="background:#fff">
         <b style="font:700 18px var(--display)">Single-origin coffee, roasted weekly</b>
@@ -2265,7 +2286,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
     <div class="bgui"><div class="ln"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:50%"></div></div>
     <div class="pal">
       <input id="cmd-input" placeholder="Type a command or search…" aria-label="Command search" autocomplete="off">
-      <ul id="cmd-list"></ul>
+      <ul id="cmd-list" tabindex="0" aria-label="Commands"></ul>
     </div>
   </div>
   <div class="meta"><h3>Command palette <span class="pill">Ctrl/⌘ + K</span></h3><p>A search box that runs any action by typing. Fast for power users. Type in the box to filter commands.</p><p class="seen"><b>Seen in:</b> Linear, Notion, VS Code, Raycast, GitHub</p></div>
@@ -2367,7 +2388,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 <article class="demo" id="toc">
   <div class="stage s-toc">
     <nav class="tc" id="toc-nav" aria-label="On this page"><b>On this page</b><button class="on" data-t="toc1">Install</button><button data-t="toc2">Configure</button><button data-t="toc3">Deploy</button><button data-t="toc4">Troubleshoot</button></nav>
-    <div class="ct" id="toc-ct">
+    <div class="ct" id="toc-ct" tabindex="0" role="region" aria-label="Article">
       <h5 id="toc1">Install</h5><p>Run <code>npm install brewkit</code> in your project folder. Node 20 or later is required. The installer adds a <code>brewkit.config.js</code> file with sensible defaults, so most projects work straight away.</p>
       <h5 id="toc2">Configure</h5><p>Open the config file and set your API key and region. Most teams only change the region and the output folder. Every option is listed in the reference, with its default value and an example.</p>
       <h5 id="toc3">Deploy</h5><p>Run <code>brewkit deploy</code> to build and upload your site. The first deploy takes about a minute. Later deploys only upload files that changed, so they usually finish in a few seconds.</p>
@@ -2390,7 +2411,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="backtotop">
   <div class="stage s-btt">
-    <div class="scr" id="btt-s"><h5>All products</h5><div class="gr" id="btt-l"></div></div>
+    <div class="scr" id="btt-s" tabindex="0" role="region" aria-label="Product list"><h5>All products</h5><div class="gr" id="btt-l"></div></div>
     <button class="up" id="btt" hidden aria-label="Back to top">↑</button><span class="hint">scroll down ↓</span>
   </div>
   <div class="meta"><h3>Back-to-top button</h3><p>A small button that appears after you scroll down and takes you back to the top. Scroll inside the box.</p><p class="seen"><b>Seen in:</b> long blogs, shopping listings, news sites</p></div>
@@ -2439,7 +2460,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="infinite">
   <div class="stage s-inf">
-    <div class="col"><span class="lbl">Infinite scroll</span><div class="feed" id="inf-feed"></div><span class="ld">↓ scroll for more</span></div>
+    <div class="col"><span class="lbl">Infinite scroll</span><div class="feed" id="inf-feed" tabindex="0" role="region" aria-label="Feed"></div><span class="ld">↓ scroll for more</span></div>
     <div class="col"><span class="lbl">Pagination</span><div class="feed" id="pg-feed"></div><div class="pg" id="pg-btns"></div></div>
   </div>
   <div class="meta"><h3>Infinite scroll vs pagination</h3><p>Infinite scroll keeps loading as you reach the bottom, good for browsing. Pagination splits results into numbered pages, good for finding and returning to things.</p><p class="seen"><b>Seen in:</b> Instagram and X feeds (infinite), Google results and Amazon (pages)</p></div>
@@ -2605,7 +2626,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 </article>
 
 <article class="demo" id="lazyload">
-  <div class="stage s-lazy"><div class="scr" id="lz"></div><button class="rp" id="lz-r">Reset</button></div>
+  <div class="stage s-lazy"><div class="scr" id="lz" tabindex="0" role="region" aria-label="Photo grid"></div><button class="rp" id="lz-r">Reset</button></div>
   <div class="meta"><h3>Lazy loading (blur-up)</h3><p>Images load only when they scroll into view, starting as a blurry preview and sharpening when ready. Scroll inside the box.</p><p class="seen"><b>Seen in:</b> Pinterest, Medium, Unsplash</p></div>
 </article>
 
@@ -2978,7 +2999,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <article class="demo" id="hci">
   <div class="stage s-hci" data-tabs>
-    <div class="tb" role="tablist">
+    <div class="tb">
       <button type="button" class="on" data-tab="fb">Feedback</button>
       <button type="button" data-tab="sg">Signifiers</button>
       <button type="button" data-tab="cn">Constraints</button>
@@ -3079,6 +3100,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
   <div class="kf-end">
     <span>Made by</span>
     <a class="kf-user" href="https://github.com/xeyynon" target="_blank" rel="noopener noreferrer" aria-label="xeyynon on GitHub (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>@xeyynon</a>
+    <a class="kf-folio" href="https://suryapratik.vercel.app/" target="_blank" rel="author noopener noreferrer" aria-label="Surya Pratik's portfolio (opens in a new tab)">Portfolio<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
     <span class="kf-sep" aria-hidden="true"></span>
     <button type="button" class="kf-top" id="kf-top">Back to top <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
   </div>
@@ -3138,7 +3160,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
   const like=$('#like'),ln=$('#like-n');
   like.addEventListener('click',()=>{const on=!like.classList.contains('on');like.classList.toggle('on',on);like.setAttribute('aria-pressed',on);ln.textContent=128+(on?1:0)});
   const cp=$('#copy');
-  cp.addEventListener('click',()=>{try{navigator.clipboard&&navigator.clipboard.writeText('https://example.com/share/48213').catch(()=>{})}catch(e){}cp.textContent='Copied ✓';cp.classList.add('ok');setTimeout(()=>{cp.textContent='Copy link';cp.classList.remove('ok')},1500)});
+  cp.addEventListener('click',()=>{try{navigator.clipboard&&navigator.clipboard.writeText('https://suryapratik.vercel.app/').catch(()=>{})}catch(e){}cp.textContent='Copied ✓';cp.classList.add('ok');setTimeout(()=>{cp.textContent='Copy link';cp.classList.remove('ok')},1500)});
 
   // skeleton
   const sr=$('#skel-r');
@@ -3667,8 +3689,9 @@ function splitChunks(src) {
   scan(false);
   return cuts.map((s, k) => src.slice(s, cuts[k + 1] === undefined ? n : cuts[k + 1])).filter(s => s.trim());
 }
-const NOT_DEMO = /\b(dedent|TOK|HELPERS|NOT_DEMO|APP_SRC|splitChunks|CHUNKS|PRISTINE|tokensOf|stageHits|jsFor|codeFor|applyFilter|RULES|HELP|LBL|secs|qi|TXT)\b|const UA\s*=/;
-const CHUNKS = splitChunks(APP_SRC).filter(c => !NOT_DEMO.test(c));
+const NOT_DEMO = /\b(dedent|TOK|HELPERS|NOT_DEMO|APP_SRC|splitChunks|CHUNKS|CHUNK_CACHE|PRISTINE|tokensOf|stageHits|jsFor|codeFor|applyFilter|RULES|HELP|LBL|secs|qi|TXT)\b|const UA\s*=/;
+let CHUNK_CACHE = null;   // the script is only cut into chunks the first time someone opens a code panel, not on every page load
+const CHUNKS = () => CHUNK_CACHE || (CHUNK_CACHE = splitChunks(APP_SRC).filter(c => !NOT_DEMO.test(c)));
 const HELPERS = [[/\bon\(/, /^\s*(?:\/\*[\s\S]*?\*\/\s*)?const on\b/], [/\bSrt\b/, /^\s*(?:\/\*[\s\S]*?\*\/\s*)?const Srt\b/], [/\bkbCount\b/, /^\s*(?:\/\*[\s\S]*?\*\/\s*)?function kbCount\b/]];
 const TOK = new Map();
 function tokensOf(c) {
@@ -3689,9 +3712,9 @@ function stageHits(c, st, ids) {
 const dedent = s => { const L = s.replace(/\r/g, '').replace(/^\s*\n/, '').trimEnd().split('\n'), ind = Math.min(...L.filter(l => l.trim()).map(l => l.match(/^ */)[0].length)); return L.map(l => l.slice(ind)).join('\n'); };
 function jsFor(st) {
   const ids = new Set([...st.querySelectorAll('[id]')].map(e => e.id)); if (st.id) ids.add(st.id);
-  const hit = CHUNKS.filter(c => stageHits(c, st, ids)); if (!hit.length) return '';
+  const hit = CHUNKS().filter(c => stageHits(c, st, ids)); if (!hit.length) return '';
   const body = hit.join('\n');
-  const helpers = HELPERS.filter(([use]) => use.test(body)).map(([, decl]) => CHUNKS.find(c => decl.test(c))).filter(c => c && !hit.includes(c)).map(c => c.replace(/^\s*\/\*[\s\S]*?\*\/\s*/, ''));
+  const helpers = HELPERS.filter(([use]) => use.test(body)).map(([, decl]) => CHUNKS().find(c => decl.test(c))).filter(c => c && !hit.includes(c)).map(c => c.replace(/^\s*\/\*[\s\S]*?\*\/\s*/, ''));
   const code = [...helpers, ...hit].map(dedent).join('\n\n');
   /* drag and drop demos need SortableJS: the copied code loads it from a CDN first, so it works when pasted on its own */
   const needsSortable = /\bSrt\b/.test(code);
@@ -3785,19 +3808,29 @@ applyFilter();
 })();
 
 /* ---------- Hero heading: rotating word ---------- */
+/* Calm by design. It gives the line a moment, goes through the words once, settles back on "designed"
+   and then stays still. It gives way to the person: any scroll, key press or click ends it, and it holds still under the pointer. */
 (() => {
   const slot = $('.kh-rot'); if (!slot || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const words = ['designed', 'styled', 'structured', 'navigated', 'composed', 'animated', 'tested'], first = $('em', slot);
-  const els = words.map((w, i) => { if (!i) return first; const e = document.createElement('em'); e.textContent = w; slot.append(e); return e; });
+  const words = ['designed', 'styled', 'structured', 'navigated', 'composed', 'animated', 'tested'], first = $('em', slot), h1 = slot.closest('h1');
+  const els = words.map((w, k) => { if (!k) return first; const e = document.createElement('em'); e.textContent = w; slot.append(e); return e; });
   slot.classList.add('is-live'); first.classList.add('on');
-  let i = 0, timer = null;
+  const READ_FIRST = 1000, DWELL = 2800, RESUME = 1200;
+  let i = 0, step = 0, timer = null, done = false, hold = false, seen = false, onScreen = true;
   const fit = () => { slot.style.width = els[i].offsetWidth + 'px'; };
-  const show = n => { const cur = els[i], nxt = els[n]; slot.classList.add('go'); cur.classList.remove('on'); cur.classList.add('out'); nxt.classList.remove('out'); nxt.classList.add('on'); i = n; fit(); setTimeout(() => cur.classList.remove('out'), 450); };
-  const next = () => { show((i + 1) % els.length); timer = setTimeout(next, 2600); };
-  const start = () => { clearTimeout(timer); timer = setTimeout(next, 2600); }, stop = () => clearTimeout(timer);
+  const show = (n, animate = true) => { const cur = els[i], nxt = els[n]; slot.classList.toggle('go', animate); cur.classList.remove('on'); if (animate) cur.classList.add('out'); nxt.classList.remove('out'); nxt.classList.add('on'); i = n; fit(); setTimeout(() => cur.classList.remove('out'), 700); };
+  const stop = () => clearTimeout(timer);
+  const schedule = ms => { stop(); if (!done && !hold && onScreen && !document.hidden) timer = setTimeout(next, ms); };
+  const next = () => { step++; show(step % els.length); if (step % els.length === 0) { done = true; return; } schedule(DWELL); };
+  const settle = () => { if (done) return; done = true; stop(); if (i !== 0) show(0, onScreen); };   // the person started doing something: finish quietly
   fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); addEventListener('resize', fit);
-  new IntersectionObserver(([e]) => (e.isIntersecting && !document.hidden ? start() : stop())).observe(slot);
-  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) { schedule(seen ? RESUME : READ_FIRST); seen = true; } else stop(); }).observe(slot);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : schedule(RESUME)));
+  h1.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hold = true; stop(); } });
+  h1.addEventListener('pointerleave', () => { hold = false; schedule(RESUME); });
+  const y0 = scrollY;   // a scroll the browser makes by itself (restoring a position) is not the person at work
+  ['wheel', 'keydown', 'pointerdown', 'touchstart'].forEach(ev => addEventListener(ev, settle, { passive: true, once: true }));
+  addEventListener('scroll', () => { if (Math.abs(scrollY - y0) > 80) settle(); }, { passive: true });
 })();
 
 })();
