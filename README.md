@@ -1,4 +1,4 @@
-# Uiverse
+# kindofui
 
 A single-page reference of UI/UX styles and patterns. Every entry is a live demo you can click, scroll or drag, with a plain-English description, what it is good for, what to watch out for, real products that use it, and copyable HTML and CSS.
 
