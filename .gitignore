@@ -1,0 +1,4 @@
+.playwright-mcp/
+.vercel/
+ui-style-atlas.backup.html
+pending-v2.js
