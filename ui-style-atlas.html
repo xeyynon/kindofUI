@@ -35,7 +35,7 @@ section.group > p{margin:0 0 14px;color:var(--muted);max-width:62ch}
 .jump a{font:12px var(--mono);color:var(--accent);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;background:var(--surface)}
 .jump a:hover{border-color:var(--accent)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:18px}
-.demo[hidden],section.group[hidden]{display:none!important}
+.demo[hidden],section.group[hidden],.stage [hidden]{display:none!important}
 .demo{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:70px;min-width:0}
 .stage{height:290px;position:relative;overflow:hidden;font-family:system-ui,sans-serif;border-bottom:1px solid var(--line)}
 .meta{padding:14px 16px 16px;display:grid;gap:6px;min-width:0}
@@ -425,7 +425,7 @@ button{font:inherit;cursor:pointer}
 
 .s-swipe{background:linear-gradient(#fff1f2,#ffe4e6);display:grid;place-items:center}
 .s-swipe .deck{position:relative;width:170px;height:210px}
-.s-swipe .sc{position:absolute;inset:0;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;color:#fff;font:700 16px var(--body);touch-action:none;user-select:none;cursor:grab;transition:transform .3s}
+.s-swipe .sc{position:absolute;inset:0;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;color:#fff;font:700 16px var(--body);touch-action:pan-y;user-select:none;cursor:grab;transition:transform .3s}
 .s-swipe .sc small{font-weight:500;font-size:11px;opacity:.9}
 .s-swipe .sc.drag{transition:none;cursor:grabbing}
 .s-swipe .acts{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:14px}
@@ -906,8 +906,8 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 .s-ff .legal{border-top:1px solid #1f2937;padding-top:8px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px}
 
 .s-rail{background:#fef7ff;color:#1d1b20;display:grid;grid-template-columns:76px 1fr;font:11px Roboto,system-ui,sans-serif}
-.s-rail .rl{display:grid;align-content:start;justify-items:center;gap:10px;padding:12px 0;border-right:1px solid #ece6f0}
-.s-rail .fb{width:48px;height:48px;border-radius:14px;border:0;background:#ffd8e4;font-size:18px;margin-bottom:6px;color:#31111d}
+.s-rail .rl{display:grid;align-content:start;justify-items:center;gap:6px;padding:8px 0;border-right:1px solid #ece6f0}
+.s-rail .fb{width:44px;height:44px;border-radius:14px;border:0;background:#ffd8e4;font-size:18px;margin-bottom:4px;color:#31111d}
 .s-rail .rl button[data-tab]{border:0;background:none;display:grid;justify-items:center;gap:3px;font-size:11px;color:#49454f}
 .s-rail .rl button i{font-style:normal;width:52px;height:30px;border-radius:15px;display:grid;place-items:center;font-size:15px}
 .s-rail .rl button.on i{background:#e8def8;color:#1d192b}
@@ -1089,7 +1089,7 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 .s-ptr .ind{position:absolute;top:8px;left:50%;margin-left:-14px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);display:grid;place-items:center;transform:translateY(-50px);z-index:2}
 .s-ptr .spin{width:14px;height:14px;border-radius:50%;border:2px solid #3557e0;border-right-color:transparent}
 .s-ptr .ind.go .spin{animation:spin .7s linear infinite}
-.s-ptr .lst{touch-action:none;cursor:grab;background:#fff;position:absolute;inset:0;user-select:none;-webkit-user-select:none}
+.s-ptr .lst{touch-action:pan-y;cursor:grab;background:#fff;position:absolute;inset:0;user-select:none;-webkit-user-select:none}
 .s-ptr .hd2{padding:10px 12px;font:700 15px var(--display)}
 .s-ptr .it4{padding:7px 12px;border-bottom:1px solid #f1f2f5;display:grid}
 .s-ptr .it4 span{color:#777;font-size:10px}
@@ -1261,10 +1261,10 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 /* ================= v2: UX laws (shared .vs2) ================= */
 .vs2{display:grid;grid-template-columns:1fr 1fr;height:100%;font-size:11px;color:#1f2430}
 .vs2 > div{padding:10px 12px;display:grid;gap:8px;align-content:start;position:relative;min-width:0}
-.vs2 > div:first-child{background:#fff7f7;border-right:1px solid #f1e3e3}
-.vs2 > div:last-child{background:#f5fbf6}
+.vs2 > div:first-child{background:#fff;border-right:1px solid #e5e7eb}
+.vs2 > div:last-child{background:#fafafa}
 .vs2 .lb2{font:700 10px var(--mono);letter-spacing:.06em;text-transform:uppercase}
-.vs2 .lb2.b{color:#dc2626}.vs2 .lb2.g{color:#16a34a}
+.vs2 .lb2.b{color:#b42318}.vs2 .lb2.g{color:#067647}
 
 .s-fitts .vs2 > div{display:block}
 .s-fitts .go{position:absolute;left:12px;bottom:14px;border:1px solid #cfd5dd;background:#fff;border-radius:6px;padding:5px 10px;font-size:11px;color:#1f2430}
@@ -1289,7 +1289,7 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 .s-jakob .sh2.w b{margin-left:auto}
 .s-jakob .sh2 .cart{background:#111827;color:#fff;border-radius:4px;padding:3px 5px;white-space:nowrap}
 .s-jakob .pg3{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.s-jakob .pg3 i{aspect-ratio:1;background:#e5e7eb;border-radius:4px;max-width:100%}
+.s-jakob .pg3 i{aspect-ratio:8/5;background:#e5e7eb;border-radius:4px;max-width:100%}
 .s-jakob small{color:#666;font-size:10.5px;line-height:1.4}
 
 .s-miller .vs2 > div{align-content:center}
@@ -1317,8 +1317,13 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 .s-vr .pl em{font-style:normal;font-size:9px;background:#fff;color:#3557e0;border-radius:999px;padding:1px 6px;white-space:nowrap}
 
 .s-tesler .f{background:#fff;border:1px solid #e3e6ec;border-radius:5px;padding:5px 7px;color:#999}
-.s-tesler .f.on{border-color:#16a34a;color:#1f2430}
-.s-tesler .sg{background:#fff;border-left:3px solid #16a34a;padding:5px 7px;border-radius:0 5px 5px 0}
+.s-tesler .f.on{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.15);color:#1f2430}
+.s-tesler .sgl{background:#fff;border:1px solid #dfe1e5;border-radius:6px;box-shadow:0 2px 6px rgba(60,64,67,.15);overflow:hidden}
+.s-tesler .sg{display:flex;gap:7px;align-items:flex-start;padding:7px 8px;color:#3c4043;line-height:1.3}
+.s-tesler .sg + .sg{border-top:1px solid #edeff2}
+.s-tesler .sg:hover{background:#f1f3f4}
+.s-tesler .sg svg{width:12px;height:12px;flex:none;margin-top:1px;color:#80868b}
+.s-tesler .sg b{color:#1f2430}
 .s-tesler small{color:#666}
 
 .s-doh .ld2{border:0;background:#3557e0;color:#fff;border-radius:6px;padding:7px;font-weight:600}
@@ -1425,7 +1430,7 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 .s-pers .hd span{display:grid}
 .s-pers .hd b{font-size:14px}
 .s-pers small{color:#777}
-.s-pers em{grid-column:1/-1;font-style:italic;color:#555;background:#f7f8fa;border-left:3px solid #f59e0b;padding:6px 8px;border-radius:0 6px 6px 0}
+.s-pers em{grid-column:1/-1;font-style:italic;color:#444;font-size:12px;line-height:1.45}
 .s-pers .gr3{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .s-pers .gr3 > div{display:grid;gap:3px;align-content:start}
 .s-pers .gr3 b{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#888}
@@ -2670,32 +2675,32 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 
 <article class="demo" id="fitts">
   <div class="stage s-fitts"><div class="vs2">
-    <div><span class="lb2 b">✕ Small &amp; far</span><button class="go" data-p="a">Start</button><button class="tg3 sm" data-p="a">OK</button><span class="rs" id="ft-a">Click Start, then OK</span></div>
-    <div><span class="lb2 g">✓ Big &amp; near</span><button class="go" data-p="b">Start</button><button class="tg3 bg" data-p="b">OK</button><span class="rs" id="ft-b">Click Start, then OK</span></div>
+    <div><span class="lb2 b">Small &amp; far</span><button class="go" data-p="a">Start</button><button class="tg3 sm" data-p="a">OK</button><span class="rs" id="ft-a">Click Start, then OK</span></div>
+    <div><span class="lb2 g">Big &amp; near</span><button class="go" data-p="b">Start</button><button class="tg3 bg" data-p="b">OK</button><span class="rs" id="ft-b">Click Start, then OK</span></div>
   </div></div>
   <div class="meta"><h3>Fitts's law</h3><p>The bigger and closer a target is, the faster people can hit it. Try both sides and compare your times.</p><p class="seen"><b>Seen in:</b> big checkout buttons, bottom-of-screen mobile actions</p></div>
 </article>
 
 <article class="demo" id="hick">
   <div class="stage s-hick"><div class="vs2">
-    <div><span class="lb2 b">✕ 16 choices at once</span><div class="m16"><span>Overview</span><span>Invoices</span><span>Payments</span><span>Taxes</span><span>Members</span><span>Roles</span><span>Invites</span><span>Audit log</span><span>Sales</span><span>Traffic</span><span>Exports</span><span>Profile</span><span>Security</span><span>Plan</span><span>API keys</span><span>Integrations</span></div></div>
-    <div><span class="lb2 g">✓ Grouped into 4</span><div class="m4"><details open><summary>Billing</summary><span>Invoices</span><span>Payments</span><span>Taxes</span></details><details><summary>Team</summary><span>Members</span><span>Roles</span><span>Invites</span></details><details><summary>Reports</summary><span>Sales</span><span>Traffic</span><span>Exports</span></details><details><summary>Settings</summary><span>Profile</span><span>Security</span><span>API keys</span></details></div></div>
+    <div><span class="lb2 b">16 choices at once</span><div class="m16"><span>Overview</span><span>Invoices</span><span>Payments</span><span>Taxes</span><span>Members</span><span>Roles</span><span>Invites</span><span>Audit log</span><span>Sales</span><span>Traffic</span><span>Exports</span><span>Profile</span><span>Security</span><span>Plan</span><span>API keys</span><span>Integrations</span></div></div>
+    <div><span class="lb2 g">Grouped into 4</span><div class="m4"><details open><summary>Billing</summary><span>Invoices</span><span>Payments</span><span>Taxes</span></details><details><summary>Team</summary><span>Members</span><span>Roles</span><span>Invites</span></details><details><summary>Reports</summary><span>Sales</span><span>Traffic</span><span>Exports</span></details><details><summary>Settings</summary><span>Profile</span><span>Security</span><span>API keys</span></details></div></div>
   </div></div>
   <div class="meta"><h3>Hick's law</h3><p>The more choices people see at once, the longer they take to decide. Group and reduce options.</p><p class="seen"><b>Seen in:</b> grouped settings menus, short restaurant menus, Google's homepage</p></div>
 </article>
 
 <article class="demo" id="jakob">
   <div class="stage s-jakob"><div class="vs2">
-    <div><span class="lb2 b">✕ Reinvented</span><div class="sh2 w"><span class="cart">Bag (2)</span><span class="srch">?</span><b>Shopr</b></div><div class="pg3"><i></i><i></i><i></i><i></i></div><small>Logo on the right, cart on the left, search hidden behind "?"</small></div>
-    <div><span class="lb2 g">✓ Familiar</span><div class="sh2"><b>Shopr</b><span class="srch">⌕ Search products</span><span class="cart">Cart (2)</span></div><div class="pg3"><i></i><i></i><i></i><i></i></div><small>Logo left, search in the middle, cart top right, like the stores people already use</small></div>
+    <div><span class="lb2 b">Reinvented</span><div class="sh2 w"><span class="cart">Bag (2)</span><span class="srch">?</span><b>Shopr</b></div><div class="pg3"><i></i><i></i><i></i><i></i></div><small>Logo on the right, cart on the left, search hidden behind "?"</small></div>
+    <div><span class="lb2 g">Familiar</span><div class="sh2"><b>Shopr</b><span class="srch">⌕ Search products</span><span class="cart">Cart (2)</span></div><div class="pg3"><i></i><i></i><i></i><i></i></div><small>Logo left, search in the middle, cart top right, like the stores people already use</small></div>
   </div></div>
   <div class="meta"><h3>Jakob's law</h3><p>People spend most of their time on other sites, so they expect yours to work the same way. Use familiar patterns.</p><p class="seen"><b>Seen in:</b> almost every online store header</p></div>
 </article>
 
 <article class="demo" id="miller">
   <div class="stage s-miller"><div class="vs2">
-    <div><span class="lb2 b">✕ One long string</span><code>9876543210</code><code>4821000012345678</code><code>ABCD0001234</code><small>Hard to read back or check</small></div>
-    <div><span class="lb2 g">✓ Chunked</span><code>98765 43210</code><code>4821 0000 1234 5678</code><code>ABCD 0001 234</code><small>Small groups are easy to hold in memory</small></div>
+    <div><span class="lb2 b">One long string</span><code>9876543210</code><code>4821000012345678</code><code>ABCD0001234</code><small>Hard to read back or check</small></div>
+    <div><span class="lb2 g">Chunked</span><code>98765 43210</code><code>4821 0000 1234 5678</code><code>ABCD 0001 234</code><small>Small groups are easy to hold in memory</small></div>
   </div></div>
   <div class="meta"><h3>Miller's law (chunking)</h3><p>Short-term memory holds only a handful of items, often given as 7 ± 2. Break long numbers and lists into small groups.</p><p class="seen"><b>Seen in:</b> phone and card number fields, OTP boxes, IFSC and PIN codes</p></div>
 </article>
@@ -2712,32 +2717,32 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 
 <article class="demo" id="vonrestorff">
   <div class="stage s-vr"><div class="vs2">
-    <div><span class="lb2 b">✕ All the same</span><div class="pl"><span>Basic <b>₹199</b></span><span>Plus <b>₹499</b></span><span>Pro <b>₹999</b></span></div></div>
-    <div><span class="lb2 g">✓ One stands out</span><div class="pl"><span>Basic <b>₹199</b></span><span class="hl">Plus <em>Best value</em><b>₹499</b></span><span>Pro <b>₹999</b></span></div></div>
+    <div><span class="lb2 b">All the same</span><div class="pl"><span>Basic <b>₹199</b></span><span>Plus <b>₹499</b></span><span>Pro <b>₹999</b></span></div></div>
+    <div><span class="lb2 g">One stands out</span><div class="pl"><span>Basic <b>₹199</b></span><span class="hl">Plus <em>Best value</em><b>₹499</b></span><span>Pro <b>₹999</b></span></div></div>
   </div></div>
   <div class="meta"><h3>Von Restorff effect</h3><p>The item that looks different from the rest is the one people remember and notice first. Highlight only what matters most.</p><p class="seen"><b>Seen in:</b> "Most popular" pricing plans, primary buttons</p></div>
 </article>
 
 <article class="demo" id="tesler">
   <div class="stage s-tesler"><div class="vs2">
-    <div><span class="lb2 b">✕ User does the work</span><span class="f">Flat / house no.</span><span class="f">Street</span><span class="f">Area</span><span class="f">City</span><span class="f">State ▾</span><span class="f">PIN code</span></div>
-    <div><span class="lb2 g">✓ System does the work</span><span class="f on">⌕ 14 MG Road, Pu|</span><span class="sg">14 MG Road, Camp, Pune 411001</span><span class="sg">14 MG Road, Bengaluru 560001</span><small>Pick one and city, state and PIN fill in for you.</small></div>
+    <div><span class="lb2 b">User does the work</span><span class="f">Flat / house no.</span><span class="f">Street</span><span class="f">Area</span><span class="f">City</span><span class="f">State ▾</span><span class="f">PIN code</span></div>
+    <div><span class="lb2 g">System does the work</span><span class="f on">14 MG Road, Pu|</span><div class="sgl"><span class="sg"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5a4.5 4.5 0 0 0-4.5 4.5c0 3.2 4.5 8.5 4.5 8.5s4.5-5.3 4.5-8.5A4.5 4.5 0 0 0 8 1.5Zm0 6.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Z"/></svg><span><b>14 MG Road</b>, Camp, Pune 411001</span></span><span class="sg"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5a4.5 4.5 0 0 0-4.5 4.5c0 3.2 4.5 8.5 4.5 8.5s4.5-5.3 4.5-8.5A4.5 4.5 0 0 0 8 1.5Zm0 6.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Z"/></svg><span><b>14 MG Road</b>, Bengaluru 560001</span></span></div><small>Pick one and city, state and PIN fill in for you.</small></div>
   </div></div>
   <div class="meta"><h3>Tesler's law</h3><p>Every task has some complexity that can't be removed. The question is who handles it, and it should be the system rather than the user.</p><p class="seen"><b>Seen in:</b> address autocomplete, smart defaults, auto-filled PIN codes</p></div>
 </article>
 
 <article class="demo" id="doherty">
   <div class="stage s-doh"><div class="vs2">
-    <div><span class="lb2 b">✕ 1.5 s response</span><button class="ld2" data-ms="1500">Load photos</button><div class="out"><span>Click to feel the wait</span></div></div>
-    <div><span class="lb2 g">✓ Under 400 ms</span><button class="ld2" data-ms="120">Load photos</button><div class="out"><span>Click to compare</span></div></div>
+    <div><span class="lb2 b">1.5 s response</span><button class="ld2" data-ms="1500">Load photos</button><div class="out"><span>Click to feel the wait</span></div></div>
+    <div><span class="lb2 g">Under 400 ms</span><button class="ld2" data-ms="120">Load photos</button><div class="out"><span>Click to compare</span></div></div>
   </div></div>
   <div class="meta"><h3>Doherty threshold</h3><p>People stay engaged when the system responds in under about 400 ms. If it can't, show feedback right away.</p><p class="seen"><b>Seen in:</b> instant search, optimistic UI, skeleton screens</p></div>
 </article>
 
 <article class="demo" id="aesthetic">
   <div class="stage s-aes"><div class="vs2">
-    <div><span class="lb2 b">✕ Unpolished</span><div class="ug"><span>NAME:</span><input id="aes-1" aria-label="Name (unpolished form)"><span>E-MAIL ADDR:</span><input id="aes-2" aria-label="Email (unpolished form)"><button>SUBMIT FORM</button></div></div>
-    <div><span class="lb2 g">✓ Polished</span><div class="pf"><label for="aes-3">Name</label><input id="aes-3" placeholder="Aditi Rao"><label for="aes-4">Email</label><input id="aes-4" placeholder="you@example.com"><button>Join the waitlist</button></div></div>
+    <div><span class="lb2 b">Unpolished</span><div class="ug"><span>NAME:</span><input id="aes-1" aria-label="Name (unpolished form)"><span>E-MAIL ADDR:</span><input id="aes-2" aria-label="Email (unpolished form)"><button>SUBMIT FORM</button></div></div>
+    <div><span class="lb2 g">Polished</span><div class="pf"><label for="aes-3">Name</label><input id="aes-3" placeholder="Aditi Rao"><label for="aes-4">Email</label><input id="aes-4" placeholder="you@example.com"><button>Join the waitlist</button></div></div>
   </div></div>
   <div class="meta"><h3>Aesthetic-usability effect</h3><p>People think good-looking designs are easier to use, and forgive small problems in them. Both forms do the same job.</p><p class="seen"><b>Seen in:</b> Stripe, Linear, Apple</p></div>
 </article>
@@ -2788,24 +2793,24 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 
 <article class="demo" id="colorblind">
   <div class="stage s-cb"><div class="vs2">
-    <div><span class="lb2 b">✕ Red vs green only</span><div class="ch rg"><i style="height:70%"></i><i style="height:45%"></i><i style="height:85%"></i><i style="height:55%"></i></div><small>Profit / loss by color only</small></div>
-    <div><span class="lb2 g">✓ Blue vs orange + labels</span><div class="ch bo"><i style="height:70%"><em>+70</em></i><i style="height:45%"><em>−45</em></i><i style="height:85%"><em>+85</em></i><i style="height:55%"><em>−55</em></i></div><small>Color, pattern and labels</small></div>
+    <div><span class="lb2 b">Red vs green only</span><div class="ch rg"><i style="height:70%"></i><i style="height:45%"></i><i style="height:85%"></i><i style="height:55%"></i></div><small>Profit / loss by color only</small></div>
+    <div><span class="lb2 g">Blue vs orange + labels</span><div class="ch bo"><i style="height:70%"><em>+70</em></i><i style="height:45%"><em>−45</em></i><i style="height:85%"><em>+85</em></i><i style="height:55%"><em>−55</em></i></div><small>Color, pattern and labels</small></div>
   </div><button class="sim" id="cb-b" aria-pressed="false">Simulate deuteranopia</button></div>
   <div class="meta"><h3>Color-blind safe design</h3><p>About 1 in 12 men has some color blindness. Never use color alone; add labels, patterns or icons. Turn on the simulation to see the difference.</p><p class="seen"><b>Seen in:</b> GitHub color-blind themes, Tableau palettes, transit maps</p></div>
 </article>
 
 <article class="demo" id="focus">
   <div class="stage s-foc"><div class="vs2">
-    <div class="nofocus"><span class="lb2 b">✕ outline: none</span><button>Save</button><button>Cancel</button><button>Learn more</button></div>
-    <div class="okfocus"><span class="lb2 g">✓ Visible focus ring</span><button>Save</button><button>Cancel</button><button>Learn more</button></div>
+    <div class="nofocus"><span class="lb2 b">outline: none</span><button>Save</button><button>Cancel</button><button>Learn more</button></div>
+    <div class="okfocus"><span class="lb2 g">Visible focus ring</span><button>Save</button><button>Cancel</button><button>Learn more</button></div>
   </div><p class="hint">Click a button, then press <kbd>Tab</kbd> to move</p></div>
   <div class="meta"><h3>Visible focus states</h3><p>Keyboard users need to see where they are. Removing the focus outline without a replacement makes a site unusable for them.</p><p class="seen"><b>Seen in:</b> GOV.UK, GitHub, Apple</p></div>
 </article>
 
 <article class="demo" id="aria">
   <div class="stage s-aria"><div class="vs2">
-    <div><span class="lb2 b">✕ No meaning</span><code>&lt;div class="icon"&gt;⌕&lt;/div&gt;</code><div class="sr"><small>Screen reader says</small><b>Nothing useful, and it can't be reached with Tab</b></div><code>&lt;img src="shoe.jpg"&gt;</code><div class="sr"><small>Screen reader says</small><b>"shoe dot jpg, image"</b></div></div>
-    <div><span class="lb2 g">✓ Real meaning</span><code>&lt;button aria-label="Search"&gt;⌕&lt;/button&gt;</code><div class="sr"><small>Screen reader says</small><b>"Search, button"</b></div><code>&lt;img alt="Red running shoe, side view"&gt;</code><div class="sr"><small>Screen reader says</small><b>"Red running shoe, side view, image"</b></div></div>
+    <div><span class="lb2 b">No meaning</span><code>&lt;div class="icon"&gt;⌕&lt;/div&gt;</code><div class="sr"><small>Screen reader says</small><b>Nothing useful, and it can't be reached with Tab</b></div><code>&lt;img src="shoe.jpg"&gt;</code><div class="sr"><small>Screen reader says</small><b>"shoe dot jpg, image"</b></div></div>
+    <div><span class="lb2 g">Real meaning</span><code>&lt;button aria-label="Search"&gt;⌕&lt;/button&gt;</code><div class="sr"><small>Screen reader says</small><b>"Search, button"</b></div><code>&lt;img alt="Red running shoe, side view"&gt;</code><div class="sr"><small>Screen reader says</small><b>"Red running shoe, side view, image"</b></div></div>
   </div></div>
   <div class="meta"><h3>Semantic HTML &amp; ARIA</h3><p>Use real buttons, labels and alt text so screen readers can announce what things are. Add ARIA only when native HTML can't do it.</p><p class="seen"><b>Seen in:</b> every accessible website and app</p></div>
 </article>
@@ -2911,20 +2916,20 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
       <button type="button" data-tab="mp">Mapping</button>
     </div>
     <div class="pn" data-panel="fb"><div class="vs2">
-      <div><span class="lb2 b">✕ Before</span><button type="button" class="pay" data-hci="silent">Pay ₹499</button><small>Tap it. Nothing changes, so you wonder if it worked and tap again. Double payment.</small></div>
-      <div><span class="lb2 g">✓ After</span><button type="button" class="pay" data-hci="pay">Pay ₹499</button><small>Tap it. It shows progress, then a clear result. People always know the system's state.</small></div>
+      <div><span class="lb2 b">Before</span><button type="button" class="pay" data-hci="silent">Pay ₹499</button><small>Tap it. Nothing changes, so you wonder if it worked and tap again. Double payment.</small></div>
+      <div><span class="lb2 g">After</span><button type="button" class="pay" data-hci="pay">Pay ₹499</button><small>Tap it. It shows progress, then a clear result. People always know the system's state.</small></div>
     </div></div>
     <div class="pn" data-panel="sg" hidden><div class="vs2">
-      <div><span class="lb2 b">✕ Before</span><span class="flat">Download report</span><small>Plain text. Is it a label or a link? Nothing says "tap me".</small></div>
-      <div><span class="lb2 g">✓ After</span><button type="button" class="dl" data-hci="dl">⬇ Download report</button><small>Shape, colour, icon and a pointer cursor signal that it is clickable.</small></div>
+      <div><span class="lb2 b">Before</span><span class="flat">Download report</span><small>Plain text. Is it a label or a link? Nothing says "tap me".</small></div>
+      <div><span class="lb2 g">After</span><button type="button" class="dl" data-hci="dl">⬇ Download report</button><small>Shape, colour, icon and a pointer cursor signal that it is clickable.</small></div>
     </div></div>
     <div class="pn" data-panel="cn" hidden><div class="vs2">
-      <div><span class="lb2 b">✕ Before</span><input class="in" value="31/02/2025" aria-label="Appointment date"><button type="button" class="pay" data-hci="book">Book</button><small class="err" hidden>Invalid date. Start again.</small><small>Free typing lets people make mistakes, then scolds them afterwards.</small></div>
-      <div><span class="lb2 g">✓ After</span><div class="chips"><button type="button" aria-pressed="false">Tue 11 Nov</button><button type="button" aria-pressed="false">Wed 12 Nov</button><button type="button" disabled>Thu 13 Nov · full</button></div><small>Only valid options are offered, so the error cannot happen.</small></div>
+      <div><span class="lb2 b">Before</span><input class="in" value="31/02/2025" aria-label="Appointment date"><button type="button" class="pay" data-hci="book">Book</button><small class="err" hidden>Invalid date. Start again.</small><small>Free typing lets people make mistakes, then scolds them afterwards.</small></div>
+      <div><span class="lb2 g">After</span><div class="chips"><button type="button" aria-pressed="false">Tue 11 Nov</button><button type="button" aria-pressed="false">Wed 12 Nov</button><button type="button" disabled>Thu 13 Nov · full</button></div><small>Only valid options are offered, so the error cannot happen.</small></div>
     </div></div>
     <div class="pn" data-panel="mp" hidden><div class="vs2">
-      <div><span class="lb2 b">✕ Before</span><div class="bg"><i></i><i></i><i></i><i></i></div><div class="kr"><button type="button" data-k="1" aria-label="Knob 1"></button><button type="button" data-k="3" aria-label="Knob 2"></button><button type="button" data-k="0" aria-label="Knob 3"></button><button type="button" data-k="2" aria-label="Knob 4"></button></div><small>Four knobs in a row, four burners in a square. Trial and error.</small></div>
-      <div><span class="lb2 g">✓ After</span><div class="bg"><div><i></i><button type="button" aria-label="Knob front left"></button></div><div><i></i><button type="button" aria-label="Knob front right"></button></div><div><i></i><button type="button" aria-label="Knob back left"></button></div><div><i></i><button type="button" aria-label="Knob back right"></button></div></div><small>Each control sits next to what it controls. No manual needed.</small></div>
+      <div><span class="lb2 b">Before</span><div class="bg"><i></i><i></i><i></i><i></i></div><div class="kr"><button type="button" data-k="1" aria-label="Knob 1"></button><button type="button" data-k="3" aria-label="Knob 2"></button><button type="button" data-k="0" aria-label="Knob 3"></button><button type="button" data-k="2" aria-label="Knob 4"></button></div><small>Four knobs in a row, four burners in a square. Trial and error.</small></div>
+      <div><span class="lb2 g">After</span><div class="bg"><div><i></i><button type="button" aria-label="Knob front left"></button></div><div><i></i><button type="button" aria-label="Knob front right"></button></div><div><i></i><button type="button" aria-label="Knob back left"></button></div><div><i></i><button type="button" aria-label="Knob back right"></button></div></div><small>Each control sits next to what it controls. No manual needed.</small></div>
     </div></div>
   </div>
   <div class="meta"><h3>HCI: Human-Computer Interaction <span class="pill">before / after</span></h3><p>HCI studies how people perceive, think and act when they use computers. It turns "make it nicer" into specific fixes: clear feedback, visible signifiers, helpful constraints and natural mapping. Tap each tab and try both sides.</p><p class="seen"><b>Seen in:</b> Don Norman's "The Design of Everyday Things", Apple HIG and Material guidelines, usability labs and ACM SIGCHI research</p></div>
@@ -3002,9 +3007,12 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
-<script>
+<script id="app-js">
 (function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+  // pristine markup of every demo, kept for View code (taken before any behaviour changes the DOM)
+  const PRISTINE = new Map($$('article.demo').map(a => [a.id, $('.stage', a).outerHTML]));
 
   // generic toggles
   $$('[data-toggle]').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
@@ -3282,14 +3290,22 @@ on('.s-tip .cp2', 'click', e => { const t = e.currentTarget; try { navigator.cli
 // pull to refresh
 (() => { const l = $('#ptr-l'), ind = $('#ptr-i'); if (!l) return; let y0 = null, dy = 0, busy = false, k = 0;
   const nm = [['Arjun', 'Tickets are booked'], ['Mom', 'Call when free'], ['HR', 'Holiday list for 2027'], ['Ishita', 'Sent the photos']];
-  l.addEventListener('pointerdown', e => { if (busy) return; y0 = e.clientY; l.setPointerCapture(e.pointerId); l.style.transition = ind.style.transition = 'none'; });
-  l.addEventListener('pointermove', e => { if (y0 === null) return; dy = Math.max(0, Math.min(90, (e.clientY - y0) * .6)); l.style.transform = `translateY(${dy}px)`; ind.style.transform = `translateY(${dy - 40}px) rotate(${dy * 4}deg)`; });
+  const begin = y => { if (busy) return; y0 = y; dy = 0; l.style.transition = ind.style.transition = 'none'; };
+  const pull = y => { dy = Math.max(0, Math.min(90, (y - y0) * .6)); l.style.transform = `translateY(${dy}px)`; ind.style.transform = `translateY(${dy - 40}px) rotate(${dy * 4}deg)`; };
   const end = () => { if (y0 === null) return; y0 = null; l.style.transition = ind.style.transition = 'transform .25s';
     if (dy > 55) { busy = true; l.style.transform = 'translateY(48px)'; ind.style.transform = 'translateY(8px)'; ind.classList.add('go');
       setTimeout(() => { const x = nm[k++ % nm.length]; const d = document.createElement('div'); d.className = 'it4 new'; d.innerHTML = `<b>${x[0]}</b><span>${x[1]}</span>`; $('.hd2', l).after(d);
         ind.classList.remove('go'); l.style.transform = ''; ind.style.transform = ''; busy = false; }, 1000); }
     else { l.style.transform = ''; ind.style.transform = ''; } dy = 0; };
-  l.addEventListener('pointerup', end); l.addEventListener('pointercancel', end);
+  // mouse and pen: pointer events
+  l.addEventListener('pointerdown', e => { if (e.pointerType === 'touch') return; begin(e.clientY); if (y0 !== null) l.setPointerCapture(e.pointerId); });
+  l.addEventListener('pointermove', e => { if (e.pointerType !== 'touch' && y0 !== null) pull(e.clientY); });
+  l.addEventListener('pointerup', e => { if (e.pointerType !== 'touch') end(); }); l.addEventListener('pointercancel', e => { if (e.pointerType !== 'touch') end(); });
+  // touch: take over only a downward pull; an upward drag or a scroll already under way stays with the page
+  l.addEventListener('touchstart', e => begin(e.touches[0].clientY), { passive: true });
+  l.addEventListener('touchmove', e => { if (y0 === null) return; const y = e.touches[0].clientY;
+    if (y > y0 && e.cancelable) { e.preventDefault(); pull(y); } else { dy = 0; end(); } }, { passive: false });
+  l.addEventListener('touchend', end); l.addEventListener('touchcancel', end);
 })();
 
 // lazy loading (blur-up)
@@ -3542,17 +3558,85 @@ const UA = {
 /* ---------- Copy-code generator ---------- */
 const RULES = []; [...document.styleSheets].forEach(sh => { try { [...sh.cssRules].forEach(r => RULES.push(r)); } catch (_) { /* cross-origin font sheet */ } });
 const HELP = ['phone', 'wf', 'bx', 'ln', 'center', 'sk', 'vs2'];
+
+/* The demo JavaScript shown in View code is read from this page's own script, so it can never drift from what runs here.
+   The script is cut into independent chunks: at every top-level comment, and at every top-level statement that starts in column 0. */
+const APP_SRC = (() => { const el = document.getElementById('app-js'), t = el ? el.textContent : '', a = t.indexOf('(function(){'), z = t.lastIndexOf('})();'); return a < 0 || z < 0 ? '' : t.slice(a + 12, z); })();
+function splitChunks(src) {
+  const cuts = [0], n = src.length; let depth = 0, i = 0, prev = '', hasCode = false;
+  const bol = k => src.lastIndexOf('\n', k - 1) + 1, atBol = k => /^[ \t]*$/.test(src.slice(bol(k), k)), cut = k => { cuts.push(bol(k)); hasCode = false; };
+  const skipStr = q => { i++; while (i < n && src[i] !== q) { if (src[i] === '\\') i++; i++; } i++; prev = q; };
+  const skipTpl = () => { i++; while (i < n && src[i] !== '`') { if (src[i] === '\\') { i += 2; continue; } if (src[i] === '$' && src[i + 1] === '{') { i += 2; scan(true); continue; } i++; } i++; prev = '`'; };
+  const skipRe = () => { i++; let cls = false; while (i < n) { const c = src[i]; if (c === '\\') { i += 2; continue; } if (c === '[') cls = true; else if (c === ']') cls = false; else if (c === '/' && !cls) break; i++; } i++; while (/[a-z]/i.test(src[i] || '')) i++; prev = ')'; };
+  function scan(inTpl) {
+    let local = 0;
+    while (i < n) {
+      const c = src[i], d = src[i + 1];
+      if (!inTpl && depth === 0 && hasCode && src[i - 1] === '\n' && /[;}]/.test(prev) && !/[\s\/})\]]/.test(c)) cut(i);
+      if (c === '/' && d === '/') { if (!inTpl && depth === 0 && atBol(i)) cut(i); while (i < n && src[i] !== '\n') i++; continue; }
+      if (c === '/' && d === '*') { if (!inTpl && depth === 0 && atBol(i)) cut(i); i = src.indexOf('*/', i + 2) + 2; continue; }
+      if (!/\s/.test(c)) hasCode = true;
+      if (c === '"' || c === "'") { skipStr(c); continue; }
+      if (c === '`') { skipTpl(); continue; }
+      if (c === '/' && !/[\w$)\]]/.test(prev)) { skipRe(); continue; }
+      if (inTpl) { if (c === '{') local++; if (c === '}') { if (local === 0) { i++; return; } local--; } }
+      else if ('({['.includes(c)) depth++; else if (')}]'.includes(c)) depth--;
+      if (!/\s/.test(c)) prev = c;
+      i++;
+    }
+  }
+  scan(false);
+  return cuts.map((s, k) => src.slice(s, cuts[k + 1] === undefined ? n : cuts[k + 1])).filter(s => s.trim());
+}
+const NOT_DEMO = /\b(dedent|TOK|HELPERS|NOT_DEMO|APP_SRC|splitChunks|CHUNKS|PRISTINE|tokensOf|stageHits|jsFor|codeFor|applyFilter|RULES|HELP|LBL|secs|qi|TXT)\b|const UA\s*=/;
+const CHUNKS = splitChunks(APP_SRC).filter(c => !NOT_DEMO.test(c));
+const HELPERS = [[/\bon\(/, /^\s*(?:\/\*[\s\S]*?\*\/\s*)?const on\b/], [/\bSrt\b/, /^\s*(?:\/\*[\s\S]*?\*\/\s*)?const Srt\b/], [/\bkbCount\b/, /^\s*(?:\/\*[\s\S]*?\*\/\s*)?function kbCount\b/]];
+const TOK = new Map();
+function tokensOf(c) {
+  let t = TOK.get(c); if (t) return t;
+  t = { ids: [], pre: [], cls: new Set(), attrs: new Set() };
+  for (const m of c.matchAll(/#([A-Za-z][\w-]*)(\$\{)?/g)) (m[2] ? t.pre : t.ids).push(m[1]);
+  for (const m of c.matchAll(/getElementById\(\s*['"`]([\w-]+)/g)) t.ids.push(m[1]);
+  for (const m of c.matchAll(/\.(s-[\w-]+)/g)) t.cls.add(m[1]);
+  for (const m of c.matchAll(/\[(data-[\w-]+)\]/g)) t.attrs.add(m[1]);
+  TOK.set(c, t); return t;
+}
+function stageHits(c, st, ids) {
+  const t = tokensOf(c);
+  return t.ids.some(i => ids.has(i)) || t.pre.some(p => [...ids].some(i => i.startsWith(p))) ||
+    [...t.cls].some(k => st.classList.contains(k) || st.querySelector('.' + k)) ||
+    [...t.attrs].some(a => st.hasAttribute(a) || st.querySelector('[' + a + ']'));
+}
+const dedent = s => { const L = s.replace(/\r/g, '').replace(/^\s*\n/, '').trimEnd().split('\n'), ind = Math.min(...L.filter(l => l.trim()).map(l => l.match(/^ */)[0].length)); return L.map(l => l.slice(ind)).join('\n'); };
+function jsFor(st) {
+  const ids = new Set([...st.querySelectorAll('[id]')].map(e => e.id)); if (st.id) ids.add(st.id);
+  const hit = CHUNKS.filter(c => stageHits(c, st, ids)); if (!hit.length) return '';
+  const body = hit.join('\n');
+  const helpers = HELPERS.filter(([use]) => use.test(body)).map(([, decl]) => CHUNKS.find(c => decl.test(c))).filter(c => c && !hit.includes(c)).map(c => c.replace(/^\s*\/\*[\s\S]*?\*\/\s*/, ''));
+  const code = [...helpers, ...hit].map(dedent).join('\n\n');
+  /* wrapped in a function so it cannot clash with browser globals such as window.top */
+  const inner = 'const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];\n\n' + code;
+  return (/\bSrt\b/.test(code) ? '/* needs the SortableJS library: https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js */\n' : '') +
+    '(() => {\n' + inner.split('\n').map(l => l ? '  ' + l : l).join('\n') + '\n})();';
+}
 function codeFor(st) {
-  const html = st.outerHTML.replace(/ data-toggle=""/g, ' data-toggle');
+  const html = (PRISTINE.get(st.closest('article').id) || st.outerHTML).replace(/ data-toggle=""/g, ' data-toggle');
   const cls = [...st.classList].filter(c => /^s-/.test(c)).map(c => new RegExp('\\.' + c + '(?![\\w-])'));
   const hs = HELP.filter(h => new RegExp('class="([^"]* )?' + h + '( [^"]*)?"').test(html)).map(h => new RegExp('^\\.' + h + '(?![\\w-])'));
-  const css = [];
-  RULES.forEach(r => { if (!r.selectorText) return; const parts = r.selectorText.split(','); if (parts.some(p => cls.some(x => x.test(p)) || hs.some(x => x.test(p.trim())))) css.push(r.cssText); });
-  const joined = css.join('\n');
-  RULES.forEach(r => { if (r.type === 7 && new RegExp('\\b' + r.name + '\\b').test(joined)) css.push(r.cssText); });
-  let out = css.join('\n');
+  const mine = sel => sel.split(',').some(p => cls.some(x => x.test(p)) || hs.some(x => x.test(p.trim())));
+  const anims = new Set();
+  /* keep a rule if its selector is ours; for @media and @supports keep only the inner rules that are ours */
+  const take = r => {
+    if (r.selectorText !== undefined) { if (!mine(r.selectorText)) return ''; String(r.style.animationName || '').split(',').forEach(a => anims.add(a.trim())); return r.cssText; }
+    if (r.cssRules && !(r instanceof CSSKeyframesRule)) { const inner = [...r.cssRules].map(take).filter(Boolean); return inner.length ? r.cssText.slice(0, r.cssText.indexOf('{')).trim() + ' {\n  ' + inner.join('\n  ') + '\n}' : ''; }
+    return '';
+  };
+  const css = RULES.map(take).filter(Boolean);
+  RULES.forEach(r => { if (r instanceof CSSKeyframesRule && anims.has(r.name)) css.push(r.cssText); });
+  if (/\shidden(?=[\s>=])/.test(html)) css.unshift('[hidden] { display: none !important; }'); let out = css.join('\n');
   if (/var\(--(display|body|mono)\)/.test(out)) out = ':root{--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Figtree",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}\n' + out;
-  return '<!-- HTML -->\n' + html + '\n\n/* CSS */\n' + out;
+  const js = jsFor(st);
+  return '<!-- HTML -->\n' + html + '\n\n/* CSS */\n' + out + (js ? '\n\n/* JS */\n' + js : '');
 }
 
 $$('article.demo').forEach(a => {
@@ -3563,8 +3647,9 @@ $$('article.demo').forEach(a => {
   b.addEventListener('click', () => {
     if (box) box.hidden = !box.hidden;
     else { box = document.createElement('div'); box.className = 'code';
-      box.innerHTML = '<div class="code-bar"><span>HTML + CSS · interactions not included</span><button type="button">Copy</button></div><pre><code></code></pre>';
-      $('code', box).textContent = codeFor($('.stage', a)); m.appendChild(box);
+      box.innerHTML = '<div class="code-bar"><span></span><button type="button">Copy</button></div><pre><code></code></pre>';
+      const src = codeFor($('.stage', a)); $('code', box).textContent = src;
+        $('.code-bar span', box).textContent = /\n\/\* JS \*\/\n/.test(src) ? 'HTML + CSS + JS' : 'HTML + CSS · no JavaScript needed'; m.appendChild(box);
       $('.code-bar button', box).addEventListener('click', ev => { const t = ev.currentTarget, c = $('code', box);
         const done = () => { t.textContent = 'Copied ✓'; setTimeout(() => t.textContent = 'Copy', 1500); };
         const sel = () => { const r = document.createRange(); r.selectNodeContents(c); const s = getSelection(); s.removeAllRanges(); s.addRange(r); t.textContent = 'Selected, press Ctrl+C'; };
