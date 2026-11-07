@@ -69,6 +69,6 @@ vercel --prod
 
 ## Known issues
 
-- Copied JavaScript is wrapped in a function and needs the SortableJS library for the three drag-and-drop demos (the panel says so).
-- Not yet verified in Apple's Safari: `backdrop-filter` on the glass demos. It is declared with the `-webkit-` prefix, but the only WebKit available for testing (Playwright on Windows) has no `backdrop-filter` support. Everything else renders the same there as in Chrome, including the film-grain effect and the dock hover.
-- Pull-to-refresh and swipe are tested with synthetic touch events, not on a real touch device.
+- Not yet verified in Apple's Safari: `backdrop-filter` on the glass demos. It is declared with the `-webkit-` prefix, and browsers without support get a firmer surface through an `@supports` fallback (checked in Chromium with the filter switched off). The only WebKit available for testing, Playwright on Windows, has no `backdrop-filter`, so the real blur could not be checked there. Everything else renders the same in that WebKit as in Chrome, including the film-grain effect and the dock hover.
+- Pull to refresh and swipe cards are tested with real touch input in a mobile-configured Chromium (the page still scrolls when a drag starts on them), not on a physical device. A downward drag that starts on the pull-to-refresh card is used for the pull, so it does not scroll the page.
+- Copied JavaScript is wrapped in a function. The three drag-and-drop demos load SortableJS from a CDN, so they need a network connection.
