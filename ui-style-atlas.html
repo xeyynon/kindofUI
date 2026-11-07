@@ -20,6 +20,9 @@
 body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 .wrap{max-width:1240px;margin:0 auto}
+.site-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:64px;padding:20px 0 36px;border-top:1px solid var(--line);color:var(--muted);font:13px/1.5 var(--body)}
+.site-foot a{color:var(--fg);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+.site-foot a:hover{border-bottom-color:var(--fg)}
 header.top{padding-block:40px 24px;display:grid;gap:12px}
 header.top h1{font:800 clamp(2.2rem,6vw,3.8rem)/1 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
 header.top p{margin:0;max-width:62ch;color:var(--muted)}
@@ -1515,6 +1518,16 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 .s-tok .cd2 b{font:700 15px/1.1 var(--t-f)}
 .s-tok .cd2 span{opacity:.75}
 .s-tok .cd2 button{border:0;background:var(--t-p);color:#fff;border-radius:var(--t-r);padding:7px;font-weight:600}
+/* Without backdrop-filter the glass panels would show raw translucency over busy content: give them a firmer surface instead */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .s-glass .card{background:rgba(255,255,255,.3)}
+  .v-glass .pc{background:rgba(255,255,255,.3)}
+  .v-liquid .pc{background:rgba(255,255,255,.3)}
+  .s-lg .gl{background:rgba(255,255,255,.28)}
+  .s-sp .win,.s-sp .orn{background:rgba(235,235,245,.72);color:#1d1b20;text-shadow:none}
+  .s-dock .mb{background:rgba(255,255,255,.6)}
+  .s-dock .dk{background:rgba(255,255,255,.5)}
+}
 </style>
 
 <div class="wrap">
@@ -3004,6 +3017,11 @@ nav.index button.on{background:var(--fg);color:var(--bg)}
 
 </div>
 </section>
+
+<footer class="site-foot">
+  <span>&copy; 2026 kindofui</span>
+  <span>Built by <a href="https://github.com/xeyynon" target="_blank" rel="noopener noreferrer" aria-label="xeyynon on GitHub (opens in a new tab)">@xeyynon</a></span>
+</footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
@@ -3614,10 +3632,13 @@ function jsFor(st) {
   const body = hit.join('\n');
   const helpers = HELPERS.filter(([use]) => use.test(body)).map(([, decl]) => CHUNKS.find(c => decl.test(c))).filter(c => c && !hit.includes(c)).map(c => c.replace(/^\s*\/\*[\s\S]*?\*\/\s*/, ''));
   const code = [...helpers, ...hit].map(dedent).join('\n\n');
+  /* drag and drop demos need SortableJS: the copied code loads it from a CDN first, so it works when pasted on its own */
+  const needsSortable = /\bSrt\b/.test(code);
+  const loader = "// loads SortableJS (drag and drop) from a CDN, then runs the demo\nconst whenSortable = fn => { if (window.Sortable) return fn(); const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js'; s.onload = fn; document.head.append(s); };\n\n";
+  const run = needsSortable ? loader + 'whenSortable(() => {\n' + code.split('\n').map(l => l ? '  ' + l : l).join('\n') + '\n});' : code;
   /* wrapped in a function so it cannot clash with browser globals such as window.top */
-  const inner = 'const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];\n\n' + code;
-  return (/\bSrt\b/.test(code) ? '/* needs the SortableJS library: https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js */\n' : '') +
-    '(() => {\n' + inner.split('\n').map(l => l ? '  ' + l : l).join('\n') + '\n})();';
+  const inner = 'const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];\n\n' + run;
+  return '(() => {\n' + inner.split('\n').map(l => l ? '  ' + l : l).join('\n') + '\n})();';
 }
 function codeFor(st) {
   const html = (PRISTINE.get(st.closest('article').id) || st.outerHTML).replace(/ data-toggle=""/g, ' data-toggle');
