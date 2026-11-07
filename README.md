@@ -52,7 +52,8 @@ Then add `unique-id: ['Good for', 'Watch out']` to the notes map in the script.
 
 Rules that keep it working:
 
-- Every stage has a unique `s-xxx` class and every CSS rule for that demo is scoped under it. The View code panel finds CSS by that class.
+- Every stage has a unique `s-xxx` class and every CSS rule for that demo is scoped under it. The View code panel finds CSS by that class, including rules inside `@media`, and the `@keyframes` those rules use.
+- A demo's JavaScript appears in View code when it refers to the stage's `s-xxx` class or to one of the stage's element ids. The panel reads the code from the page's own script, so it cannot drift. Put each demo's code under its own `//` comment, or as its own top-level block starting in column 0.
 - Stages are a fixed 290px tall and must fit at phone width (about 330px).
 - All example content is invented (names, cities, prices, `example.com`). No real logos, photos or copied text.
 - Demos should look like real shipped product UI: restrained colour, SVG icons, terse copy.
@@ -68,6 +69,6 @@ vercel --prod
 
 ## Known issues
 
-- Copied code includes HTML and CSS only, not the demo's JavaScript.
-- Not yet verified: dock hover magnify with a real mouse, the film-grain effect in Safari, and pull-to-refresh on a real touch device.
-- Short keyframe names can pull an unrelated keyframe into the View code output. Harmless but untidy.
+- Copied JavaScript is wrapped in a function and needs the SortableJS library for the three drag-and-drop demos (the panel says so).
+- Not yet verified in Apple's Safari: `backdrop-filter` on the glass demos. It is declared with the `-webkit-` prefix, but the only WebKit available for testing (Playwright on Windows) has no `backdrop-filter` support. Everything else renders the same there as in Chrome, including the film-grain effect and the dock hover.
+- Pull-to-refresh and swipe are tested with synthetic touch events, not on a real touch device.
