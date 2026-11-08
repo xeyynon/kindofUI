@@ -122,12 +122,6 @@ python -m http.server 8791
 # then open http://127.0.0.1:8791/ui-style-atlas.html
 ```
 
-Deploy anywhere that serves static files. On Vercel, `vercel.json` already serves the page at `/`:
-
-```bash
-vercel --prod
-```
-
 <br>
 
 ## Add an entry
