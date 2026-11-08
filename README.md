@@ -162,6 +162,6 @@ The rules that keep it working:
 
 <div align="center">
 
-Made by **[@xeyynon](https://github.com/xeyynon)** &nbsp;·&nbsp; [Portfolio](https://suryapratik.vercel.app)
+
 
 </div>
