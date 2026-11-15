@@ -104,6 +104,8 @@ header.top{display:block}
 .kf-sep{width:1px;height:20px;margin:0 20px;background:var(--line)}
 .kf-top{display:inline-flex;align-items:center;gap:6px;padding:8px 4px;border:0;border-radius:6px;background:none;color:var(--muted);font:inherit}
 .kf-top:hover{color:var(--fg)}
+#kf-keys{margin-right:16px}
+@media (hover:none) and (pointer:coarse){#kf-keys{display:none}}
 .kf-top svg{width:14px;height:14px}
 @media (max-width:520px){.kf-sep{display:none}.kf-end{gap:2px 22px}.kf-user{margin-left:6px}.kf-folio{margin-left:0}}
 @media (pointer:coarse){.kf-user,.kf-folio,.kf-top{min-height:44px}}
@@ -661,8 +663,30 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .noresult{padding:40px 0;color:var(--muted);text-align:center;margin:0}
 .ua{display:grid;gap:3px;font-size:13px!important;color:var(--muted)}
 .ua b{color:var(--fg);font-weight:600}
-.codebtn{justify-self:start;margin-top:4px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 12px var(--mono);padding:5px 10px;border-radius:6px}
-.codebtn:hover{border-color:var(--accent);color:var(--accent)}
+.cardact{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.codebtn,.actbtn{justify-self:start;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 12px var(--mono);padding:5px 10px;border-radius:6px}
+.codebtn:hover,.actbtn:hover{border-color:var(--accent);color:var(--accent)}
+.actbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 12px var(--mono);padding:5px 10px;border-radius:6px}
+.actbtn svg{width:13px;height:13px;flex:none}
+.savebtn[aria-pressed="true"]{border-color:var(--fg)}
+.savebtn[aria-pressed="true"] svg path{fill:currentColor}
+.demo:focus{outline:none}
+.demo:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (pointer:coarse){.codebtn,.actbtn{min-height:40px}}
+.kbdhelp{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);padding:20px 22px;width:min(92vw,400px);font:14px/1.5 var(--body)}
+.kbdhelp::backdrop{background:rgba(10,12,20,.5)}
+.kbdhelp h2{margin:0 0 12px;font:700 18px var(--display)}
+.kbdhelp table{width:100%;border-collapse:collapse}
+.kbdhelp td{padding:6px 0;border-top:1px solid var(--line)}
+.kbdhelp td:first-child{width:76px}
+.kbdhelp kbd{display:inline-block;min-width:24px;padding:1px 7px;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;background:var(--bg);font:600 12px var(--mono);text-align:center}
+.kbdrow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;font-weight:600}
+.kbdsw{width:40px;height:24px;flex:none;border-radius:12px;border:1px solid var(--line);background:var(--bg);position:relative;padding:0}
+.kbdsw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:left .15s}
+.kbdsw[aria-checked="true"]{background:var(--fg);border-color:var(--fg)}
+.kbdsw[aria-checked="true"]::after{left:19px;background:var(--bg)}
+.kbdnote{margin:6px 0 14px;color:var(--muted);font-size:13px}
+.kbdclose{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:7px 14px;font:600 13px var(--body)}
 .code{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px;min-width:0}
 .code-bar{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--bg);font:11px var(--mono);color:var(--muted);gap:8px}
 .code-bar button{border:0;background:var(--accent);color:var(--surface);font:600 11px var(--mono);padding:4px 10px;border-radius:5px;flex:none}
@@ -670,6 +694,68 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .pr-bar{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--bg);font:11px var(--mono);color:var(--muted);gap:8px;border-bottom:1px solid var(--line)}
 .pr-bar button{border:1px solid var(--line);background:var(--surface);color:var(--fg);font:600 11px var(--mono);padding:3px 10px;border-radius:5px;flex:none}
 .ptxt{margin:0;max-height:220px;overflow:auto;padding:10px 12px;font:12.5px/1.55 var(--body);background:var(--surface);color:var(--fg);white-space:pre-wrap;border-bottom:1px solid var(--line)}
+
+/* ---------- tools ---------- */
+.tl-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0;font:15px/1.5 var(--body)}
+.tl-panel h3{font:700 16px var(--display);margin:22px 0 8px;outline:none}
+.tl-quiz{display:grid;gap:18px}
+.tl-quiz fieldset,.tl-group{border:0;margin:0;padding:0;min-width:0}
+.tl-quiz legend,.tl-group legend{font:700 15px var(--body);margin-bottom:8px;padding:0}
+.tl-opts{display:flex;flex-wrap:wrap;gap:8px}
+.tl-opts label{position:relative}
+.tl-opts input,.tl-seg input{position:absolute;opacity:0;width:1px;height:1px}
+.tl-opts span{display:inline-flex;align-items:center;min-height:38px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);cursor:pointer;font-size:14px}
+.tl-opts input:checked+span{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg);font-weight:600}
+.tl-opts input:focus-visible+span,.tl-seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.tl-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.tl-btn{display:inline-flex;align-items:center;min-height:38px;padding:6px 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:600 14px var(--body);text-decoration:none;cursor:pointer}
+.tl-btn:hover{border-color:var(--muted)}
+.tl-btn.tl-primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tl-btn:disabled{opacity:.45;cursor:not-allowed}
+.tl-note{color:var(--warn);font-size:14px}
+#tb-size{color:var(--muted)}
+.tl-src{color:var(--muted);font-size:14px;margin:0 0 6px}
+.tl-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px}
+.tl-item{border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.tl-item a{font-weight:700;color:var(--fg)}
+.tl-kind{display:block;color:var(--muted);font-size:12px;font-family:var(--mono);margin:2px 0 6px}
+.tl-item p{margin:0;font-size:13.5px;color:var(--muted)}
+.tl-item p b{color:var(--fg);font-weight:600}
+.tl-topics{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tl-topic{min-height:38px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:500 14px var(--body);text-align:left}
+.tl-topic[aria-pressed="true"]{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg);font-weight:600}
+.tl-trail{margin:0 0 12px;padding-left:20px;color:var(--muted);font-size:14px;display:grid;gap:4px}
+.tl-trail b{color:var(--fg)}
+.tl-link{border:0;background:none;color:var(--accent);font:inherit;text-decoration:underline;text-underline-offset:2px;padding:0 2px;cursor:pointer}
+.tl-q{font:700 17px var(--display);margin:0}
+.tl-answer{border-top:1px solid var(--line);padding-top:14px}
+.tl-pick{font-size:18px;margin:0 0 4px}
+.tl-answer p{margin:0 0 4px;max-width:62ch}
+.tl-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.tl-form label{display:grid;gap:5px;font:600 13px var(--body)}
+.tl-form input:not([type=checkbox]),.tl-form textarea,.tl-form select{font:15px var(--body);padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);min-width:0;width:100%;resize:vertical}
+.tl-form .tl-check{display:flex;align-items:center;gap:8px;font-weight:500;align-self:end;min-height:38px}
+.tl-picked{margin-top:16px}
+.tl-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+.tl-chips a{color:var(--fg);font-weight:600}
+.tl-chips .tl-kind{display:inline;margin:0}
+.tl-empty{margin:0;color:var(--muted)}
+.tl-preview{margin-top:14px}
+.tl-preview summary{cursor:pointer;font-weight:600}
+.tl-preview pre{margin:8px 0 0;max-height:320px;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font:12px/1.5 var(--mono);white-space:pre-wrap;word-break:break-word}
+.tl-score{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:4px 0 14px}
+.tl-score b{font:800 26px var(--display)}
+.tl-score span{color:var(--muted);font-size:14px}
+.tl-group{margin-top:14px}
+.tl-check-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;padding:10px 0;border-top:1px solid var(--line)}
+.tl-check-row p{margin:0;flex:1 1 320px;font-size:14.5px}
+.tl-check-row p a{color:var(--muted);font-size:13px;white-space:nowrap}
+.tl-seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex:none}
+.tl-seg label{position:relative}
+.tl-seg span{display:inline-flex;align-items:center;min-height:34px;padding:4px 12px;font:600 13px var(--body);color:var(--muted);cursor:pointer;border-left:1px solid var(--line)}
+.tl-seg label:first-child span{border-left:0}
+.tl-seg input:checked+span{background:var(--fg);color:var(--bg)}
+@media (pointer:coarse){.tl-seg span{min-height:44px}}
 
 /* compare */
 /* ---------- compare tool: every style is a set of tokens in four groups (colours, shape, depth, type); every screen reads only the tokens ---------- */
@@ -1686,7 +1772,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 <header class="top" id="top">
   <div class="kh-bar">
     <a class="kh-brand" href="#top" aria-label="kindofui, back to the top"><span class="kh-mark" aria-hidden="true"></span>kindofui</a>
-    <div class="kh-end"><a class="kh-gh" href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofUI on GitHub, build 1006 (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofUI</span><span class="kh-build"><span class="kh-bw">Build </span>1006</span></a><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
+    <div class="kh-end"><a class="kh-gh" href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofUI on GitHub, build 1007 (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofUI</span><span class="kh-build"><span class="kh-bw">Build </span>1007</span></a><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
   </div>
   <div class="kh-intro">
     <p class="kh-eyebrow">The interactive UI/UX library</p>
@@ -1701,7 +1787,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
     <div class="kh-field"><svg class="mag" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13.5 13.5 3.5 3.5"/></svg><input id="q" type="search" placeholder="Search styles, patterns, laws..." aria-label="Search kindofui" aria-keyshortcuts="Control+K Meta+K" autocomplete="off"><kbd class="kh-kbd" id="kh-kbd" aria-hidden="true">Ctrl K</kbd></div>
     <span id="res" class="kh-sr" aria-live="polite"></span>
   </div>
-  <nav class="index" aria-label="Filter by section"><button class="on" data-f="all" aria-pressed="true">All</button><button data-f="compare" aria-pressed="false">Compare</button><button data-f="styles" aria-pressed="false">Visual styles</button><button data-f="layouts" aria-pressed="false">Layouts</button><button data-f="navigation" aria-pressed="false">Navigation</button><button data-f="interaction" aria-pressed="false">Components</button><button data-f="ai" aria-pressed="false">AI patterns</button><button data-f="laws" aria-pressed="false">UX laws</button><button data-f="access" aria-pressed="false">Accessibility</button><button data-f="approaches" aria-pressed="false">Process &amp; methods</button></nav>
+  <nav class="index" aria-label="Filter by section"><button class="on" data-f="all" aria-pressed="true">All</button><button data-f="compare" aria-pressed="false">Compare</button><button data-f="tools" aria-pressed="false">Tools</button><button data-f="styles" aria-pressed="false">Visual styles</button><button data-f="layouts" aria-pressed="false">Layouts</button><button data-f="navigation" aria-pressed="false">Navigation</button><button data-f="interaction" aria-pressed="false">Components</button><button data-f="ai" aria-pressed="false">AI patterns</button><button data-f="laws" aria-pressed="false">UX laws</button><button data-f="access" aria-pressed="false">Accessibility</button><button data-f="approaches" aria-pressed="false">Process &amp; methods</button><button data-f="saved" aria-pressed="false">Saved<span class="kn" id="saved-n">0</span></button></nav>
 </div>
 <span id="content" tabindex="-1"></span>
 <p class="noresult" id="nores" hidden>No matches. Try another word, like "card", "dark", "form" or "mobile".</p>
@@ -1714,6 +1800,16 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
   <div class="cmpp"><label for="cmp-a">Left<select id="cmp-a"></select></label><div class="cmpst" id="cmp-sa"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><button type="button" class="cmpcopy">Copy tokens</button><p class="cmphint" hidden></p></div></div>
   <div class="cmpp"><label for="cmp-b">Right<select id="cmp-b"></select></label><div class="cmpst" id="cmp-sb"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><button type="button" class="cmpcopy">Copy tokens</button><p class="cmphint" hidden></p></div></div>
 </div>
+</section>
+
+<section class="group" id="tools">
+<h2>Tools</h2>
+<p>Turn the library into decisions: find the styles that fit your project, settle a "which one should I use" question, build one brief for Claude from your Saved cards, and audit your own product.</p>
+<div class="cmptabs" id="tools-tabs" role="group" aria-label="Tool"></div>
+<div class="tl-panel tl-finder" data-tool="finder"></div>
+<div class="tl-panel tl-which" data-tool="which" hidden></div>
+<div class="tl-panel tl-brief" data-tool="brief" hidden></div>
+<div class="tl-panel tl-audit" data-tool="audit" hidden></div>
 </section>
 
 <!-- ================= VISUAL STYLES ================= -->
@@ -3187,6 +3283,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
     <a class="kf-user" href="https://github.com/xeyynon" target="_blank" rel="noopener noreferrer" aria-label="xeyynon on GitHub (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>@xeyynon</a>
     <a class="kf-folio" href="https://suryapratik.vercel.app/" target="_blank" rel="author noopener noreferrer" aria-label="Surya Pratik's portfolio (opens in a new tab)">Portfolio<svg class="kf-snitch" viewBox="0 4 120 40" aria-hidden="true" focusable="false"><defs><radialGradient id="kf-gold" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe7b3"/><stop offset=".45" stop-color="#d8a94a"/><stop offset="1" stop-color="#5e3d0c"/></radialGradient></defs><g class="wing"><path class="sail" d="M72 30Q96 29 116 7Q102.14 32.74 85.06 36.99Q77.39 39.1 72 30Z"/><path class="rib" d="M75.97 29.69L73.47 36.77M79.89 29.08L77.39 38.1M83.75 28.19L81.25 38.02M87.56 27L85.06 36.99M91.31 25.52L88.81 35.19M95 23.75L92.5 32.75M98.64 21.69L96.14 29.74M102.22 19.33L99.72 26.22M105.75 16.69L103.25 22.23M109.22 13.75L106.72 17.77M112.64 10.52L110.14 12.82"/><path class="spine" d="M72 30Q96 29 116 7"/></g><g transform="translate(120 0) scale(-1 1)"><g class="wing"><path class="sail" d="M72 30Q96 29 116 7Q102.14 32.74 85.06 36.99Q77.39 39.1 72 30Z"/><path class="rib" d="M75.97 29.69L73.47 36.77M79.89 29.08L77.39 38.1M83.75 28.19L81.25 38.02M87.56 27L85.06 36.99M91.31 25.52L88.81 35.19M95 23.75L92.5 32.75M98.64 21.69L96.14 29.74M102.22 19.33L99.72 26.22M105.75 16.69L103.25 22.23M109.22 13.75L106.72 17.77M112.64 10.52L110.14 12.82"/><path class="spine" d="M72 30Q96 29 116 7"/></g></g><circle cx="60" cy="34" r="13" fill="url(#kf-gold)"/><path class="relief" d="M47.5 34H72.5"/><path class="relief" d="M50 30Q58 22 70 29M49 39Q60 44 71 38"/><circle class="joint" cx="72" cy="30" r="2.2"/><circle class="joint" cx="48" cy="30" r="2.2"/></svg><svg class="kf-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
     <span class="kf-sep" aria-hidden="true"></span>
+    <button type="button" class="kf-top" id="kf-keys" aria-haspopup="dialog">Keyboard shortcuts</button>
     <button type="button" class="kf-top" id="kf-top">Back to top <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
   </div>
 </footer>
@@ -3969,11 +4066,16 @@ function codeFor(st) {
 /* A prompt per card, written only from what the card itself says: its name, description, good for / watch out, and where it is seen. */
 const KIND = { styles: 'Design this interface in the {t} visual style.', layouts: 'Build this layout for my page: {t}.', navigation: 'Build this navigation pattern for my app: {t}.', interaction: 'Build this UI pattern for my app: {t}.', ai: 'Build this AI interface pattern for my app: {t}.' };
 const BASE_RULES = ['Match my existing stack, components and design tokens. If I have none, use semantic HTML, CSS and a little vanilla JavaScript.', 'Every control must work with the keyboard and show a visible focus ring.', 'Keep text contrast at WCAG AA or better (4.5:1 for body text, 3:1 for large text and icons).', 'Respect prefers-reduced-motion and keep any motion calm and short.', 'Make it work from 320px wide up to large desktops with no sideways scrolling.', 'Use realistic content instead of lorem ipsum, and do not add features I did not ask for.'];
+function factsFor(a) {
+  const m = $('.meta', a), desc = ($('p:not(.seen):not(.ua)', m) || {}).textContent || '', seen = (($('.seen', m) || {}).textContent || '').replace(/^Seen in:\s*/, ''), u = UA[a.id];
+  const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Fix both|Add a task|Rate it|Swipe)\b|to try it/i.test(x)).join('').trim();
+  return [about && 'What it is: ' + about, u && 'Good for: ' + u[0] + '.', u && 'Watch out: ' + u[1] + '.', seen && 'Seen in: ' + seen.trim()].filter(Boolean).join('\n');
+}
 function promptFor(a) {
   const sec = a.closest('section').id, m = $('.meta', a), t = $('h3', m).firstChild.textContent.trim();
   const desc = ($('p:not(.seen):not(.ua)', m) || {}).textContent || '', seen = (($('.seen', m) || {}).textContent || '').replace(/^Seen in:\s*/, ''), u = UA[a.id];
   const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Fix both|Add a task|Rate it|Swipe)\b|to try it/i.test(x)).join('').trim();
-  const facts = [about && 'What it is: ' + about, u && 'Good for: ' + u[0] + '.', u && 'Watch out: ' + u[1] + '.', seen && 'Seen in: ' + seen.trim()].filter(Boolean).join('\n');
+  const facts = factsFor(a);
   const list = r => r.map((x, i) => (i + 1) + '. ' + x).join('\n');
   if (KIND[sec]) return KIND[sec].replace('{t}', t) + '\n\n' + facts + '\n\nRequirements:\n' + list(BASE_RULES) + '\n\nUse the kindofui reference code below for the look and behaviour. Adapt it to my project instead of pasting it as is.';
   if (sec === 'laws') return 'Review my UI against ' + t + '.\n\n' + facts + '\n\nFor each screen or component I share:\n' + list(['Point to the exact places where it breaks this law and say why it matters to the user.', 'Suggest a concrete fix for each one, smallest change first.', 'Apply the fixes in code when I say so, keeping my existing styles.', 'Tell me how to check the result, for example with a quick user test or a measurement.']) + '\n\nThe kindofui example below shows the law in a small working demo.';
@@ -4015,13 +4117,340 @@ const qi = $('#q'), res = $('#res'), nores = $('#nores'); let filt = 'all';
 const TXT = new Map($$('article.demo').map(a => [a, a.textContent.toLowerCase()]));
 function applyFilter() { const v = qi.value.trim().toLowerCase(); let shown = 0;
   secs.forEach(s => { const inF = filt === 'all' || filt === s.id;
-    if (s.id === 'compare') { s.hidden = !inF || !!v; return; }
+    if (s.id === 'compare' || s.id === 'tools') { s.hidden = !inF || !!v; return; }
     let n = 0; $$('article.demo', s).forEach(a => { const ok = inF && (!v || TXT.get(a).includes(v)); a.hidden = !ok; if (ok) n++; }); s.hidden = n === 0; shown += n; });
-  res.textContent = (v || filt !== 'all') ? `${shown} of ${total}` : `${total} entries`; nores.hidden = shown > 0 || !$('#compare').hidden; }
+  res.textContent = (v || filt !== 'all') ? `${shown} of ${total}` : `${total} entries`; nores.hidden = shown > 0 || !$('#compare').hidden || !$('#tools').hidden; }
 qi.addEventListener('input', applyFilter);
 $$('nav.index button').forEach(b => b.addEventListener('click', () => { filt = b.dataset.f; $$('nav.index button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); }); applyFilter();
   const t = filt === 'all' ? $('header.top') : document.getElementById(filt); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
 applyFilter();
+
+/* ---------- Tools: style finder, which should I use, brief builder, UX audit ---------- */
+(() => {
+  const root = $('#tools'); if (!root) return;
+  const card = id => document.getElementById(id);
+  const title = id => { const a = card(id); return a ? $('h3', a).firstChild.textContent.trim() : id; };
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const SECN = { styles: 'Visual style', layouts: 'Layout', navigation: 'Navigation', interaction: 'Component', ai: 'AI pattern', laws: 'UX law', access: 'Accessibility', approaches: 'Process' };
+  const kind = id => SECN[card(id).closest('section').id];
+  const copy = (b, text, label) => { const done = () => { b.textContent = 'Copied ✓'; setTimeout(() => { b.textContent = label; }, 1500); };
+    try { navigator.clipboard.writeText(text).then(done, () => { b.textContent = 'Copy failed'; setTimeout(() => { b.textContent = label; }, 1500); }); } catch (_) { b.textContent = 'Copy failed'; } };
+  const store = (k, v) => { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (_) { return null; } };
+  const isSaved = id => { const b = $('.savebtn', card(id)); return b && b.getAttribute('aria-pressed') === 'true'; };
+  const saveIds = ids => ids.forEach(id => { if (!isSaved(id)) $('.savebtn', card(id)).click(); });
+  const row = (id, extra) => `<li class="tl-item"><a href="#${id}">${esc(title(id))}</a><span class="tl-kind">${kind(id)}</span>${extra || (UA[id] ? `<p><b>Good for:</b> ${esc(UA[id][0])}</p><p><b>Watch out:</b> ${esc(UA[id][1])}</p>` : '')}</li>`;
+
+  /* Tabs */
+  const TOOLS = [['finder', 'Style finder'], ['which', 'Which should I use?'], ['brief', 'Brief builder'], ['audit', 'UX audit']];
+  const tabs = $('#tools-tabs');
+  tabs.innerHTML = TOOLS.map((t, i) => `<button type="button" data-tool="${t[0]}" aria-pressed="${!i}">${t[1]}</button>`).join('');
+  const show = id => { $$('button', tabs).forEach(b => b.setAttribute('aria-pressed', b.dataset.tool === id)); $$('.tl-panel', root).forEach(p => { p.hidden = p.dataset.tool !== id; }); if (id === 'brief') drawBrief(); };
+  tabs.addEventListener('click', e => { const b = e.target.closest('button[data-tool]'); if (b) show(b.dataset.tool); });
+  root._show = show;
+
+  /* ===== 1. Style finder =====
+     Tags are kindofui's own reading of each card's notes, not survey data. Score: what you build 3, mood 3, users 2. Theme rules out dark-only or light-only styles. */
+  const Q = [
+    ['build', 'What are you building?', [['landing', 'Marketing or landing page'], ['saas', 'SaaS app or admin dashboard'], ['shop', 'Online shop'], ['app', 'Mobile app'], ['reading', 'Blog, docs or reading'], ['game', 'Game or entertainment'], ['portfolio', 'Portfolio or creative work'], ['ai', 'AI assistant or chat']]],
+    ['users', 'Who uses it most?', [['public', 'The general public'], ['pro', 'Professionals, every day at work'], ['dev', 'Developers and power users'], ['kids', 'Kids or learners'], ['young', 'A young, trend-led crowd']]],
+    ['mood', 'How should it feel?', [['calm', 'Calm and trustworthy'], ['bold', 'Playful and bold'], ['premium', 'Premium and elegant'], ['future', 'Futuristic'], ['warm', 'Warm and natural'], ['retro', 'Nostalgic']]],
+    ['theme', 'Light or dark?', [['light', 'Light'], ['dark', 'Dark'], ['any', 'Either']]]
+  ];
+  const ST = {
+    minimal: ['reading saas shop ai portfolio', 'public pro dev', 'calm premium', ''], material: ['saas app', 'public pro', 'calm', ''], flat: ['saas app landing', 'public kids', 'calm bold', 'l'],
+    darkui: ['saas game ai', 'dev pro', 'future premium', 'd'], glass: ['landing app', 'public young', 'future premium', ''], liquidglass: ['app landing', 'public', 'future premium', ''],
+    neobrutal: ['landing saas portfolio', 'young dev', 'bold', 'l'], brutal: ['portfolio', 'young', 'bold', 'l'], editorial: ['reading landing portfolio', 'public', 'premium calm', ''],
+    swiss: ['portfolio reading landing', 'pro public', 'calm premium', 'l'], clay: ['app landing', 'kids', 'bold warm', 'l'], illus: ['landing app', 'kids public', 'warm bold', ''],
+    skeuo: ['game app', 'kids', 'retro warm', ''], retro: ['game', 'young', 'retro bold', ''], pixel: ['game', 'young kids', 'retro bold', ''], neon: ['game landing', 'young', 'future', 'd'],
+    hud: ['game saas', 'dev', 'future', 'd'], aurora: ['landing ai', 'public young', 'future premium', ''], organic: ['landing shop reading', 'public', 'warm calm', 'l'],
+    monochrome: ['shop portfolio', 'public', 'premium', ''], artdeco: ['shop landing', 'public', 'premium retro', ''], eink: ['reading', 'pro public', 'calm', 'l'],
+    ios: ['app', 'public', 'calm', ''], fluent: ['saas app', 'pro', 'calm', ''], bento: ['landing portfolio saas', 'public dev', 'premium calm', ''],
+    ascii: ['portfolio reading', 'dev', 'retro future', 'd'], genz: ['shop landing', 'young', 'bold', ''], memphis: ['landing', 'young kids', 'bold retro', 'l']
+  };
+  const LAY = { landing: ['hero', 'stickynav', 'fullscreen', 'pricing'], saas: ['dashboard', 'sidebar', 'cmdk', 'listdetail'], shop: ['cards', 'searchfirst', 'mega', 'crumbs'], app: ['tabbar', 'listdetail', 'fab', 'split'],
+    reading: ['holygrail', 'toc', 'crumbs', 'backtotop'], game: ['fullscreen', 'dock', 'shelf', 'tabbar'], portfolio: ['masonry', 'asym', 'hero', 'carousel'], ai: ['split', 'sidebar', 'listdetail', 'cmdk'] };
+  const PAT = { landing: ['micro', 'lazyload', 'empty'], saas: ['datatable', 'notifications', 'settings', 'facets'], shop: ['facets', 'ratings', 'autocomplete', 'lazyload'], app: ['swipe', 'pulltorefresh', 'auth', 'optimistic'],
+    reading: ['lazyload', 'empty', 'errors'], game: ['micro', 'loaders', 'settings'], portfolio: ['lazyload', 'micro'], ai: ['promptbox', 'streaming', 'suggestions', 'citations'] };
+  const LAWS = { landing: ['vonrestorff', 'jakob', 'aesthetic'], saas: ['hick', 'doherty', 'miller'], shop: ['jakob', 'hick', 'fitts'], app: ['fitts', 'doherty', 'jakob'],
+    reading: ['gestalt', 'aesthetic', 'miller'], game: ['doherty', 'fitts', 'aesthetic'], portfolio: ['aesthetic', 'vonrestorff', 'gestalt'], ai: ['doherty', 'tesler', 'nielsen'] };
+  const USERX = { kids: ['empty', 'micro'], dev: ['cmdk'], pro: ['datatable'], public: ['validation'], young: ['micro', 'swipe'] };
+  const fin = $('.tl-finder', root);
+  fin.innerHTML = '<form class="tl-quiz">' + Q.map(([k, q, opts]) => `<fieldset><legend>${q}</legend><div class="tl-opts">` + opts.map(([v, l]) => `<label><input type="radio" name="tf-${k}" value="${v}"${k === 'theme' && v === 'any' ? ' checked' : ''}><span>${l}</span></label>`).join('') + '</div></fieldset>').join('')
+    + '<div class="tl-actions"><button type="submit" class="tl-btn tl-primary">Show what fits</button><span class="tl-note" aria-live="polite"></span></div></form><div class="tl-out" hidden></div>';
+  const quiz = $('.tl-quiz', fin), fout = $('.tl-out', fin);
+  let lastPicks = [];
+  quiz.addEventListener('submit', e => {
+    e.preventDefault(); const val = k => (quiz.querySelector(`input[name="tf-${k}"]:checked`) || {}).value;
+    const a = { build: val('build'), users: val('users'), mood: val('mood'), theme: val('theme') || 'any' };
+    const miss = Q.filter(q => !a[q[0]]).map(q => q[1].toLowerCase().replace('?', ''));
+    if (miss.length) { $('.tl-note', quiz).textContent = 'Answer ' + miss.join(', ') + ' first.'; fout.hidden = true; return; }
+    $('.tl-note', quiz).textContent = '';
+    const scored = Object.entries(ST).filter(([, t]) => !(a.theme === 'dark' && t[3] === 'l') && !(a.theme === 'light' && t[3] === 'd'))
+      .map(([id, t], i) => [id, (t[0].split(' ').includes(a.build) ? 3 : 0) + (t[2].split(' ').includes(a.mood) ? 3 : 0) + (t[1].split(' ').includes(a.users) ? 2 : 0), i])
+      .filter(x => x[1] > 0 && card(x[0])).sort((x, y) => y[1] - x[1] || x[2] - y[2]).slice(0, 3).map(x => x[0]);
+    const styles = scored.length ? scored : ['minimal'];
+    const lay = LAY[a.build], pat = [...new Set([...PAT[a.build], ...(USERX[a.users] || [])])].slice(0, 5), laws = [...LAWS[a.build], 'a11y', 'focus'];
+    lastPicks = [...styles, ...lay, ...pat, ...laws].filter(card);
+    const group = (h, ids) => `<h3>${h}</h3><ul class="tl-list">${ids.filter(card).map(id => row(id)).join('')}</ul>`;
+    fout.innerHTML = `<p class="tl-src">Matched from kindofui's notes on each card (what it is good for and where to watch out), not from user research data. Open any card to try it.</p>`
+      + group('Visual styles', styles) + group('Layout and navigation', lay) + group('Patterns to use', pat) + group('Rules to keep', laws)
+      + '<div class="tl-actions"><button type="button" class="tl-btn tl-primary" data-act="save">Save all ' + lastPicks.length + ' and open Brief builder</button><button type="button" class="tl-btn" data-act="restart">Start over</button></div>';
+    fout.hidden = false; fout.querySelector('h3').setAttribute('tabindex', '-1'); fout.querySelector('h3').focus();
+  });
+  fout.addEventListener('click', e => { const b = e.target.closest('button[data-act]'); if (!b) return;
+    if (b.dataset.act === 'save') { saveIds(lastPicks); show('brief'); $('#tools').scrollIntoView({ block: 'start' }); }
+    else { quiz.reset(); fout.hidden = true; quiz.querySelector('input').focus(); } });
+
+  /* ===== 2. Which should I use? ===== */
+  const R = (pick, id, why) => ({ pick, id, why });
+  const N = (q, yes, no, yl, nl) => ({ q, a: [[yl || 'Yes', yes], [nl || 'No', no]] });
+  const TOPICS = [
+    ['overlay', 'Modal, drawer, popover, tooltip or toast?', N('Must the person deal with it before doing anything else?',
+      N('Is it a short decision, like confirming a delete?', R('Modal dialog', 'modal', 'It blocks the page on purpose, so keep it to one clear question with two buttons. Esc and Cancel must close it, and focus returns to what opened it.'),
+        R('Drawer (side sheet)', 'sidebar', 'Longer forms and details fit in a panel that slides in, keeps the page visible behind it, and closes back to where they were.')),
+      N('Is it only telling them something already happened?', R('Toast', 'modal', 'A short message at the edge that goes away by itself. Add Undo for anything destructive, and never let a toast be the only place important information appears.'),
+        N('Is it attached to one button or item on the page?', N('Will they click things inside it?', R('Popover', 'tooltip', 'Opens on click, can hold links and controls, and closes with Esc or a click outside.'),
+          R('Tooltip', 'tooltip', 'A short label on hover and keyboard focus. Touch screens have no hover, so never put information people need to finish the task only in a tooltip.')),
+          R('Inline message or banner', 'errors', 'Put the message in the page where it applies. It stays until it is resolved and blocks nothing.'))))],
+    ['views', 'Tabs, segmented control, accordion or stepper?', N('Must people go through the parts in a fixed order?',
+      R('Stepper / wizard', 'stepper', 'Shows where they are and what is left. Use it for checkout and sign-up, and let people go back without losing what they typed.'),
+      N('Do people need to see more than one part at once, or is the screen narrow with long content?', R('Accordion', 'accordion', 'Sections stack and open in place, which suits phones and FAQs. Write headings people can scan while everything is closed.'),
+        N('Are the options different views of the same data, like List and Grid or Day, Week and Month?', R('Segmented control', 'tabs', 'A compact switch between 2 to 5 views of the same thing. The content stays the same, only how it is shown changes.'),
+          R('Tabs', 'tabs', 'Separate panels of related content on one page. Keep labels short, and few enough tabs that they fit without scrolling.'))))],
+    ['paging', 'Pagination, infinite scroll or Load more?', N('Do people need to find an item again, share their place, or reach the footer?',
+      R('Pagination', 'infinite', 'Numbered pages give a sense of place and size, work with the Back button, and keep the footer reachable. Best for search results and catalogs.'),
+      N('Is it a casual feed people scroll without a goal?', R('Infinite scroll', 'infinite', 'Loads more as they reach the bottom, which suits social and media feeds. Keep their place when they come back, and do not hide important links in a footer they can never reach.'),
+        R('Load more button', 'infinite', 'A middle ground: the list grows only when they ask, so they stay in control and the footer stays reachable.')))],
+    ['nav', 'Which main navigation?', N('Will it be used mostly on phones?',
+      N('Are there 3 to 5 main sections people switch between often?', R('Bottom tab bar', 'tabbar', 'The main sections stay one thumb tap away and always visible. Use icons with text labels.'),
+        N('Is there one main action, like Compose or Add?', R('Floating action button', 'fab', 'One clear button for the most common action, in easy reach. Keep it to one action, not a menu of everything.'),
+          R('Hamburger menu', 'hamburger', 'Fine for secondary links, but hidden menus get used less, so keep the most used sections visible on screen.'))),
+      N('Is it a website people read, or an app people work in?', N('Hundreds of categories, like a big shop or news site?', R('Mega menu', 'mega', 'Shows many categories at once in a grouped panel. Make it work with the keyboard and on click, not only on hover.'),
+          R('Top navbar (sticky header)', 'stickynav', 'The standard most sites use, so people know it already. Keep it short so it does not eat small screens.'), 'Yes', 'No'),
+        N('More than 7 places to go, or nested sections?', R('Sidebar', 'sidebar', 'Room for many sections and nesting. Let it collapse on smaller screens, and add a command palette for power users.'),
+          R('Navigation rail', 'navrail', 'A slim bar for 3 to 7 destinations that leaves room for the work. Always show labels.')), 'Website', 'App'))],
+    ['loading', 'Spinner, skeleton or progress bar?', N('Does it usually finish in under about one second?',
+      R('No loader, just instant feedback', 'doherty', 'Under a second, a loader only flashes and distracts. Respond to the click at once, for example with a pressed state or an optimistic update.'),
+      N('Can you tell how far along it is, like a percentage, steps or file size?', R('Progress bar', 'loaders', 'Real progress makes waiting easier and tells people whether to wait. Show steps or time left for long jobs, and let them cancel.'),
+        N('Are you loading a page or list whose layout you already know?', R('Skeleton screen', 'skeleton', 'Grey shapes in the final layout make the page feel faster and stop it jumping when content arrives.'),
+          R('Spinner', 'loaders', 'Fine for short, unknown waits on one action. If it can take more than about 10 seconds, switch to a progress message and let people cancel.'))))],
+    ['confirm', 'Confirm dialog or Undo?', N('Can the action be reversed?',
+      R('Do it, then offer Undo', 'modal', 'Asking "Are you sure?" for every action trains people to click Yes without reading. Act at once and show a toast with Undo.'),
+      N('Is the loss big, like deleting an account, paying, or sending to many people?', R('Confirm dialog that names the thing', 'modal', 'Say exactly what will happen ("Delete Northwind and its 24 files?") and label the button with the action, not OK. For the biggest losses, ask them to type the name.'),
+        R('Do it, then offer Undo', 'modal', 'For small losses a confirm step only slows people down. Act at once and let them undo.')))]
+  ];
+  const wh = $('.tl-which', root);
+  wh.innerHTML = '<div class="tl-topics" role="group" aria-label="Pick a question">' + TOPICS.map((t, i) => `<button type="button" class="tl-topic" data-i="${i}" aria-pressed="${!i}">${t[1]}</button>`).join('') + '</div><div class="tl-flow" aria-live="polite"></div>';
+  const flow = $('.tl-flow', wh); let path = [], topic = 0;
+  const drawWhich = () => {
+    let node = TOPICS[topic][2]; const trail = []; path.forEach(i => { trail.push([node.q, node.a[i][0]]); node = node.a[i][1]; });
+    const done = trail.map(([q, a], i) => `<li><span>${esc(q)}</span> <b>${esc(a)}</b> <button type="button" class="tl-link" data-back="${i}">Change</button></li>`).join('');
+    flow.innerHTML = (done ? `<ol class="tl-trail">${done}</ol>` : '') + (node.q
+      ? `<p class="tl-q">${esc(node.q)}</p><div class="tl-actions">${node.a.map((x, i) => `<button type="button" class="tl-btn" data-ans="${i}">${esc(x[0])}</button>`).join('')}</div>`
+      : `<div class="tl-answer"><p class="tl-pick">Use: <b>${esc(node.pick)}</b></p><p>${esc(node.why)}</p><div class="tl-actions"><a class="tl-btn tl-primary" href="#${node.id}">See ${esc(title(node.id))}</a><button type="button" class="tl-btn" data-back="0">Start over</button></div></div>`);
+  };
+  wh.addEventListener('click', e => {
+    const t = e.target.closest('.tl-topic'); if (t) { topic = +t.dataset.i; path = []; $$('.tl-topic', wh).forEach(b => b.setAttribute('aria-pressed', b === t)); drawWhich(); return; }
+    const a = e.target.closest('[data-ans]'); if (a) { path.push(+a.dataset.ans); drawWhich(); const f = $('.tl-flow [data-ans], .tl-answer a', wh); if (f) f.focus(); return; }
+    const b = e.target.closest('[data-back]'); if (b) { path = path.slice(0, +b.dataset.back); drawWhich(); const f = $('.tl-flow [data-ans]', wh); if (f) f.focus(); }
+  });
+  drawWhich();
+
+  /* ===== 3. Brief builder: Saved cards become one brief for Claude ===== */
+  const br = $('.tl-brief', root);
+  const STACKS = ['Match my existing stack', 'React + Tailwind CSS', 'Next.js', 'Vue', 'Svelte', 'Plain HTML, CSS and JavaScript', 'Flutter', 'SwiftUI'];
+  br.innerHTML = '<div class="tl-form"><label>Project name<input id="tb-name" maxlength="80" placeholder="Northwind shop"></label>'
+    + '<label>What it is<textarea id="tb-what" rows="2" maxlength="400" placeholder="An online shop for handmade lamps"></textarea></label>'
+    + '<label>Who it is for<input id="tb-who" maxlength="160" placeholder="Shoppers on phones, 25 to 45"></label>'
+    + '<label>Stack<select id="tb-stack">' + STACKS.map(s => `<option>${s}</option>`).join('') + '</select></label>'
+    + '<label class="tl-check"><input type="checkbox" id="tb-code" checked> Include each card\'s reference code</label></div>'
+    + '<div class="tl-picked"></div><div class="tl-actions"><button type="button" class="tl-btn tl-primary" id="tb-copy">Copy brief</button><button type="button" class="tl-btn" id="tb-dl">Download .md</button><span class="tl-note" id="tb-size"></span></div>'
+    + '<details class="tl-preview"><summary>Preview the brief</summary><pre id="tb-out" tabindex="0"></pre></details>';
+  const f = id => $('#' + id, br);
+  const saved = () => $$('article.demo').filter(a => isSaved(a.id)).map(a => a.id);
+  const ORDER = [['styles', 'Visual style'], ['layouts', 'Layout'], ['navigation', 'Navigation'], ['interaction', 'Components and patterns'], ['ai', 'AI patterns'], ['laws', 'UX laws to respect'], ['access', 'Accessibility and motion'], ['approaches', 'Process']];
+  const brief = () => {
+    const ids = saved(), by = s => ids.filter(id => card(id).closest('section').id === s), name = f('tb-name').value.trim() || 'my project';
+    let t = `# Build brief: ${name}\n\n`;
+    const what = f('tb-what').value.trim(), who = f('tb-who').value.trim();
+    t += (what ? `What it is: ${what}\n` : '') + (who ? `Who it is for: ${who}\n` : '') + `Stack: ${f('tb-stack').value}.\n\n`;
+    t += 'Build this interface using the choices below. Where two choices pull in different directions, follow the visual style and the UX rules first, and tell me what you changed.\n';
+    ORDER.forEach(([s, h]) => { const list = by(s); if (!list.length) return; t += `\n## ${h}\n`; list.forEach(id => { t += `\n### ${title(id)}\n${factsFor(card(id))}\n`; }); });
+    t += '\n## Quality bar\n' + BASE_RULES.map((r, i) => `${i + 1}. ${r}`).join('\n') + '\n';
+    if (f('tb-code').checked) { t += '\n## Reference code from kindofui\nAdapt these to my project instead of pasting them as they are.\n'; ids.forEach(id => { t += `\n### ${title(id)}\n\`\`\`html\n${codeFor($('.stage', card(id)))}\n\`\`\`\n`; }); }
+    return t;
+  };
+  function drawBrief() {
+    const ids = saved();
+    $('.tl-picked', br).innerHTML = ids.length ? `<p class="tl-src">${ids.length} saved card${ids.length > 1 ? 's' : ''} go into the brief. Change the list with Save on any card.</p><ul class="tl-chips">${ids.map(id => `<li><a href="#${id}">${esc(title(id))}</a> <span class="tl-kind">${kind(id)}</span></li>`).join('')}</ul>`
+      : '<p class="tl-empty">No cards saved yet. Press Save on the cards you want, or use the Style finder and press "Save all". Then come back here.</p>';
+    f('tb-copy').disabled = f('tb-dl').disabled = !ids.length;
+    const t = ids.length ? brief() : ''; f('tb-out').textContent = t; f('tb-size').textContent = ids.length ? Math.round(t.length / 1000) + 'k characters' : '';
+    store('kui-brief', { n: f('tb-name').value, w: f('tb-what').value, u: f('tb-who').value, s: f('tb-stack').value, c: f('tb-code').checked });
+  }
+  const prev = store('kui-brief');
+  if (prev) { f('tb-name').value = prev.n || ''; f('tb-what').value = prev.w || ''; f('tb-who').value = prev.u || ''; if (STACKS.includes(prev.s)) f('tb-stack').value = prev.s; f('tb-code').checked = prev.c !== false; }
+  br.addEventListener('input', drawBrief); br.addEventListener('change', drawBrief);
+  document.addEventListener('click', e => { if (e.target.closest('.savebtn') && !br.closest('.tl-panel').hidden) setTimeout(drawBrief, 0); });
+  f('tb-copy').addEventListener('click', e => copy(e.currentTarget, brief(), 'Copy brief'));
+  f('tb-dl').addEventListener('click', () => { const name = (f('tb-name').value.trim() || 'project').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'project';
+    const u = URL.createObjectURL(new Blob([brief()], { type: 'text/markdown' })), a = document.createElement('a'); a.href = u; a.download = name + '-brief.md'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); });
+  drawBrief();
+
+  /* ===== 4. UX audit ===== */
+  const AUD = [
+    ['Usability', [['fitts', 'Main buttons are big (at least 44 by 44 px on touch) and close to where the hand or pointer already is.'], ['hick', 'Each screen offers a few clear choices; rare options are tucked away.'],
+      ['jakob', 'Navigation, search, cart and forms work the way people know from other sites.'], ['miller', 'Long numbers, codes and lists are broken into small groups.'],
+      ['gestalt', 'Related things are grouped by space or a shared box, and unrelated things sit apart.'], ['vonrestorff', 'Only one thing per screen stands out: the main action.'],
+      ['tesler', 'Hard parts are handled by smart defaults instead of being pushed onto the user.'], ['nielsen', 'People can always see what is happening, undo mistakes, and read words they use themselves.']]],
+    ['Feedback and errors', [['doherty', 'Every action responds within about 400 ms, or shows feedback at once while it works.'], ['loaders', 'Anything slower than a second shows progress.'],
+      ['errors', 'Error messages say what went wrong and how to fix it, in plain words.'], ['validation', 'Forms check fields as people go, not only after Submit.'],
+      ['empty', 'Empty screens explain what goes there and offer the first step.'], ['darkpat', 'No dark patterns: no pre-ticked boxes, hidden costs or guilt-trip wording.']]],
+    ['Accessibility', [['a11y', 'Body text contrast is at least 4.5:1, and the page still works at 200% zoom.'], ['aria', 'Real buttons, links and labels are used, and icon-only buttons have a name.'],
+      ['focus', 'Every control shows a clear focus ring when using the keyboard.'], ['colorblind', 'Color is never the only signal; status also has text or an icon.']]],
+    ['Motion', [['reducedmotion', 'Animation calms down or stops when the system asks for reduced motion.'], ['easing', 'Motion is short and eases out when things enter.'], ['transitions', 'Transitions show where content came from and went.']]]
+  ].map(([g, items]) => [g, items.filter(x => card(x[0]))]);
+  const au = $('.tl-audit', root); let ans = store('kui-audit') || {};
+  au.innerHTML = '<p class="tl-src">Answer for your own product. Each check links to the card that explains it. Answers stay in this browser.</p><div class="tl-score" aria-live="polite"></div>'
+    + AUD.map(([g, items]) => `<fieldset class="tl-group"><legend>${g}</legend>` + items.map(([id, q]) => `<div class="tl-check-row" data-id="${id}"><p>${esc(q)} <a href="#${id}">${esc(title(id))}</a></p><div class="tl-seg" role="radiogroup" aria-label="${esc(title(id))}">`
+      + [['y', 'Yes'], ['n', 'No'], ['x', 'N/A']].map(([v, l]) => `<label><input type="radio" name="au-${id}" value="${v}"${ans[id] === v ? ' checked' : ''}><span>${l}</span></label>`).join('') + '</div></div>').join('') + '</fieldset>').join('')
+    + '<div class="tl-actions"><button type="button" class="tl-btn tl-primary" id="au-todo">Copy to-do list</button><button type="button" class="tl-btn" id="au-ai">Copy AI review prompt</button><button type="button" class="tl-btn" id="au-reset">Reset answers</button></div>';
+  const ALL = AUD.flatMap(([g, items]) => items.map(x => [g, ...x]));
+  const score = () => { const y = ALL.filter(x => ans[x[1]] === 'y').length, n = ALL.filter(x => ans[x[1]] === 'n').length, open = ALL.filter(x => !ans[x[1]]).length, rel = y + n;
+    $('.tl-score', au).innerHTML = `<b>${rel ? Math.round(y / rel * 100) + '%' : 'Not started'}</b> <span>${y} pass · ${n} to fix · ${open} not answered · ${ALL.length - rel - open} not relevant</span>`;
+    $('#au-todo').disabled = $('#au-ai').disabled = !(n + open); };
+  au.addEventListener('change', e => { const r = e.target.closest('input[type=radio]'); if (!r) return; ans[r.name.slice(3)] = r.value; store('kui-audit', ans); score(); });
+  const todo = () => ALL.filter(x => ans[x[1]] !== 'y' && ans[x[1]] !== 'x');
+  $('#au-todo').addEventListener('click', e => copy(e.currentTarget, '# UX to-do\n\n' + todo().map(x => `- [ ] ${x[2]} (${x[0]}; ${ans[x[1]] === 'n' ? 'fails' : 'not checked yet'}) ${linkOf(x[1])}`).join('\n') + '\n', 'Copy to-do list'));
+  $('#au-ai').addEventListener('click', e => copy(e.currentTarget, 'Review my UI against these checks. For each one, show me where it fails with the exact element, explain why it matters to the user, and suggest the smallest fix. Apply the fixes in code when I say so, keeping my existing styles.\n\n'
+    + todo().map((x, i) => `${i + 1}. ${x[2]} (${title(x[1])})`).join('\n') + '\n\nI will share screenshots or code next.', 'Copy AI review prompt'));
+  $('#au-reset').addEventListener('click', () => { ans = {}; store('kui-audit', ans); $$('input[type=radio]', au).forEach(r => { r.checked = false; }); score(); });
+  const linkOf = id => location.origin + location.pathname + '#' + id;
+  score();
+})();
+
+/* ---------- Share links, Saved list, URL state and keyboard shortcuts ---------- */
+(() => {
+  const cards = $$('article.demo'), byId = id => cards.find(a => a.id === id);
+  const live = document.createElement('span'); live.className = 'kh-sr'; live.setAttribute('aria-live', 'polite'); document.body.appendChild(live);
+  const say = t => { live.textContent = ''; setTimeout(() => { live.textContent = t; }, 30); };
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  const linkFor = id => location.origin + location.pathname + '#' + id;
+  const copyText = (t, ok, fail) => { try { navigator.clipboard.writeText(t).then(ok, fail); } catch (_) { fail(); } };
+  const flash = (b, text, back) => { b.lastChild.textContent = text; clearTimeout(b._t); b._t = setTimeout(() => { b.lastChild.textContent = back(); }, 1500); };
+  const ICON_LINK = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9.5a3 3 0 0 0 4.2 0l2.3-2.3a3 3 0 0 0-4.2-4.2l-.9.9"/><path d="M9.5 6.5a3 3 0 0 0-4.2 0L3 8.8a3 3 0 0 0 4.2 4.2l.9-.9"/></svg>';
+  const ICON_SAVE = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 2.5h8v11l-4-3-4 3z"/></svg>';
+
+  /* Saved: kept in this browser only. If storage is blocked it still works until the tab closes. */
+  const KEY = 'kui-saved';
+  let saved = new Set();
+  try { const raw = JSON.parse(localStorage.getItem(KEY) || '[]'); if (Array.isArray(raw)) raw.forEach(id => { if (byId(id)) saved.add(id); }); } catch (_) {}
+  const store = () => { try { localStorage.setItem(KEY, JSON.stringify([...saved])); } catch (_) {} };
+  const savedN = $('#saved-n');
+  const syncCount = () => { savedN.textContent = saved.size; };
+
+  /* Card actions: Code and prompt (already there), Save, Copy link */
+  cards.forEach(a => {
+    const code = $('.codebtn', a); if (!code) return;
+    const row = document.createElement('div'); row.className = 'cardact'; code.before(row); row.appendChild(code);
+    const name = $('h3', a).firstChild.textContent.trim();
+    const sv = document.createElement('button'); sv.type = 'button'; sv.className = 'actbtn savebtn'; sv.innerHTML = ICON_SAVE + '<span></span>';
+    const syncSave = () => { const on = saved.has(a.id); sv.setAttribute('aria-pressed', on); sv.lastChild.textContent = on ? 'Saved' : 'Save'; sv.setAttribute('aria-label', (on ? 'Saved: ' : 'Save ') + name); };
+    sv.addEventListener('click', () => { if (saved.has(a.id)) saved.delete(a.id); else saved.add(a.id); store(); syncSave(); syncCount(); say(saved.has(a.id) ? name + ' saved' : name + ' removed from Saved'); if (filt === 'saved') applyFilter(); });
+    const lk = document.createElement('button'); lk.type = 'button'; lk.className = 'actbtn linkbtn'; lk.innerHTML = ICON_LINK + '<span>Copy link</span>'; lk.setAttribute('aria-label', 'Copy link to ' + name);
+    lk.addEventListener('click', () => copyText(linkFor(a.id), () => { flash(lk, 'Link copied ✓', () => 'Copy link'); say('Link copied'); }, () => { flash(lk, 'Copy failed', () => 'Copy link'); history.replaceState(null, '', '#' + a.id); say('Could not copy. The link is now in the address bar.'); }));
+    row.append(sv, lk); a._sync = syncSave; syncSave();
+  });
+  syncCount();
+
+  /* Land on a card from a #id link. content-visibility guesses heights for cards far away, so settle the scroll a second time once they render. */
+  const land = (a, smooth) => {
+    if (!a) return;
+    if (a.hidden) { filt = 'all'; qi.value = ''; $$('nav.index button').forEach(x => { x.classList.toggle('on', x.dataset.f === 'all'); x.setAttribute('aria-pressed', x.dataset.f === 'all'); }); applyFilter(); }
+    if (!a.hasAttribute('tabindex')) a.setAttribute('tabindex', '-1');
+    const go = b => a.scrollIntoView({ block: 'start', behavior: b && !calm.matches ? 'smooth' : 'auto' });
+    go(smooth); a.focus({ preventScroll: true });
+    if (!smooth) [120, 450].forEach(t => setTimeout(() => go(false), t));
+  };
+  addEventListener('hashchange', () => land(byId(location.hash.slice(1)), false));
+
+  /* Search, section and Compare in the URL, so a view can be shared or reloaded. replaceState keeps the Back button clean. */
+  const CMP_DEF = 'pricing~neu~nb';
+  const cmpState = () => {
+    const scr = ($('#cmp-tabs button[aria-pressed="true"]') || {}).dataset; const a = $('#cmp-a'), b = $('#cmp-b'); if (!scr || !a || !b) return {};
+    const mix = side => $$('.cmpp')[side].querySelectorAll('.cmpmix select'); const m = side => [...mix(side)].filter(s => s.value).map(s => s.dataset.g + s.value).join('.');
+    return { cmp: [scr.scr, a.value, b.value].join('~'), ma: m(0), mb: m(1) };
+  };
+  const writeURL = keepHash => {
+    const p = new URLSearchParams(), v = qi.value.trim(); if (v) p.set('q', v); if (filt !== 'all') p.set('s', filt);
+    const c = cmpState(); if (c.cmp && c.cmp !== CMP_DEF) p.set('cmp', c.cmp); if (c.ma) p.set('ma', c.ma); if (c.mb) p.set('mb', c.mb);
+    const tl = $('#tools-tabs button[aria-pressed="true"]'); if (tl && tl.dataset.tool !== 'finder') p.set('tool', tl.dataset.tool);
+    const qs = p.toString(); history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + (keepHash ? location.hash : ''));
+  };
+  const setSel = (el, v) => { if (el && [...el.options].some(o => o.value === v) && el.value !== v) { el.value = v; el.dispatchEvent(new Event('change')); } };
+  const readURL = () => {
+    const p = new URLSearchParams(location.search);
+    const s = p.get('s'); const btn = s && $(`nav.index button[data-f="${CSS.escape(s)}"]`);
+    if (btn) { filt = s; $$('nav.index button').forEach(x => { x.classList.toggle('on', x === btn); x.setAttribute('aria-pressed', x === btn); }); }
+    const q = p.get('q'); if (q) qi.value = q.slice(0, 80);
+    const c = (p.get('cmp') || '').split('~');
+    if (c.length === 3) { const t = $(`#cmp-tabs button[data-scr="${CSS.escape(c[0])}"]`); if (t) t.click(); setSel($('#cmp-a'), c[1]); setSel($('#cmp-b'), c[2]); }
+    ['ma', 'mb'].forEach((k, i) => (p.get(k) || '').split('.').forEach(x => { const g = x.charAt(0), sel = $$('.cmpp')[i] && $$('.cmpp')[i].querySelector(`.cmpmix select[data-g="${CSS.escape(g)}"]`); if (sel && x.length > 1) { setSel(sel, x.slice(1)); sel.closest('details').open = true; } }));
+    const tool = p.get('tool'); if (tool && $(`#tools-tabs button[data-tool="${CSS.escape(tool)}"]`)) $('#tools')._show(tool);
+    applyFilter();
+  };
+  readURL();
+  qi.addEventListener('input', () => writeURL(false));
+  $$('nav.index button').forEach(b => b.addEventListener('click', () => writeURL(false)));
+  const tt = $('#tools-tabs'); if (tt) tt.addEventListener('click', () => writeURL(true));
+  const cmp = $('#compare'); if (cmp) { cmp.addEventListener('change', () => writeURL(true)); $('#cmp-tabs').addEventListener('click', () => writeURL(true)); }
+  if (location.hash.length > 1) { const a = byId(location.hash.slice(1)); if (a) requestAnimationFrame(() => land(a, false)); }
+
+  /* Keyboard shortcuts. Single keys can be switched off (WCAG 2.1.4) and never fire while typing or inside a demo. */
+  const KK = 'kui-keys';
+  let keysOn = true; try { keysOn = localStorage.getItem(KK) !== 'off'; } catch (_) {}
+  const dlg = document.createElement('dialog'); dlg.className = 'kbdhelp'; dlg.setAttribute('aria-labelledby', 'kbd-t');
+  const KEYS = [['j', 'Next card'], ['k', 'Previous card'], ['s', 'Save or unsave the card'], ['l', 'Copy link to the card'], ['o', 'Open or close code and prompt'], ['/', 'Search'], ['?', 'Show this list']];
+  dlg.innerHTML = '<h2 id="kbd-t">Keyboard shortcuts</h2><table><tbody>' + KEYS.map(k => `<tr><td><kbd>${k[0]}</kbd></td><td>${k[1]}</td></tr>`).join('') + '<tr><td><kbd>' + (/mac|iphone|ipad/i.test((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '') ? '⌘ K' : 'Ctrl K') + '</kbd></td><td>Search (always on)</td></tr></tbody></table>'
+    + '<div class="kbdrow"><span id="kbd-sw-l">Single-key shortcuts</span><button type="button" class="kbdsw" role="switch" aria-labelledby="kbd-sw-l"></button></div><p class="kbdnote">Turn these off if they clash with a screen reader or voice control. The choice is kept in this browser.</p><form method="dialog"><button class="kbdclose">Close</button></form>';
+  document.body.appendChild(dlg);
+  const sw = $('.kbdsw', dlg); const syncSw = () => sw.setAttribute('aria-checked', keysOn);
+  sw.addEventListener('click', () => { keysOn = !keysOn; try { localStorage.setItem(KK, keysOn ? 'on' : 'off'); } catch (_) {} syncSw(); say(keysOn ? 'Single-key shortcuts on' : 'Single-key shortcuts off'); }); syncSw();
+  const help = () => { if (!dlg.open) dlg.showModal(); };
+  const kb = $('#kf-keys'); if (kb) kb.addEventListener('click', help);
+  const visible = () => cards.filter(a => !a.hidden && !a.closest('section').hidden);
+  const current = () => { const f = document.activeElement && document.activeElement.closest && document.activeElement.closest('article.demo'); if (f && !f.hidden) return f;
+    const v = visible(); let best = null, bd = Infinity; v.forEach(a => { const d = Math.abs(a.getBoundingClientRect().top - 130); if (d < bd) { bd = d; best = a; } }); return best; };
+  addEventListener('keydown', e => {
+    if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey || dlg.open || !keysOn) return;
+    const t = e.target; if (t.closest && (t.closest('input,textarea,select,[contenteditable="true"],.stage,.cmpst,.cmpmix,dialog,#tools'))) return;
+    const k = e.key; if (!['j', 'k', 's', 'l', 'o', '/', '?'].includes(k)) return;
+    e.preventDefault();
+    if (k === '?') return help();
+    if (k === '/') { qi.focus(); qi.select(); return; }
+    const c = current(); if (!c) return;
+    if (k === 'j' || k === 'k') { const v = visible(), i = v.indexOf(c), top = c.getBoundingClientRect().top; let n;
+      if (k === 'j') n = top > 140 && document.activeElement !== c ? c : v[i + 1]; else n = top < 120 && document.activeElement !== c ? c : v[i - 1];
+      if (n) { land(n, true); say($('h3', n).firstChild.textContent.trim()); } return; }
+    if (k === 's') return $('.savebtn', c).click();
+    if (k === 'l') return $('.linkbtn', c).click();
+    if (k === 'o') { const b = $('.codebtn', c); b.click(); return; }
+  });
+
+  /* Saved tab: only saved cards (search still narrows them), with an honest empty state */
+  const NORES = nores.textContent;
+  const base = applyFilter;
+  applyFilter = function () {
+    base(); if (filt !== 'saved') { nores.textContent = NORES; return; }
+    const v = qi.value.trim().toLowerCase(); let n = 0;
+    secs.forEach(s => { if (s.id === 'compare' || s.id === 'tools') { s.hidden = true; return; } let m = 0;
+      $$('article.demo', s).forEach(a => { const ok = saved.has(a.id) && (!v || TXT.get(a).includes(v)); a.hidden = !ok; if (ok) m++; }); s.hidden = m === 0; n += m; });
+    res.textContent = n + ' saved'; nores.hidden = n > 0;
+    nores.textContent = saved.size ? 'No saved cards match that search.' : 'Nothing saved yet. Press Save on any card to keep it here. Saves stay in this browser.';
+  };
+  qi.addEventListener('input', () => applyFilter());
+  applyFilter();
+})();
 
 /* ---------- HCI: before / after ---------- */
 (() => { const st = $('.s-hci'); if (!st) return; const busy = new WeakSet();
