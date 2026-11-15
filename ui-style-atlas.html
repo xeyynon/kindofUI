@@ -766,7 +766,6 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .cmptabs button[aria-pressed="true"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--fg)}
 .cmpwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px}
 .cmpp{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
-.cmpp > label{display:flex;gap:10px;align-items:center;padding:10px 14px;font:600 13px var(--body);border-bottom:1px solid var(--line)}
 .cmpp select{flex:1;min-width:0;font:14px var(--body);padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
 .cmpmix{border-top:1px solid var(--line);font:13px var(--body)}
 .cmpmix summary{cursor:pointer;padding:10px 14px;font-weight:600;color:var(--fg);list-style-position:inside}
@@ -778,7 +777,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .cmpfoot .fail{color:var(--warn)}
 .cmpfoot button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:5px 10px;font:600 12px var(--body)}
 .cmpst{height:300px;display:grid;place-items:center;padding:16px;position:relative;overflow:hidden;color-scheme:light;container-type:inline-size;
-  background:var(--k-stage);color:var(--k-fg);font:calc(13px * var(--k-scale,1))/1.4 var(--k-font);letter-spacing:var(--k-track,normal)}
+  background:var(--k-stage);color:var(--k-fg);font:calc(13px * var(--k-scale,1) * var(--k-fit,1))/1.4 var(--k-font);letter-spacing:var(--k-track,normal)}
 .kx-card{background:var(--k-surface);color:var(--k-fg);border:var(--k-bw) solid;border-color:var(--k-card-bc);border-radius:var(--k-radius);box-shadow:var(--k-shadow);-webkit-backdrop-filter:var(--k-blur);backdrop-filter:var(--k-blur);text-shadow:var(--k-tshadow);min-width:0}
 .kx-pad{padding:1.25em}.kx-pads{padding:.9em 1em}
 .kx-w220{width:min(100%,230px)}.kx-w260{width:min(100%,270px)}
@@ -825,7 +824,89 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .cmpmix select{width:100%}
 .cmphint{flex-basis:100%;margin:0;color:var(--muted)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.cmpst[data-blur] .kx-card{background:rgba(255,255,255,.3)}}
-@container (max-width:330px){.kx-bar .kx-links .hide-n{display:none}}
+.cmpgroups{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:8px}
+.cmpgroups button{display:inline-flex;align-items:center;gap:6px;border:0;border-left:1px solid var(--line);background:var(--surface);color:var(--muted);font:600 13px var(--body);padding:7px 12px;white-space:nowrap}
+.cmpgroups button:first-child{border-left:0}
+.cmpgroups button:hover{color:var(--fg)}
+.cmpgroups button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.cmpgroups .kn{font:500 11px var(--mono);opacity:.75}
+.cmphead{display:flex;flex-wrap:wrap;gap:8px 14px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.cmphead label{display:flex;gap:8px;align-items:center;font:600 13px var(--body);flex:1 1 170px;min-width:0}
+.cmphead .cmpstl{flex:0 1 150px}
+.cmpbtns{display:flex;flex-wrap:wrap;gap:6px}
+.cmplab{font-weight:600;color:var(--fg);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.kx-w280{width:min(100%,290px)}.kx-w320{width:min(100%,340px)}
+.kx-grow{flex:1;min-width:0}
+.kx-even>*{flex:1}
+.kx-line{border-bottom:1px solid color-mix(in srgb,var(--k-fg) 12%,transparent)}
+.kx-line-t{border-top:1px solid color-mix(in srgb,var(--k-fg) 12%,transparent)}
+.kx-av{width:2.2em;height:2.2em;flex:none;display:grid;place-items:center;border-radius:50%;font-size:.8em;font-weight:700;background:color-mix(in srgb,var(--k-accent-ink) 24%,var(--k-surface-solid));color:var(--k-fg);text-shadow:none}
+.kx-av-l{width:3.4em;height:3.4em;font-size:1.05em}
+.kx-mid{display:grid;flex:1;min-width:0;line-height:1.25}
+.kx-trunc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.92em}
+.kx-rows{list-style:none;margin:0;padding:0}
+.kx-mail{display:flex;align-items:center;gap:.7em;padding:.5em 1em;border-top:1px solid color-mix(in srgb,var(--k-fg) 8%,transparent)}
+.kx-mail:first-child{border-top:0}
+.kx-mail b{font-weight:400}
+.kx-mail.unread b{font-weight:var(--k-head-weight)}
+.kx-mail.sel{background:color-mix(in srgb,var(--k-accent-ink) 13%,transparent)}
+.kx-dot{width:.55em;height:.55em;flex:none;border-radius:50%;background:var(--k-accent-ink)}
+.kx-tools{gap:.15em}
+.kx-icbtn{width:2em;height:2em;display:grid;place-items:center;padding:0;border:0;border-radius:var(--k-radius-field);background:none;color:var(--k-fg);font:inherit;cursor:pointer}
+.kx-icbtn:hover{background:color-mix(in srgb,var(--k-fg) 10%,transparent)}
+.kx-ic{width:1.15em;height:1.15em;flex:none}
+.kx-doc{line-height:1.5;font-size:.95em;outline:none;border-radius:4px}
+.kx-table{width:100%;border-collapse:collapse;font-size:.85em}
+.kx-table th{text-align:left;font-weight:500;color:var(--k-muted);padding:.3em .4em;border-bottom:1px solid color-mix(in srgb,var(--k-fg) 15%,transparent)}
+.kx-table td{padding:.4em;border-bottom:1px solid color-mix(in srgb,var(--k-fg) 8%,transparent)}
+.kx-num-c{text-align:right!important;white-space:nowrap}
+.kx-status{display:inline-flex;align-items:center;gap:.35em}
+.kx-status::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--k-accent-ink)}
+.kx-status.s-due::before{background:var(--k-muted)}
+.kx-status.s-overdue::before{background:var(--k-danger)}
+.kx-msgs{display:grid;gap:.4em;padding:.7em 1em}
+.kx-msg{margin:0;max-width:80%;padding:.45em .75em;border-radius:min(var(--k-radius),14px);font-size:.92em;line-height:1.35}
+.kx-msg.them{justify-self:start;background:var(--k-field);color:var(--k-field-ink);border:var(--k-field-bw) solid;border-color:var(--k-field-bc);text-shadow:none}
+.kx-msg.me{justify-self:end;background:var(--k-accent);color:var(--k-on-accent);text-shadow:none}
+.kx-or{display:flex;align-items:center;gap:.6em}
+.kx-or::before,.kx-or::after{content:"";flex:1;height:1px;background:color-mix(in srgb,var(--k-fg) 18%,transparent)}
+.kx-center{text-align:center;justify-items:center}
+.kx-illus{width:100%;height:60px;border-radius:min(var(--k-radius),12px);background:linear-gradient(135deg,color-mix(in srgb,var(--k-accent-ink) 55%,var(--k-surface-solid)),color-mix(in srgb,var(--k-accent-ink) 15%,var(--k-surface-solid)))}
+.kx-dots{display:flex;gap:.4em}
+.kx-dots i{width:.5em;height:.5em;border-radius:.25em;background:color-mix(in srgb,var(--k-fg) 25%,transparent)}
+.kx-dots i.on{width:1.3em;background:var(--k-accent-ink)}
+.kx-post{padding:0 1em .6em}
+.kx-img-s{height:80px}
+.kx-acts{gap:.8em}
+.kx-act{display:inline-flex;align-items:center;gap:.35em;padding:.25em .4em;border:0;border-radius:var(--k-radius-field);background:none;color:var(--k-fg);font:inherit;cursor:pointer;position:relative}
+.kx-act[aria-pressed="true"]{color:var(--k-accent-ink)}
+.kx-act[aria-pressed="true"] svg path{fill:currentColor}
+.kx-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kx-chips{display:flex;flex-wrap:wrap;gap:.4em}
+.kx-chip{padding:.3em .7em;border:var(--k-field-bw) solid;border-color:var(--k-field-bc);border-radius:var(--k-radius-btn);background:var(--k-field);color:var(--k-field-ink);box-shadow:var(--k-field-shadow);font:inherit;font-size:.85em;cursor:pointer;text-shadow:none}
+.kx-chip[aria-pressed="true"]{background:var(--k-accent);color:var(--k-on-accent);border-color:var(--k-btn-bc)}
+.kx-res li{display:grid;gap:.05em;padding:.4em 0;border-top:1px solid color-mix(in srgb,var(--k-fg) 10%,transparent)}
+.kx-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:.5em;width:100%}
+.kx-trio>span{display:grid}
+.kx-stack.kx-tight{gap:.4em}
+.kx-hr{width:100%;margin:.1em 0;border:0;border-top:1px solid color-mix(in srgb,var(--k-fg) 15%,transparent)}
+.kx-bigic{display:grid;place-items:center;width:2.6em;height:2.6em;border-radius:50%;background:color-mix(in srgb,var(--k-accent-ink) 16%,transparent);color:var(--k-fg)}
+.kx-bigic .kx-ic{width:1.4em;height:1.4em}
+.kx-btn{position:relative}
+.kx-btn::before{content:"";position:absolute;inset:0;border-radius:inherit;background:color-mix(in srgb,var(--k-on-accent) 16%,transparent);opacity:0;pointer-events:none;transition:opacity .15s}
+.kx-btn.kx-ghost::before{background:color-mix(in srgb,var(--k-fg) 10%,transparent)}
+.kx-btn:hover::before,.kx-btn.is-hover::before{opacity:1}
+.kx-btn:disabled::before{opacity:0}
+.kx-act:hover,.kx-act.is-hover{background:color-mix(in srgb,var(--k-fg) 10%,transparent)}
+.kx-btn:focus-visible,.kx-btn.is-focus,.kx-act:focus-visible,.kx-act.is-focus,.kx-field:focus-visible,.kx-icbtn:focus-visible,.kx-chip:focus-visible,.kx-tog:focus-visible,.kx-doc:focus-visible{outline:2px solid var(--k-accent-ink);outline-offset:2px}
+.kx-btn:disabled,.kx-field:disabled,.kx-act:disabled{opacity:.45;cursor:not-allowed}
+.kx-btn.is-busy:disabled,.kx-act.is-busy:disabled{opacity:1;cursor:progress}
+.kx-field.is-error{border-color:var(--k-danger)!important;box-shadow:0 0 0 1px var(--k-danger)}
+.kx-errtxt{display:block;margin:0;color:var(--k-danger);font-size:.82em;line-height:1.3;text-align:left}
+.kx-spin{display:inline-block;width:1em;height:1em;margin-right:.45em;vertical-align:-.15em;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:kxspin .8s linear infinite}
+@keyframes kxspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.kx-spin{animation:none}}
+@container (max-width:330px){.kx-bar .kx-links .hide-n,.kx-table .hide-n{display:none}}
 
 /* ================= v2: visual styles ================= */
 .s-lg{background:repeating-linear-gradient(60deg,rgba(255,255,255,.1) 0 14px,transparent 14px 28px),linear-gradient(150deg,#ff9966,#ff5e62 35%,#8e2de2 70%,#00c6ff);color:#fff}
@@ -1772,7 +1853,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 <header class="top" id="top">
   <div class="kh-bar">
     <a class="kh-brand" href="#top" aria-label="kindofui, back to the top"><span class="kh-mark" aria-hidden="true"></span>kindofui</a>
-    <div class="kh-end"><a class="kh-gh" href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofUI on GitHub, build 1007 (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofUI</span><span class="kh-build"><span class="kh-bw">Build </span>1007</span></a><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
+    <div class="kh-end"><a class="kh-gh" href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofUI on GitHub, build 1008 (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofUI</span><span class="kh-build"><span class="kh-bw">Build </span>1008</span></a><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
   </div>
   <div class="kh-intro">
     <p class="kh-eyebrow">The interactive UI/UX library</p>
@@ -1794,11 +1875,12 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <section class="group" id="compare">
 <h2>Compare styles</h2>
-<p>The same screen in two styles, side by side. Pick a screen and two styles, or open Mix styles to take the colours, shape, depth and type from different styles.</p>
+<p>The same screen in two styles, side by side. Pick from 21 everyday screens, switch the state to see hover, error or loading, or open Mix styles to take the colours, shape, depth and type from different styles.</p>
+<div class="cmpgroups" id="cmp-groups" role="group" aria-label="Screen group"></div>
 <div class="cmptabs" id="cmp-tabs" role="group" aria-label="Screen to compare"></div>
 <div class="cmpwrap">
-  <div class="cmpp"><label for="cmp-a">Left<select id="cmp-a"></select></label><div class="cmpst" id="cmp-sa"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><button type="button" class="cmpcopy">Copy tokens</button><p class="cmphint" hidden></p></div></div>
-  <div class="cmpp"><label for="cmp-b">Right<select id="cmp-b"></select></label><div class="cmpst" id="cmp-sb"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><button type="button" class="cmpcopy">Copy tokens</button><p class="cmphint" hidden></p></div></div>
+  <div class="cmpp"><div class="cmphead"><label for="cmp-a">Left<select id="cmp-a"></select></label><label for="cmp-ta" class="cmpstl">State<select id="cmp-ta" class="cmpstate"></select></label></div><div class="cmpst" id="cmp-sa"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><span class="cmpbtns"><button type="button" class="cmpprompt">Copy prompt</button><button type="button" class="cmpcopy">Copy tokens</button></span><p class="cmphint" hidden></p></div></div>
+  <div class="cmpp"><div class="cmphead"><label for="cmp-b">Right<select id="cmp-b"></select></label><label for="cmp-tb" class="cmpstl">State<select id="cmp-tb" class="cmpstate"></select></label></div><div class="cmpst" id="cmp-sb"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><span class="cmpbtns"><button type="button" class="cmpprompt">Copy prompt</button><button type="button" class="cmpcopy">Copy tokens</button></span><p class="cmphint" hidden></p></div></div>
 </div>
 </section>
 
@@ -3738,19 +3820,77 @@ on('#fid-x', 'click', () => { $('#fid-p .v2').hidden = true; $('#fid-p .v1').hid
     retro: def(['#008080', '#000000', '#404040', '#c0c0c0', '#c0c0c0', BEVEL, '#c0c0c0', '#000000', '#000080', '#808080', '#ffffff', '#000000', SUNK, BEVEL],
       ['2px', '2px', '2px', '0px', '0px', '0px'], ['none', 'none', 'none', 'none', 'none'], ['"VT323",monospace', '1.2', 'normal', '400', '400'])
   };
+  /* Error colour per style, readable on that style's surface */
+  const DANGER = { minimal: '#c62828', glass: '#ffd1d1', liquid: '#fff0f0', neu: '#b3261e', nb: '#c00000', bru: '#cc0000', mat: '#b3261e', flat: '#ffe08a', skeu: '#a32020', clay: '#c0264b', dark: '#ff8a80', retro: '#800000' };
+  G.C.push('danger'); Object.keys(T).forEach(k => { T[k].C.danger = DANGER[k]; });
+  const ic = d => `<svg class="kx-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const I = { list: '<path d="M6 4h8M6 8h8M6 12h8M2.5 4h.01M2.5 8h.01M2.5 12h.01"/>', link: '<path d="M6.5 9.5a3 3 0 0 0 4.2 0l2.3-2.3a3 3 0 0 0-4.2-4.2l-.9.9"/><path d="M9.5 6.5a3 3 0 0 0-4.2 0L3 8.8a3 3 0 0 0 4.2 4.2l.9-.9"/>', undo: '<path d="M5 3 2 6l3 3"/><path d="M2 6h7a4 4 0 0 1 0 8H7"/>',
+    heart: '<path d="M8 13.5S2 10 2 5.8A3 3 0 0 1 8 4.4a3 3 0 0 1 6 1.4C14 10 8 13.5 8 13.5Z"/>', chat: '<path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/>', share: '<path d="M8 2v8M5 5l3-3 3 3M3 9v4.5h10V9"/>', search: '<circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/>',
+    folder: '<path d="M1.5 4.5v8h13v-7H8L6.5 4h-5z"/>', bell: '<path d="M4 11V7a4 4 0 0 1 8 0v4l1 1.5H3z"/><path d="M6.5 14h3"/>', check: '<path d="m3 8.5 3 3 7-7"/>' };
+  const av = (t, big) => `<span class="kx-av${big ? ' kx-av-l' : ''}" aria-hidden="true">${t}</span>`;
+  const row2 = (a, b, cls) => `<div class="kx-row kx-between${cls ? ' ' + cls : ''}"><span>${a}</span><span>${b}</span></div>`;
+  /* Screens: id, tab label, group, html, error text, loading text, what it is (for the prompt). Every screen reads only the tokens. .kx-main is the action the State switch acts on. */
   const SCR = [
-    ['pricing', 'Pricing', '<div class="kx-card kx-pad kx-w220 kx-stack"><span class="kx-small kx-muted">PRO PLAN</span><div class="kx-price kx-h">₹499<span> / month</span></div><ul class="kx-list"><li>Unlimited projects</li><li>Priority support</li><li>Custom domain</li></ul><button class="kx-btn kx-full" type="button">Upgrade</button></div>'],
-    ['signin', 'Sign in', '<div class="kx-card kx-pad kx-w260 kx-stack"><div class="kx-h kx-title">Sign in</div><label class="kx-lab">Email<input class="kx-field" type="email" value="asha@studio.in" autocomplete="off"></label><label class="kx-lab">Password<input class="kx-field" type="password" value="northwind22" autocomplete="off"></label><span class="kx-small kx-muted">Forgot password?</span><button class="kx-btn kx-full" type="button">Sign in</button></div>'],
-    ['navbar', 'Navbar', '<div class="kx-col"><div class="kx-card kx-bar"><span class="kx-h">Northwind</span><span class="kx-links"><span class="on">Home</span><span>Docs</span><span class="hide-n">Pricing</span></span><button class="kx-btn kx-sm" type="button">Sign up</button></div><div class="kx-card kx-pad kx-stack"><div class="kx-h kx-title">Run your shop from one place</div><p class="kx-p kx-muted">Payments, stock and invoices together.</p><div class="kx-row"><button class="kx-btn" type="button">Start free</button><button class="kx-btn kx-ghost" type="button">See demo</button></div></div></div>'],
-    ['product', 'Product card', '<div class="kx-card kx-prod kx-w220"><div class="kx-img"></div><div class="kx-pads kx-stack"><div class="kx-row kx-between"><span class="kx-h">Desk lamp</span><span class="kx-h">₹1,299</span></div><span class="kx-small kx-muted">Warm white, rated 4.6 of 5</span><button class="kx-btn kx-full" type="button">Add to cart</button></div></div>'],
-    ['settings', 'Settings', '<div class="kx-card kx-pad kx-w260"><div class="kx-h kx-title" style="margin-bottom:.5em">Notifications</div>' + [['Email updates', 1], ['Push alerts', 0], ['Weekly summary', 1]].map(([l, on]) => `<div class="kx-set"><span>${l}</span><button class="kx-tog" type="button" role="switch" aria-checked="${!!on}" aria-label="${l}"></button></div>`).join('') + '<div class="kx-row kx-end" style="margin-top:.7em"><button class="kx-btn kx-ghost kx-sm" type="button">Cancel</button><button class="kx-btn kx-sm" type="button">Save</button></div></div>'],
-    ['stats', 'Dashboard', '<div class="kx-col" style="width:min(100%,300px)"><div class="kx-stats"><div class="kx-card kx-pads"><div class="kx-small kx-muted">Revenue</div><div class="kx-num kx-h">₹4.2L</div><div class="kx-small kx-muted">up 12% this month</div></div><div class="kx-card kx-pads"><div class="kx-small kx-muted">Orders</div><div class="kx-num kx-h">1,284</div><div class="kx-small kx-muted">38 waiting</div></div></div><div class="kx-card kx-pads"><div class="kx-row kx-between kx-small"><span class="kx-h">Weekly sales</span><span class="kx-muted">Mon to Sun</span></div><div class="kx-bars">' + [42, 58, 50, 71, 64, 88, 76].map(h => `<i style="--h:${h}%"></i>`).join('') + '</div></div></div>'],
-    ['dialog', 'Dialog', '<div class="kx-behind" aria-hidden="true"><div class="kx-card"><i style="width:40%"></i></div><div class="kx-card"><i style="width:70%"></i><i style="width:50%"></i></div><div class="kx-card"><i style="width:60%"></i><i style="width:35%"></i></div></div><div class="kx-scrim"></div><div class="kx-card kx-pad kx-w260 kx-stack kx-dialog"><div class="kx-h kx-title">Delete this project?</div><p class="kx-p kx-muted">Northwind and its 24 files move to Trash. You can restore them for 30 days.</p><div class="kx-row kx-end"><button class="kx-btn kx-ghost kx-sm" type="button">Cancel</button><button class="kx-btn kx-sm" type="button">Delete</button></div></div>']
-  ];
-  const tabs = $('#cmp-tabs'), panels = $$('.cmpp');
+    ['pricing', 'Pricing', 'mkt', '<div class="kx-card kx-pad kx-w220 kx-stack"><span class="kx-small kx-muted">PRO PLAN</span><div class="kx-price kx-h">₹499<span> / month</span></div><ul class="kx-list"><li>Unlimited projects</li><li>Priority support</li><li>Custom domain</li></ul><button class="kx-btn kx-full kx-main" type="button">Upgrade</button></div>',
+      'Payment failed. Try another card.', 'Upgrading…', 'A pricing card: plan name, monthly price, three included features and an Upgrade button.'],
+    ['navbar', 'Landing', 'mkt', '<div class="kx-col"><div class="kx-card kx-bar"><span class="kx-h">Northwind</span><span class="kx-links"><span class="on">Home</span><span>Docs</span><span class="hide-n">Pricing</span></span><button class="kx-btn kx-sm" type="button">Sign up</button></div><div class="kx-card kx-pad kx-stack"><div class="kx-h kx-title">Run your shop from one place</div><p class="kx-p kx-muted">Payments, stock and invoices together.</p><div class="kx-row"><button class="kx-btn kx-main" type="button">Start free</button><button class="kx-btn kx-ghost" type="button">See demo</button></div></div></div>',
+      "Couldn't start your trial. Try again.", 'Starting…', 'A landing page top: a navbar with logo, links and Sign up, then a hero with a headline, one line of copy, a primary Start free button and a secondary See demo button.'],
+    ['product', 'Product card', 'mkt', '<div class="kx-card kx-prod kx-w220"><div class="kx-img"></div><div class="kx-pads kx-stack"><div class="kx-row kx-between"><span class="kx-h">Desk lamp</span><span class="kx-h">₹1,299</span></div><span class="kx-small kx-muted">Warm white, rated 4.6 of 5</span><button class="kx-btn kx-full kx-main" type="button">Add to cart</button></div></div>',
+      'Out of stock in this colour.', 'Adding…', 'A product card: image, name, price, a short detail line and an Add to cart button.'],
+    ['paywall', 'Paywall', 'mkt', '<div class="kx-card kx-pad kx-w260 kx-stack"><span class="kx-small kx-muted">NORTHWIND PLUS</span><div class="kx-h kx-title">Get more from every order</div><ul class="kx-list"><li>Free delivery on every order</li><li>Early access to sales</li><li>Priority support</li></ul><span class="kx-small kx-muted">7 days free, then ₹149 a month. Cancel anytime.</span><div class="kx-row"><button class="kx-btn kx-ghost kx-sm" type="button">Not now</button><button class="kx-btn kx-sm kx-grow kx-main" type="button">Start free trial</button></div></div>',
+      'Could not start the trial. You have not been charged.', 'Starting trial…', 'An honest upgrade screen: plan name, a headline, three benefits, the price after the free trial with "Cancel anytime", a Not now button and a Start free trial button. No fake timers or guilt wording.'],
+    ['cookie', 'Cookie consent', 'mkt', '<div class="kx-card kx-pad kx-w260"><div class="kx-h kx-title">Cookies</div><p class="kx-p kx-muted kx-small" style="margin:.3em 0 .4em">We use cookies to run the site and, if you agree, to count visits.</p><div class="kx-set"><span>Necessary</span><span class="kx-small kx-muted">Always on</span></div>' + [['Analytics', 0], ['Marketing', 0]].map(([l, on]) => `<div class="kx-set"><span>${l}</span><button class="kx-tog" type="button" role="switch" aria-checked="${!!on}" aria-label="${l} cookies"></button></div>`).join('') + '<div class="kx-row kx-even" style="margin-top:.6em"><button class="kx-btn kx-sm" type="button">Reject all</button><button class="kx-btn kx-sm kx-main" type="button">Accept all</button></div></div>',
+      "Couldn't save your choice. We will ask again next time.", 'Saving…', 'A cookie consent panel: one line of why, Necessary (always on), switches for Analytics and Marketing (off by default), and Reject all and Accept all buttons of equal weight.'],
+    ['stats', 'Dashboard', 'web', '<div class="kx-col" style="width:min(100%,300px)"><div class="kx-stats"><div class="kx-card kx-pads"><div class="kx-small kx-muted">Revenue</div><div class="kx-num kx-h">₹4.2L</div><div class="kx-small kx-muted">up 12% this month</div></div><div class="kx-card kx-pads"><div class="kx-small kx-muted">Orders</div><div class="kx-num kx-h">1,284</div><div class="kx-small kx-muted">38 waiting</div></div></div><div class="kx-card kx-pads"><div class="kx-row kx-between kx-small"><span class="kx-h">Weekly sales</span><button class="kx-btn kx-sm kx-main" type="button">Export</button></div><div class="kx-bars">' + [42, 58, 50, 71, 64, 88, 76].map(h => `<i style="--h:${h}%"></i>`).join('') + '</div></div></div>',
+      'Export failed. Try a smaller date range.', 'Exporting…', 'A dashboard: two stat tiles (revenue and orders, each with a short trend line), and a weekly sales bar chart with an Export button.'],
+    ['inbox', 'Inbox', 'web', '<div class="kx-card kx-w320"><div class="kx-row kx-between kx-pads kx-line"><span class="kx-h">Inbox</span><button class="kx-btn kx-sm kx-main" type="button">Compose</button></div><ul class="kx-rows">'
+      + [['AK', 'Asha Kumar', 'Invoice 1042 is ready', '10:24', 1, 0], ['NS', 'Northwind Support', 'Your ticket was answered', '9:02', 1, 1], ['RM', 'Ravi Menon', 'Lunch on Friday?', 'Yesterday', 0, 0], ['PS', 'Priya Shah', 'Design review notes', 'Mon', 0, 0]]
+        .map(([i, n, s, t, u, sel]) => `<li class="kx-mail${u ? ' unread' : ''}${sel ? ' sel' : ''}"${sel ? ' aria-current="true"' : ''}>${av(i)}<span class="kx-mid"><b>${n}</b><span class="kx-muted kx-trunc">${s}</span></span><span class="kx-small kx-muted">${t}</span>${u ? '<span class="kx-dot" aria-hidden="true"></span><span class="kx-sr">Unread</span>' : ''}</li>`).join('') + '</ul></div>',
+      "Couldn't load new mail. We will try again in 30 seconds.", 'Opening…', 'An inbox: a header with Compose, then message rows with initials avatar, sender, subject preview and time. Unread rows are bold with a dot (not colour alone), and one row is selected.'],
+    ['editor', 'Editor', 'web', '<div class="kx-card kx-w320"><div class="kx-row kx-pads kx-line kx-tools" role="toolbar" aria-label="Formatting"><button class="kx-icbtn" type="button" aria-label="Bold"><b>B</b></button><button class="kx-icbtn" type="button" aria-label="Italic"><i>I</i></button><button class="kx-icbtn" type="button" aria-label="Bulleted list">' + ic(I.list) + '</button><button class="kx-icbtn" type="button" aria-label="Link">' + ic(I.link) + '</button><button class="kx-icbtn" type="button" aria-label="Undo">' + ic(I.undo) + '</button></div><div class="kx-pads kx-stack"><div class="kx-h kx-title">Q4 launch plan</div><div class="kx-doc" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Document text">Ship the new checkout by 12 December. Asha owns payments, Ravi owns the email flow.</div><div class="kx-row kx-between"><span class="kx-small kx-muted">17 words, saved</span><button class="kx-btn kx-sm kx-main" type="button">Publish</button></div></div></div>',
+      "Couldn't save. Your changes are kept on this device.", 'Publishing…', 'A document editor: a formatting toolbar (bold, italic, list, link, undo, each with an accessible name), a title, an editable text area, a word count with save status and a Publish button.'],
+    ['table', 'Data table', 'web', '<div class="kx-card kx-w320 kx-pads kx-stack"><div class="kx-h">Invoices</div><table class="kx-table"><thead><tr><th scope="col">Invoice</th><th scope="col" class="hide-n">Customer</th><th scope="col">Status</th><th scope="col" class="kx-num-c">Amount</th></tr></thead><tbody>'
+      + [['1042', 'Asha Kumar', 'Paid', '₹4,980'], ['1041', 'Ravi Menon', 'Due', '₹1,250'], ['1040', 'Priya Shah', 'Overdue', '₹7,400'], ['1039', 'Meera Iyer', 'Paid', '₹2,160']].map(([n, c, s, a]) => `<tr><td>${n}</td><td class="hide-n">${c}</td><td><span class="kx-status s-${s.toLowerCase()}">${s}</span></td><td class="kx-num-c">${a}</td></tr>`).join('')
+      + '</tbody></table><div class="kx-row kx-between"><span class="kx-small kx-muted">1 to 4 of 26</span><span class="kx-row"><button class="kx-btn kx-ghost kx-sm" type="button" disabled>Previous</button><button class="kx-btn kx-sm kx-main" type="button">Next</button></span></div></div>',
+      "Couldn't load page 2. Try again.", 'Loading…', 'A data table of invoices: number, customer, status written as text (Paid, Due, Overdue) and amount, with Previous and Next paging.'],
+    ['settings', 'Settings', 'web', '<div class="kx-card kx-pad kx-w260"><div class="kx-h kx-title" style="margin-bottom:.5em">Notifications</div>' + [['Email updates', 1], ['Push alerts', 0], ['Weekly summary', 1]].map(([l, on]) => `<div class="kx-set"><span>${l}</span><button class="kx-tog" type="button" role="switch" aria-checked="${!!on}" aria-label="${l}"></button></div>`).join('') + '<div class="kx-row kx-end" style="margin-top:.7em"><button class="kx-btn kx-ghost kx-sm" type="button">Cancel</button><button class="kx-btn kx-sm kx-main" type="button">Save</button></div></div>',
+      "Couldn't save your settings. Try again.", 'Saving…', 'A settings panel: a heading, three labelled switches, and Cancel and Save buttons.'],
+    ['dialog', 'Dialog', 'web', '<div class="kx-behind" aria-hidden="true"><div class="kx-card"><i style="width:40%"></i></div><div class="kx-card"><i style="width:70%"></i><i style="width:50%"></i></div><div class="kx-card"><i style="width:60%"></i><i style="width:35%"></i></div></div><div class="kx-scrim"></div><div class="kx-card kx-pad kx-w260 kx-stack kx-dialog"><div class="kx-h kx-title">Delete this project?</div><p class="kx-p kx-muted">Northwind and its 24 files move to Trash. You can restore them for 30 days.</p><div class="kx-row kx-end"><button class="kx-btn kx-ghost kx-sm" type="button">Cancel</button><button class="kx-btn kx-sm kx-main" type="button">Delete</button></div></div>',
+      "Couldn't delete. Check your connection.", 'Deleting…', 'A confirm dialog over a dimmed page: a question naming the thing, one line on what happens, Cancel and Delete.'],
+    ['chat', 'Chat', 'web', '<div class="kx-card kx-w320"><div class="kx-row kx-pads kx-line">' + av('AK') + '<span class="kx-mid"><b>Asha Kumar</b><span class="kx-small kx-muted">Online</span></span></div><div class="kx-msgs">'
+      + [['them', 'Is the desk lamp back in stock?'], ['me', 'Yes, warm white is back today.'], ['them', 'Great, can you hold one for me?'], ['me', 'Done. It is in your cart for 24 hours.']].map(([w, t]) => `<p class="kx-msg ${w}">${t}</p>`).join('')
+      + '</div><div class="kx-row kx-pads kx-line-t"><input class="kx-field kx-grow" aria-label="Message" placeholder="Write a message"><button class="kx-btn kx-sm kx-main" type="button">Send</button></div></div>',
+      'Message not sent. Try again.', 'Sending…', 'A chat: a header with the person and their status, message bubbles from both sides, and a message field with Send.'],
+    ['signin', 'Sign in', 'app', '<div class="kx-card kx-pad kx-w260 kx-stack"><div class="kx-h kx-title">Sign in</div><label class="kx-lab">Email<input class="kx-field" type="email" value="asha@studio.in" autocomplete="off"></label><label class="kx-lab">Password<input class="kx-field" type="password" value="northwind22" autocomplete="off"></label><span class="kx-small kx-muted">Forgot password?</span><button class="kx-btn kx-full kx-main" type="button">Sign in</button></div>',
+      'That password does not match this email.', 'Signing in…', 'A sign in form: email and password fields with labels, a Forgot password link and a Sign in button.'],
+    ['social', 'Google / Apple sign in', 'app', '<div class="kx-card kx-pad kx-w260 kx-stack"><div class="kx-h kx-title">Create your account</div><button class="kx-btn kx-ghost kx-full" type="button">Continue with Google</button><button class="kx-btn kx-ghost kx-full" type="button">Continue with Apple</button><div class="kx-or kx-small kx-muted"><span>or</span></div><input class="kx-field" type="email" aria-label="Email" value="asha@studio" autocomplete="off"><button class="kx-btn kx-full kx-main" type="button">Continue with email</button></div>',
+      'Enter an email address like name@example.com.', 'Sending link…', 'A create account screen: Continue with Google and Continue with Apple buttons (text labels), an "or" divider, an email field and Continue with email.'],
+    ['onboarding', 'Onboarding', 'app', '<div class="kx-card kx-pad kx-w260 kx-stack kx-center"><div class="kx-illus" aria-hidden="true"></div><span class="kx-small kx-muted">Step 2 of 3</span><div class="kx-h kx-title">Track every order</div><p class="kx-p kx-muted">See where each parcel is and get a note when it ships.</p><div class="kx-dots" aria-hidden="true"><i></i><i class="on"></i><i></i></div><div class="kx-row kx-between"><button class="kx-btn kx-ghost kx-sm" type="button">Skip</button><button class="kx-btn kx-sm kx-main" type="button">Next</button></div></div>',
+      "Couldn't turn on order tracking. You can do it later in Settings.", 'Loading…', 'An onboarding step: a picture area, "Step 2 of 3" in text, a title, one line of benefit, step dots, and Skip and Next.'],
+    ['feed', 'Feed post', 'app', '<div class="kx-card kx-w260"><div class="kx-row kx-pads">' + av('MI') + '<span class="kx-mid"><b>Meera Iyer</b><span class="kx-small kx-muted">2 hours ago</span></span></div><p class="kx-p kx-post">Finished the reading nook. The lamp makes it.</p><div class="kx-img kx-img-s"></div><div class="kx-row kx-pads kx-acts"><button class="kx-act kx-main" type="button" aria-pressed="false">' + ic(I.heart) + '<span>128</span><span class="kx-sr">likes, like this post</span></button><button class="kx-act" type="button">' + ic(I.chat) + '<span>14</span><span class="kx-sr">comments</span></button><button class="kx-act" type="button" aria-label="Share">' + ic(I.share) + '</button></div></div>',
+      "Couldn't like this post. Try again.", 'Saving…', 'A social feed post: author avatar, name and time, a short caption, an image, and like, comment and share buttons with counts.'],
+    ['search', 'Search', 'app', '<div class="kx-card kx-pads kx-w280 kx-stack"><div class="kx-row"><input class="kx-field kx-grow" type="search" aria-label="Search products" value="desk lamp"><button class="kx-btn kx-sm kx-main" type="button" aria-label="Search">' + ic(I.search) + '</button></div><div class="kx-chips" role="group" aria-label="Filters"><button class="kx-chip" type="button" aria-pressed="true">Under ₹2,000</button><button class="kx-chip" type="button" aria-pressed="true">In stock</button><button class="kx-chip" type="button" aria-pressed="false">Warm white</button></div><ul class="kx-rows kx-res">'
+      + [['Desk lamp', '₹1,299', 'Rated 4.6, free delivery'], ['Clip-on reading lamp', '₹849', 'Rated 4.3, arrives Friday'], ['Mini desk lamp', '₹599', 'Rated 4.1, 3 colours']].map(([n, pr, m]) => `<li>${row2('<b>' + n + '</b>', pr)}<span class="kx-small kx-muted">${m}</span></li>`).join('') + '</ul></div>',
+      'Nothing matches all three filters. Try removing one.', 'Searching…', 'Search results: a search field with a Search button, filter toggles (pressed state visible), and result rows with name, price and a short detail.'],
+    ['profile', 'Profile', 'app', '<div class="kx-card kx-pad kx-w260 kx-stack kx-center">' + av('MI', 1) + '<div><div class="kx-h kx-title">Meera Iyer</div><span class="kx-small kx-muted">@meera, Pune</span></div><div class="kx-trio"><span><b class="kx-h">48</b><span class="kx-small kx-muted">Orders</span></span><span><b class="kx-h">12</b><span class="kx-small kx-muted">Reviews</span></span><span><b class="kx-h">4.9</b><span class="kx-small kx-muted">Rating</span></span></div><div class="kx-row kx-even"><button class="kx-btn kx-sm kx-main" type="button">Edit profile</button><button class="kx-btn kx-ghost kx-sm" type="button">Share</button></div></div>',
+      "Couldn't save your photo. Use a JPG or PNG under 5 MB.", 'Saving…', 'A profile: large initials avatar, name and handle, three stats (orders, reviews, rating), and Edit profile and Share buttons.'],
+    ['checkout', 'Checkout', 'app', '<div class="kx-card kx-pads kx-w280 kx-stack kx-tight"><div class="kx-h kx-title">Checkout</div>' + row2('Desk lamp × 1', '₹1,299') + row2('Warm bulb × 2', '₹198') + '<hr class="kx-hr">' + row2('<span class="kx-muted">Delivery</span>', '<span class="kx-muted">Free</span>') + row2('<b class="kx-h">Total</b>', '<b class="kx-h">₹1,497</b>') + row2('<span class="kx-small kx-muted">UPI, asha@okbank</span>', '<span class="kx-small kx-muted">Change</span>') + '<button class="kx-btn kx-full kx-main" type="button">Pay ₹1,497</button></div>',
+      'Payment declined by your bank. You have not been charged.', 'Paying…', 'A checkout summary: two line items with prices, delivery, the total, the payment method with Change, and a Pay button showing the amount.'],
+    ['empty', 'Empty state', 'app', '<div class="kx-card kx-pad kx-w260 kx-stack kx-center"><span class="kx-bigic">' + ic(I.folder) + '</span><div class="kx-h kx-title">No projects yet</div><p class="kx-p kx-muted">Projects you create or join show up here.</p><button class="kx-btn kx-main" type="button">Create project</button><button class="kx-btn kx-ghost kx-sm" type="button">Import from a file</button></div>',
+      "Couldn't create the project. Try again.", 'Creating…', 'An empty state: a simple outline icon, "No projects yet", one line on what goes here, a Create project button and a secondary Import option.'],
+    ['notify', 'Notification prompt', 'app', '<div class="kx-card kx-pad kx-w260 kx-stack kx-center"><span class="kx-bigic">' + ic(I.bell) + '</span><div class="kx-h kx-title">Turn on order updates?</div><p class="kx-p kx-muted">We will tell you when an order ships and arrives. Nothing else.</p><div class="kx-row kx-even"><button class="kx-btn kx-ghost kx-sm" type="button">Not now</button><button class="kx-btn kx-sm kx-main" type="button">Allow</button></div></div>',
+      "Couldn't turn on notifications. Check your phone settings.", 'Turning on…', 'A notification permission prompt shown before the system one: an icon, the question, one honest line on what they will get, and Not now and Allow.']
+  ].map(([id, label, group, html, err, busy, what]) => ({ id, label, group, html, err, busy, what }));
+  const GROUPS = [['mkt', 'Marketing'], ['web', 'Web app'], ['app', 'Mobile app']];
+  const STATES = [['', 'Normal'], ['hover', 'Hover'], ['focus', 'Focus'], ['disabled', 'Disabled'], ['error', 'Error'], ['loading', 'Loading']];
+  const CARD = { minimal: 'minimal', glass: 'glass', liquid: 'liquidglass', neu: 'neu', nb: 'neobrutal', bru: 'brutal', mat: 'material', flat: 'flat', skeu: 'skeuo', clay: 'clay', dark: 'darkui', retro: 'retro' };
+  const tabs = $('#cmp-tabs'), groups = $('#cmp-groups'), panels = $$('.cmpp');
   if (!tabs || panels.length < 2) return;
   let scr = 'pricing';
-  tabs.innerHTML = SCR.map(s => `<button type="button" data-scr="${s[0]}" aria-pressed="${s[0] === scr}">${s[1]}</button>`).join('');
+  const grpOf = id => SCR.find(s => s.id === id).group;
+  groups.innerHTML = GROUPS.map(([g, l]) => `<button type="button" data-grp="${g}" aria-pressed="${g === 'mkt'}">${l}<span class="kn">${SCR.filter(s => s.group === g).length}</span></button>`).join('');
+  tabs.innerHTML = SCR.map(s => `<button type="button" data-scr="${s.id}" aria-pressed="${s.id === scr}"${s.group !== 'mkt' ? ' hidden' : ''}>${s.label}</button>`).join('');
+  const showGroup = g => { $$('button', groups).forEach(b => b.setAttribute('aria-pressed', b.dataset.grp === g)); $$('button', tabs).forEach(b => { b.hidden = grpOf(b.dataset.scr) !== g; }); };
 
   // Colour maths for the contrast readout. A colour the browser can't read as one flat colour (a gradient) or a see-through one can't be measured honestly, so it says so.
   const probe = document.createElement('i'); probe.style.display = 'none'; document.body.appendChild(probe);
@@ -3759,42 +3899,71 @@ on('#fid-x', 'click', () => { $('#fid-p .v2').hidden = true; $('#fid-p .v1').hid
   const ratio = (fg, bg) => { const a = rgb(fg), b = rgb(bg); if (!a || !b || (b[3] !== undefined && b[3] < 1) || (a[3] !== undefined && a[3] < 1)) return null; const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
   const grade = r => r === null ? 'see-through, check by eye' : r.toFixed(1) + ':1 ' + (r >= 7 ? 'passes AAA' : r >= 4.5 ? 'passes AA' : r >= 3 ? 'large text only' : 'fails');
   const isFlat = v => !/gradient/.test(v);
+  const copyOut = (b, text, back) => { const done = () => { b.textContent = 'Copied ✓'; setTimeout(() => { b.textContent = back; }, 1400); }; try { navigator.clipboard.writeText(text).then(done, done); } catch (_) { done(); } };
 
   panels.forEach((p, n) => {
-    const side = n ? 'Right' : 'Left', sel = $('select', p), st = $('.cmpst', p), mix = $$('.cmpmix select', p), read = $('.cmpread', p), hint = $('.cmphint', p), copy = $('.cmpcopy', p);
+    const side = n ? 'Right' : 'Left', sel = $('select', p), st = $('.cmpst', p), mix = $$('.cmpmix select', p), read = $('.cmpread', p), hint = $('.cmphint', p), copy = $('.cmpcopy', p), cprompt = $('.cmpprompt', p), stSel = $('.cmpstate', p);
     sel.innerHTML = Object.keys(T).map(k => `<option value="${k}">${NAMES[k]}</option>`).join('');
     sel.value = n ? 'nb' : 'neu';
+    stSel.innerHTML = STATES.map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
     mix.forEach(m => { m.innerHTML = `<option value="">Same as ${side.toLowerCase()} style</option>` + Object.keys(T).map(k => `<option value="${k}">${NAMES[k]}</option>`).join(''); });
     const src = g => { const m = mix.find(x => x.dataset.g === g); return (m && m.value) || sel.value; };
     const tokens = () => { const o = {}; Object.keys(G).forEach(g => Object.assign(o, T[src(g)][g])); return o; };
     const label = () => { const base = sel.value, diff = Object.keys(G).filter(g => src(g) !== base); return diff.length ? NAMES[base] + ' with ' + diff.map(g => GN[g].toLowerCase() + ' from ' + NAMES[src(g)]).join(', ') : NAMES[base]; };
+    const tokenCss = () => { const t = tokens(); return `/* ${label()}: tokens from kindofui Compare */\n:root {\n` + Object.keys(G).map(g => `  /* ${GN[g]} */\n` + G[g].map(k => `  --${k}: ${t[k].replace(/--k-/g, '--')};`).join('\n')).join('\n') + '\n}\n'; };
+    const applyState = S => {
+      const state = stSel.value, main = $('.kx-main', st), field = $('.kx-field', st);
+      if (state) st.dataset.state = state; else delete st.dataset.state;
+      if (!main) return;
+      if (state === 'hover') main.classList.add('is-hover');
+      if (state === 'focus') main.classList.add('is-focus');
+      if (state === 'disabled') { main.disabled = true; $$('.kx-field', st).forEach(f => { f.disabled = true; }); }
+      if (state === 'error') {
+        const m = document.createElement(field ? 'span' : 'p'); m.className = 'kx-errtxt'; m.id = st.id + '-err'; m.textContent = S.err; m.setAttribute('role', 'alert');
+        if (field) { field.classList.add('is-error'); field.setAttribute('aria-invalid', 'true'); field.setAttribute('aria-describedby', m.id); (field.closest('.kx-row') || field).after(m); }
+        else { m.classList.add('kx-errline'); (main.closest('.kx-row') || main).before(m); }
+      }
+      if (state === 'loading') { main.disabled = true; main.setAttribute('aria-busy', 'true'); main.classList.add('is-busy'); main.innerHTML = '<span class="kx-spin" aria-hidden="true"></span>' + S.busy; }
+    };
+    /* Some styles (Retro's pixel font) or an added error line can make a screen taller or wider than the stage. Scale the screen's text down in small steps until nothing sticks out. */
+    const over = () => { const r = st.getBoundingClientRect(); if (!r.width) return false; return $$('*', st).some(e => { if (e.closest('.kx-behind,.kx-scrim,.kx-sr')) return false; const q = e.getBoundingClientRect(); if (!q.width && !q.height) return false;
+      if (q.left < r.left - 1 || q.right > r.right + 1 || q.top < r.top - 1 || q.bottom > r.bottom + 1) return true; const c = e.parentElement && e.parentElement.closest('.kx-card'); if (!c || e.closest('.kx-table')) return false; const k = c.getBoundingClientRect(); return q.right > k.right + 1 || q.left < k.left - 1; }); };
+    const fit = () => { st.style.removeProperty('--k-fit'); for (let f = 0.94; f >= 0.75 && over(); f -= 0.06) st.style.setProperty('--k-fit', f.toFixed(2)); };
     const draw = () => {
-      const t = tokens();
+      const t = tokens(), S = SCR.find(s => s.id === scr);
       st.className = 'cmpst v-' + sel.value;
       st.dataset.type = src('T');
       Object.entries(t).forEach(([k, v]) => st.style.setProperty('--k-' + k, v));
       if (t.blur !== 'none') st.dataset.blur = ''; else delete st.dataset.blur;
-      st.innerHTML = SCR.find(s => s[0] === scr)[2];
+      st.innerHTML = S.html; applyState(S); fit();
       const body = ratio(t.fg, t.surface), btn = ratio(t['on-accent'], t.accent);
-      read.innerHTML = `<span><b>Text</b> ${grade(body)}</span> <span><b>Button</b> ${grade(btn)}</span>`;
-      $$('span', read).forEach((s, i) => { const r = i ? btn : body; s.classList.toggle('fail', r !== null && r < 4.5); });
+      read.innerHTML = `<span class="cmplab" title="How readable the colours are (WCAG). 4.5:1 is the minimum for normal text (AA), 7:1 is the stricter level (AAA).">Contrast</span><span data-r="0"><b>Text on card</b> ${grade(body)}</span><span data-r="1"><b>Button text</b> ${grade(btn)}</span>`;
+      $$('span[data-r]', read).forEach(s => { const r = s.dataset.r === '1' ? btn : body; s.classList.toggle('fail', r !== null && r < 4.5); });
       const h = [];
       if (/blur/.test(t.blur) && isFlat(t.stage)) h.push('Blur only shows over a busy background. On a plain one this card just looks faded.');
       if (/color-mix/.test(t.shadow) && rgb(t.surface) && rgb(t.stage) && rgb(t.surface).join() !== rgb(t.stage).join()) h.push('Neumorphic shadows only read when the card is the same colour as the background.');
       if (/var\(--k-fg\)/.test(t.shadow) && rgb(t.fg) && lum(rgb(t.fg)) > 0.5) h.push('Hard offset shadows use the text colour, so light text gives a light shadow that barely shows.');
+      if (stSel.value === 'disabled') h.push('Disabled controls are exempt from contrast rules, but say nearby why something is disabled.');
+      if (stSel.value === 'error') { const e = ratio(t.danger, t.surface); if (e !== null && e < 4.5) h.push(`The error text is ${e.toFixed(1)}:1 on this card, below 4.5:1. Pick a darker or lighter error colour.`); }
       hint.textContent = h.join(' ');
       hint.hidden = !h.length;
     };
-    copy.addEventListener('click', () => {
-      const t = tokens(), css = `/* ${label()}: tokens from kindofui Compare */\n:root {\n` + Object.keys(G).map(g => `  /* ${GN[g]} */\n` + G[g].map(k => `  --${k}: ${t[k].replace(/--k-/g, '--')};`).join('\n')).join('\n') + '\n}\n';
-      const done = () => { copy.textContent = 'Copied ✓'; setTimeout(() => { copy.textContent = 'Copy tokens'; }, 1400); };
-      try { navigator.clipboard.writeText(css).then(done, done); } catch (_) { done(); }
+    copy.addEventListener('click', () => copyOut(copy, tokenCss(), 'Copy tokens'));
+    cprompt.addEventListener('click', () => {
+      const S = SCR.find(s => s.id === scr), used = [...new Set(Object.keys(G).map(src))];
+      const styleNotes = used.map(k => { const a = document.getElementById(CARD[k]); return a ? `### ${NAMES[k]}\n${factsFor(a)}` : ''; }).filter(Boolean).join('\n\n');
+      const txt = `Build this screen: ${S.label}. Style: ${label()}.\n\nThe screen: ${S.what}\n\nStyle notes from kindofui:\n${styleNotes}\n\nUse these design tokens:\n${tokenCss()}\nAlso build these states for the main action: hover, keyboard focus, disabled, error (for example "${S.err}") and loading ("${S.busy}").\n\nRequirements:\n` + BASE_RULES.map((r, i) => `${i + 1}. ${r}`).join('\n');
+      copyOut(cprompt, txt, 'Copy prompt');
     });
-    sel.addEventListener('change', draw); mix.forEach(m => m.addEventListener('change', draw));
+    sel.addEventListener('change', draw); stSel.addEventListener('change', draw); mix.forEach(m => m.addEventListener('change', draw));
     p._draw = draw; draw();
   });
-  tabs.addEventListener('click', e => { const b = e.target.closest('button[data-scr]'); if (!b) return; scr = b.dataset.scr; $$('button', tabs).forEach(x => x.setAttribute('aria-pressed', x === b)); panels.forEach(p => p._draw()); });
-  $('#compare').addEventListener('click', e => { const t = e.target.closest('.kx-tog'); if (t) t.setAttribute('aria-checked', t.getAttribute('aria-checked') !== 'true'); });
+  groups.addEventListener('click', e => { const b = e.target.closest('button[data-grp]'); if (!b) return; showGroup(b.dataset.grp); const first = SCR.find(s => s.group === b.dataset.grp); if (grpOf(scr) !== b.dataset.grp) $(`button[data-scr="${first.id}"]`, tabs).click(); });
+  tabs.addEventListener('click', e => { const b = e.target.closest('button[data-scr]'); if (!b) return; scr = b.dataset.scr; showGroup(grpOf(scr)); $$('button', tabs).forEach(x => x.setAttribute('aria-pressed', x === b)); panels.forEach(p => p._draw()); });
+  $('#compare').addEventListener('click', e => {
+    const t = e.target.closest('.kx-tog'); if (t) { t.setAttribute('aria-checked', t.getAttribute('aria-checked') !== 'true'); return; }
+    const c = e.target.closest('.kx-chip, .kx-act[aria-pressed]'); if (c && !c.disabled) c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') !== 'true');
+  });
 })();
 
 /* ---------- "Good for / Watch out" notes (injected under every card) ---------- */
@@ -4379,11 +4548,11 @@ applyFilter();
   const cmpState = () => {
     const scr = ($('#cmp-tabs button[aria-pressed="true"]') || {}).dataset; const a = $('#cmp-a'), b = $('#cmp-b'); if (!scr || !a || !b) return {};
     const mix = side => $$('.cmpp')[side].querySelectorAll('.cmpmix select'); const m = side => [...mix(side)].filter(s => s.value).map(s => s.dataset.g + s.value).join('.');
-    return { cmp: [scr.scr, a.value, b.value].join('~'), ma: m(0), mb: m(1) };
+    return { cmp: [scr.scr, a.value, b.value].join('~'), ma: m(0), mb: m(1), sa: ($('#cmp-ta') || {}).value, sb: ($('#cmp-tb') || {}).value };
   };
   const writeURL = keepHash => {
     const p = new URLSearchParams(), v = qi.value.trim(); if (v) p.set('q', v); if (filt !== 'all') p.set('s', filt);
-    const c = cmpState(); if (c.cmp && c.cmp !== CMP_DEF) p.set('cmp', c.cmp); if (c.ma) p.set('ma', c.ma); if (c.mb) p.set('mb', c.mb);
+    const c = cmpState(); if (c.cmp && c.cmp !== CMP_DEF) p.set('cmp', c.cmp); if (c.ma) p.set('ma', c.ma); if (c.mb) p.set('mb', c.mb); if (c.sa) p.set('sa', c.sa); if (c.sb) p.set('sb', c.sb);
     const tl = $('#tools-tabs button[aria-pressed="true"]'); if (tl && tl.dataset.tool !== 'finder') p.set('tool', tl.dataset.tool);
     const qs = p.toString(); history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + (keepHash ? location.hash : ''));
   };
@@ -4394,6 +4563,7 @@ applyFilter();
     if (btn) { filt = s; $$('nav.index button').forEach(x => { x.classList.toggle('on', x === btn); x.setAttribute('aria-pressed', x === btn); }); }
     const q = p.get('q'); if (q) qi.value = q.slice(0, 80);
     const c = (p.get('cmp') || '').split('~');
+    ['sa', 'sb'].forEach((k, i) => { const v = p.get(k); if (v) setSel($('#cmp-t' + 'ab'[i]), v); });
     if (c.length === 3) { const t = $(`#cmp-tabs button[data-scr="${CSS.escape(c[0])}"]`); if (t) t.click(); setSel($('#cmp-a'), c[1]); setSel($('#cmp-b'), c[2]); }
     ['ma', 'mb'].forEach((k, i) => (p.get(k) || '').split('.').forEach(x => { const g = x.charAt(0), sel = $$('.cmpp')[i] && $$('.cmpp')[i].querySelector(`.cmpmix select[data-g="${CSS.escape(g)}"]`); if (sel && x.length > 1) { setSel(sel, x.slice(1)); sel.closest('details').open = true; } }));
     const tool = p.get('tool'); if (tool && $(`#tools-tabs button[data-tool="${CSS.escape(tool)}"]`)) $('#tools')._show(tool);
