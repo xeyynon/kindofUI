@@ -49,6 +49,14 @@ header.top{display:block}
 .kh-mark{width:32px;height:28px}
 .kf-mark{width:28px;height:25px}
 .kh-brand{display:inline-flex;align-items:center;gap:10px;font:800 24px/1 var(--display);letter-spacing:-.02em;color:var(--fg);text-decoration:none;border-radius:6px}
+.kh-end{display:flex;align-items:center;gap:10px}
+.kh-gh{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:600 13px var(--body);text-decoration:none;transition:border-color .15s}
+.kh-gh:hover{border-color:var(--muted)}
+.kh-gh svg{width:16px;height:16px;flex:none}
+.kh-gh,.kh-theme{flex:none;white-space:nowrap}
+.kh-gh .kh-build{padding-left:8px;border-left:1px solid var(--line);color:var(--muted);font:500 12px var(--mono)}
+@media (max-width:420px){.kh-gh .kh-repo{display:none}.kh-gh .kh-build{padding-left:0;border-left:0}}
+@media (max-width:360px){.kh-gh .kh-bw{display:none}.kh-gh{padding:0 10px}}
 .kh-theme{width:36px;height:36px;display:grid;place-items:center;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--fg);transition:border-color .15s}
 .kh-theme:hover{border-color:var(--muted)}
 .kh-theme svg{width:16px;height:16px}
@@ -81,9 +89,18 @@ header.top{display:block}
 .kf-user:hover{text-decoration:underline;text-underline-offset:3px}
 .kf-user svg{width:18px;height:18px}
 .kf-folio{position:relative;display:inline-flex;align-items:center;gap:5px;margin-left:18px;padding:6px 4px;color:var(--fg);font-weight:600;text-decoration:none}
-.kf-folio svg{width:11px;height:11px;opacity:.65}
-.kf-folio::after{content:"";position:absolute;left:4px;right:4px;bottom:3px;height:2px;border-radius:1px;opacity:.6;transition:opacity .2s;background:linear-gradient(90deg,#9b7ede 0 16.67%,#7b93e0 0 33.33%,#4fd8e0 0 50%,#6fe07d 0 66.67%,#f2a65a 0 83.33%,#e8536b 0)}
-.kf-folio:hover::after,.kf-folio:focus-visible::after{opacity:1}
+.kf-folio .kf-arrow{width:11px;height:11px;opacity:.65}
+.kf-snitch{position:absolute;left:50%;bottom:-9px;width:48px;height:16px;margin-left:-28px;overflow:visible;pointer-events:none;--sn-gold:#d8a94a;--sn-light:#ffe7b3;--sn-edge:#f2f0e9;--sn-shade:#0b0c0f}
+:root[data-theme="light"] .kf-snitch{--sn-light:#c99a3c;--sn-edge:#3a3326}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .kf-snitch{--sn-light:#c99a3c;--sn-edge:#3a3326}}
+.kf-snitch .sail{fill:var(--sn-light);fill-opacity:.14}
+.kf-snitch .rib{fill:none;stroke:var(--sn-light);stroke-width:.9;stroke-opacity:.75;stroke-linecap:round}
+.kf-snitch .spine{fill:none;stroke:var(--sn-edge);stroke-width:1.6;stroke-linecap:round}
+.kf-snitch .relief{fill:none;stroke:var(--sn-shade);stroke-width:1.2;stroke-linecap:round;opacity:.45}
+.kf-snitch .joint{fill:var(--sn-gold)}
+.kf-snitch .wing{transform-box:view-box;transform-origin:72px 30px;transition:transform .4s ease}
+@media (prefers-reduced-motion:no-preference){.kf-folio:hover .kf-snitch .wing,.kf-folio:focus-visible .kf-snitch .wing{animation:kf-beat .19s ease-in-out infinite alternate}}
+@keyframes kf-beat{from{transform:rotate(9deg)}to{transform:rotate(-16deg)}}
 .kf-sep{width:1px;height:20px;margin:0 20px;background:var(--line)}
 .kf-top{display:inline-flex;align-items:center;gap:6px;padding:8px 4px;border:0;border-radius:6px;background:none;color:var(--muted);font:inherit}
 .kf-top:hover{color:var(--fg)}
@@ -650,34 +667,79 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 .code-bar{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--bg);font:11px var(--mono);color:var(--muted);gap:8px}
 .code-bar button{border:0;background:var(--accent);color:var(--surface);font:600 11px var(--mono);padding:4px 10px;border-radius:5px;flex:none}
 .code pre{margin:0;max-height:260px;overflow:auto;padding:10px;font:11px/1.5 var(--mono);background:var(--surface);color:var(--fg);white-space:pre}
+.pr-bar{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--bg);font:11px var(--mono);color:var(--muted);gap:8px;border-bottom:1px solid var(--line)}
+.pr-bar button{border:1px solid var(--line);background:var(--surface);color:var(--fg);font:600 11px var(--mono);padding:3px 10px;border-radius:5px;flex:none}
+.ptxt{margin:0;max-height:220px;overflow:auto;padding:10px 12px;font:12.5px/1.55 var(--body);background:var(--surface);color:var(--fg);white-space:pre-wrap;border-bottom:1px solid var(--line)}
 
 /* compare */
+/* ---------- compare tool: every style is a set of tokens in four groups (colours, shape, depth, type); every screen reads only the tokens ---------- */
+.cmptabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:0 0 16px;border-bottom:1px solid var(--line)}
+.cmptabs::-webkit-scrollbar{display:none}
+.cmptabs button{flex:none;height:40px;padding:0 10px;border:0;border-radius:0;background:none;color:var(--muted);font:600 14px var(--body)}
+.cmptabs button:hover{color:var(--fg)}
+.cmptabs button[aria-pressed="true"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--fg)}
 .cmpwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px}
-.cmpp{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
-.cmpp label{display:flex;gap:10px;align-items:center;padding:10px 14px;font:600 13px var(--body);border-bottom:1px solid var(--line)}
+.cmpp{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.cmpp > label{display:flex;gap:10px;align-items:center;padding:10px 14px;font:600 13px var(--body);border-bottom:1px solid var(--line)}
 .cmpp select{flex:1;min-width:0;font:14px var(--body);padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
-.cmpst{height:300px;display:grid;place-items:center;padding:16px;position:relative;overflow:hidden;font-family:system-ui,sans-serif;color:#111;color-scheme:light}
-.pc{width:min(100%,220px);padding:18px;display:grid;gap:10px;position:relative}
-.pc small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
-.pc b{font-size:28px;line-height:1}.pc b span{font-size:12px;font-weight:400;opacity:.7}
-.pc ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:12px}
-.pc li::before{content:"✓  "}
-.pc button{font:inherit;font-weight:700;padding:9px;cursor:pointer}
-.v-minimal{background:#fff}.v-minimal .pc{color:#111}.v-minimal .pc button{background:#111;color:#fff;border:0;border-radius:4px}
-.v-glass{background:radial-gradient(circle at 20% 25%,#ff6fae 0,transparent 35%),radial-gradient(circle at 80% 75%,#6f8bff 0,transparent 40%),#191d3a}
-.v-glass .pc{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:18px;color:#fff}.v-glass .pc button{background:rgba(255,255,255,.92);color:#222;border:0;border-radius:10px}
-.v-liquid{background:repeating-linear-gradient(60deg,rgba(255,255,255,.1) 0 14px,transparent 14px 28px),linear-gradient(150deg,#ff9966,#ff5e62 35%,#8e2de2 70%,#00c6ff)}
-.v-liquid .pc{background:rgba(255,255,255,.1);backdrop-filter:blur(3px) saturate(190%);-webkit-backdrop-filter:blur(3px) saturate(190%);border-radius:28px;color:#fff;box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.8),inset -1px -1px 0 rgba(255,255,255,.3),inset 0 0 20px rgba(255,255,255,.2),0 10px 26px rgba(0,0,0,.22);text-shadow:0 1px 3px rgba(0,0,0,.25)}
-.v-liquid .pc button{border:0;border-radius:999px;background:rgba(255,255,255,.3);color:#fff;box-shadow:inset 1px 1px 0 rgba(255,255,255,.8)}
-.v-neu{background:#e2e7ee}.v-neu .pc{border-radius:18px;box-shadow:9px 9px 18px #bec4ce,-9px -9px 18px #fff;color:#5b6575}.v-neu .pc button{border:0;border-radius:12px;background:#e2e7ee;color:#3b82f6;box-shadow:5px 5px 10px #c3c9d3,-5px -5px 10px #fff}
-.v-nb{background:#ffe066}.v-nb .pc{background:#fff;border:3px solid #000;box-shadow:7px 7px 0 #000;border-radius:10px;color:#000}.v-nb .pc button{background:#ff6b9d;border:3px solid #000;box-shadow:4px 4px 0 #000;border-radius:8px;color:#000}
-.v-bru{background:#fff}.v-bru .pc{font-family:"Times New Roman",serif;border:1px solid #000;color:#000}.v-bru .pc button{background:#eee;border:2px outset #ccc;font-weight:400;color:#000}
-.v-mat{background:#fdf7ff}.v-mat .pc{background:#fff;border-radius:16px;box-shadow:0 2px 6px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.1);color:#1d1b20;font-family:Roboto,system-ui,sans-serif}.v-mat .pc button{background:#6750a4;color:#fff;border:0;border-radius:20px}
-.v-flat{background:#ecf0f1}.v-flat .pc{background:#3498db;color:#fff}.v-flat .pc button{background:#e74c3c;color:#fff;border:0}
-.v-skeu{background:repeating-linear-gradient(90deg,#8a5a34 0 14px,#7d5030 14px 28px,#94633b 28px 40px)}.v-skeu .pc{background:linear-gradient(#fdfbf5,#ece6d6);border-radius:8px;box-shadow:0 10px 20px rgba(0,0,0,.45),inset 0 1px 0 #fff;color:#3b2a1a;font-family:Georgia,serif}.v-skeu .pc button{background:linear-gradient(#6fcf6f,#2f8f2f);color:#fff;border:1px solid #1f6b1f;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 2px 3px rgba(0,0,0,.3);text-shadow:0 -1px 0 rgba(0,0,0,.3)}
-.v-clay{background:#efe4ff}.v-clay .pc{background:#fff;border-radius:30px;box-shadow:12px 14px 26px rgba(138,99,210,.35),inset -6px -6px 14px rgba(160,120,220,.25),inset 6px 6px 12px #fff;color:#3b2a5c}.v-clay .pc button{background:#ffb4c6;border:0;border-radius:18px;color:#3b2a5c;box-shadow:inset -4px -4px 8px rgba(0,0,0,.12),inset 4px 4px 8px rgba(255,255,255,.6),4px 6px 12px rgba(255,120,160,.35)}
-.v-dark{background:#0c0e12}.v-dark .pc{background:#171a21;border:1px solid #262b35;border-radius:12px;color:#e8eaf0}.v-dark .pc button{background:#8aa2ff;color:#0c0e12;border:0;border-radius:8px}
-.v-retro{background:#008080}.v-retro .pc{background:#c0c0c0;border:2px solid;border-color:#fff #404040 #404040 #fff;color:#000;font:18px/1.1 "VT323",monospace}.v-retro .pc ul{font-size:16px}.v-retro .pc button{background:#c0c0c0;border:2px solid;border-color:#fff #404040 #404040 #fff;font-weight:400;color:#000}
+.cmpmix{border-top:1px solid var(--line);font:13px var(--body)}
+.cmpmix summary{cursor:pointer;padding:10px 14px;font-weight:600;color:var(--fg);list-style-position:inside}
+.cmpmix .mixgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;padding:0 14px 12px}
+.cmpmix .mixgrid label{display:grid;gap:4px;color:var(--muted);font-size:12px}
+.cmpfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;padding:10px 14px;border-top:1px solid var(--line);font:12px/1.4 var(--body);color:var(--muted)}
+.cmpread{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:2px 14px}
+.cmpfoot b{color:var(--fg);font-weight:600}
+.cmpfoot .fail{color:var(--warn)}
+.cmpfoot button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:5px 10px;font:600 12px var(--body)}
+.cmpst{height:300px;display:grid;place-items:center;padding:16px;position:relative;overflow:hidden;color-scheme:light;container-type:inline-size;
+  background:var(--k-stage);color:var(--k-fg);font:calc(13px * var(--k-scale,1))/1.4 var(--k-font);letter-spacing:var(--k-track,normal)}
+.kx-card{background:var(--k-surface);color:var(--k-fg);border:var(--k-bw) solid;border-color:var(--k-card-bc);border-radius:var(--k-radius);box-shadow:var(--k-shadow);-webkit-backdrop-filter:var(--k-blur);backdrop-filter:var(--k-blur);text-shadow:var(--k-tshadow);min-width:0}
+.kx-pad{padding:1.25em}.kx-pads{padding:.9em 1em}
+.kx-w220{width:min(100%,230px)}.kx-w260{width:min(100%,270px)}
+.kx-col{display:grid;gap:10px;width:100%;align-content:center}
+.kx-stack{display:grid;gap:.6em}
+.cmpst[data-type="retro"] .kx-stack{gap:.4em}
+.kx-row{display:flex;gap:.6em;align-items:center}
+.kx-between{justify-content:space-between}.kx-end{justify-content:flex-end}
+.kx-h{font-weight:var(--k-head-weight)}
+.kx-title{font-size:1.25em;line-height:1.2}
+.kx-small{font-size:.85em}
+.kx-muted{color:var(--k-muted)}
+.kx-price{font-size:2.1em;line-height:1}.kx-price span{font-size:.4em;font-weight:400}
+.kx-list{margin:0;padding:0;list-style:none;display:grid;gap:.4em;font-size:.92em}
+.kx-list li{display:flex;align-items:center;gap:.55em}
+.kx-list li::before{content:"";width:.7em;height:.38em;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-.15em) rotate(-45deg);flex:none;opacity:.8}
+.kx-btn{background:var(--k-accent);color:var(--k-on-accent);border:var(--k-btn-bw) solid;border-color:var(--k-btn-bc);border-radius:var(--k-radius-btn);box-shadow:var(--k-btn-shadow);font:inherit;font-weight:var(--k-btn-weight);padding:.6em 1.1em;cursor:pointer;text-shadow:none;white-space:nowrap}
+.kx-btn.kx-ghost{background:transparent;color:var(--k-fg);border-color:var(--k-line)}
+.kx-btn.kx-sm{padding:.45em .8em;font-size:.9em}
+.kx-full{width:100%}
+.kx-lab{display:grid;gap:.3em;font-size:.88em;color:var(--k-muted)}
+.kx-field{background:var(--k-field);color:var(--k-field-ink);border:var(--k-field-bw) solid;border-color:var(--k-field-bc);border-radius:var(--k-radius-field);box-shadow:var(--k-field-shadow);padding:.5em .7em;font:inherit;font-size:1.1em;width:100%;min-width:0}
+.kx-bar{display:flex;align-items:center;gap:1em;padding:.7em 1em}
+.kx-bar .kx-links{display:flex;gap:1em;margin-left:auto;font-size:.95em}
+.kx-bar .kx-links span{color:var(--k-muted)}.kx-bar .kx-links .on{color:var(--k-fg);font-weight:var(--k-head-weight)}
+.kx-img{height:96px;background:linear-gradient(135deg,color-mix(in srgb,var(--k-accent-ink) 55%,var(--k-surface-solid)),color-mix(in srgb,var(--k-accent-ink) 15%,var(--k-surface-solid)))}
+.kx-prod{overflow:hidden}
+.kx-set{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.55em 0;border-top:1px solid color-mix(in srgb,var(--k-fg) 12%,transparent)}
+.kx-tog{width:2.6em;height:1.5em;flex:none;border-radius:999px;border:var(--k-field-bw) solid;border-color:var(--k-field-bc);background:color-mix(in srgb,var(--k-fg) 18%,transparent);box-shadow:var(--k-field-shadow);position:relative;padding:0;cursor:pointer}
+.kx-tog::after{content:"";position:absolute;top:50%;left:.18em;width:1.05em;height:1.05em;border-radius:50%;background:var(--k-surface-solid);transform:translateY(-50%);transition:left .18s;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.kx-tog[aria-checked="true"]{background:var(--k-accent-ink)}
+.kx-tog[aria-checked="true"]::after{left:calc(100% - 1.23em)}
+.kx-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kx-num{font-size:1.6em;line-height:1.15}
+.kx-bars{display:flex;align-items:flex-end;gap:6px;height:70px;margin-top:.5em}
+.kx-bars i{flex:1;height:var(--h);background:var(--k-accent-ink);border-radius:min(var(--k-radius-btn),4px) min(var(--k-radius-btn),4px) 0 0;opacity:.85}
+.kx-bars i:last-child{opacity:1}
+.kx-behind{position:absolute;inset:14px;display:grid;grid-template-rows:44px 1fr 1fr;gap:10px}
+.kx-behind .kx-card{display:grid;align-content:center;gap:8px;padding:0 14px}
+.kx-behind i{display:block;height:8px;border-radius:4px;background:var(--k-fg);opacity:.18}
+.kx-scrim{position:absolute;inset:0;background:rgba(10,12,20,.48)}
+.kx-dialog{position:relative}
+.kx-p{margin:0}
+.cmpmix select{width:100%}
+.cmphint{flex-basis:100%;margin:0;color:var(--muted)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.cmpst[data-blur] .kx-card{background:rgba(255,255,255,.3)}}
+@container (max-width:330px){.kx-bar .kx-links .hide-n{display:none}}
 
 /* ================= v2: visual styles ================= */
 .s-lg{background:repeating-linear-gradient(60deg,rgba(255,255,255,.1) 0 14px,transparent 14px 28px),linear-gradient(150deg,#ff9966,#ff5e62 35%,#8e2de2 70%,#00c6ff);color:#fff}
@@ -1612,8 +1674,6 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 /* Without backdrop-filter the glass panels would show raw translucency over busy content: give them a firmer surface instead */
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   .s-glass .card{background:rgba(255,255,255,.3)}
-  .v-glass .pc{background:rgba(255,255,255,.3)}
-  .v-liquid .pc{background:rgba(255,255,255,.3)}
   .s-lg .gl{background:rgba(255,255,255,.28)}
   .s-sp .win,.s-sp .orn{background:rgba(235,235,245,.72);color:#1d1b20;text-shadow:none}
   .s-dock .mb{background:rgba(255,255,255,.6)}
@@ -1626,7 +1686,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 <header class="top" id="top">
   <div class="kh-bar">
     <a class="kh-brand" href="#top" aria-label="kindofui, back to the top"><span class="kh-mark" aria-hidden="true"></span>kindofui</a>
-    <button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button>
+    <div class="kh-end"><a class="kh-gh" href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofUI on GitHub, build 1006 (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofUI</span><span class="kh-build"><span class="kh-bw">Build </span>1006</span></a><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
   </div>
   <div class="kh-intro">
     <p class="kh-eyebrow">The interactive UI/UX library</p>
@@ -1648,10 +1708,11 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
 
 <section class="group" id="compare">
 <h2>Compare styles</h2>
-<p>The same pricing card in two styles, side by side. Pick any two to see how much the style alone changes the feel.</p>
+<p>The same screen in two styles, side by side. Pick a screen and two styles, or open Mix styles to take the colours, shape, depth and type from different styles.</p>
+<div class="cmptabs" id="cmp-tabs" role="group" aria-label="Screen to compare"></div>
 <div class="cmpwrap">
-  <div class="cmpp"><label for="cmp-a">Left<select id="cmp-a"></select></label><div class="cmpst" id="cmp-sa"><div class="pc"><small>Pro plan</small><b>₹499<span> / month</span></b><ul><li>Unlimited projects</li><li>Priority support</li><li>Custom domain</li></ul><button>Upgrade</button></div></div></div>
-  <div class="cmpp"><label for="cmp-b">Right<select id="cmp-b"></select></label><div class="cmpst" id="cmp-sb"><div class="pc"><small>Pro plan</small><b>₹499<span> / month</span></b><ul><li>Unlimited projects</li><li>Priority support</li><li>Custom domain</li></ul><button>Upgrade</button></div></div></div>
+  <div class="cmpp"><label for="cmp-a">Left<select id="cmp-a"></select></label><div class="cmpst" id="cmp-sa"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><button type="button" class="cmpcopy">Copy tokens</button><p class="cmphint" hidden></p></div></div>
+  <div class="cmpp"><label for="cmp-b">Right<select id="cmp-b"></select></label><div class="cmpst" id="cmp-sb"></div><details class="cmpmix"><summary>Mix styles</summary><div class="mixgrid"><label>Colours<select data-g="C"></select></label><label>Shape<select data-g="S"></select></label><label>Depth<select data-g="D"></select></label><label>Type<select data-g="T"></select></label></div></details><div class="cmpfoot"><span class="cmpread"></span><button type="button" class="cmpcopy">Copy tokens</button><p class="cmphint" hidden></p></div></div>
 </div>
 </section>
 
@@ -3124,7 +3185,7 @@ nav.index button.on .kn{color:inherit;background:var(--bg);background:color-mix(
   <div class="kf-end">
     <span>Made by</span>
     <a class="kf-user" href="https://github.com/xeyynon" target="_blank" rel="noopener noreferrer" aria-label="xeyynon on GitHub (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>@xeyynon</a>
-    <a class="kf-folio" href="https://suryapratik.vercel.app/" target="_blank" rel="author noopener noreferrer" aria-label="Surya Pratik's portfolio (opens in a new tab)">Portfolio<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+    <a class="kf-folio" href="https://suryapratik.vercel.app/" target="_blank" rel="author noopener noreferrer" aria-label="Surya Pratik's portfolio (opens in a new tab)">Portfolio<svg class="kf-snitch" viewBox="0 4 120 40" aria-hidden="true" focusable="false"><defs><radialGradient id="kf-gold" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe7b3"/><stop offset=".45" stop-color="#d8a94a"/><stop offset="1" stop-color="#5e3d0c"/></radialGradient></defs><g class="wing"><path class="sail" d="M72 30Q96 29 116 7Q102.14 32.74 85.06 36.99Q77.39 39.1 72 30Z"/><path class="rib" d="M75.97 29.69L73.47 36.77M79.89 29.08L77.39 38.1M83.75 28.19L81.25 38.02M87.56 27L85.06 36.99M91.31 25.52L88.81 35.19M95 23.75L92.5 32.75M98.64 21.69L96.14 29.74M102.22 19.33L99.72 26.22M105.75 16.69L103.25 22.23M109.22 13.75L106.72 17.77M112.64 10.52L110.14 12.82"/><path class="spine" d="M72 30Q96 29 116 7"/></g><g transform="translate(120 0) scale(-1 1)"><g class="wing"><path class="sail" d="M72 30Q96 29 116 7Q102.14 32.74 85.06 36.99Q77.39 39.1 72 30Z"/><path class="rib" d="M75.97 29.69L73.47 36.77M79.89 29.08L77.39 38.1M83.75 28.19L81.25 38.02M87.56 27L85.06 36.99M91.31 25.52L88.81 35.19M95 23.75L92.5 32.75M98.64 21.69L96.14 29.74M102.22 19.33L99.72 26.22M105.75 16.69L103.25 22.23M109.22 13.75L106.72 17.77M112.64 10.52L110.14 12.82"/><path class="spine" d="M72 30Q96 29 116 7"/></g></g><circle cx="60" cy="34" r="13" fill="url(#kf-gold)"/><path class="relief" d="M47.5 34H72.5"/><path class="relief" d="M50 30Q58 22 70 29M49 39Q60 44 71 38"/><circle class="joint" cx="72" cy="30" r="2.2"/><circle class="joint" cx="48" cy="30" r="2.2"/></svg><svg class="kf-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
     <span class="kf-sep" aria-hidden="true"></span>
     <button type="button" class="kf-top" id="kf-top">Back to top <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
   </div>
@@ -3536,10 +3597,107 @@ on('#fid-x', 'click', () => { $('#fid-p .v2').hidden = true; $('#fid-p .v1').hid
   $$('.s-tok .bs button').forEach(b => b.addEventListener('click', () => ap(b.dataset.b))); ap('a');
 })();
 
-/* ---------- Compare tool ---------- */
-(() => { const V = [['minimal', 'Minimalism'], ['glass', 'Glassmorphism'], ['liquid', 'Liquid Glass'], ['neu', 'Neumorphism'], ['nb', 'Neo-brutalism'], ['bru', 'Brutalism'], ['mat', 'Material'], ['flat', 'Flat'], ['skeu', 'Skeuomorphism'], ['clay', 'Claymorphism'], ['dark', 'Dark UI'], ['retro', 'Retro / Y2K']];
-  const set = (sel, st, v) => { if (!sel) return; sel.innerHTML = V.map(x => `<option value="${x[0]}">${x[1]}</option>`).join(''); sel.value = v; const ap = () => { st.className = 'cmpst v-' + sel.value; }; sel.addEventListener('change', ap); ap(); };
-  set($('#cmp-a'), $('#cmp-sa'), 'neu'); set($('#cmp-b'), $('#cmp-sb'), 'nb');
+/* ---------- Compare tool: 12 styles as tokens, 7 everyday screens, and a mixer that takes each token group from any style ---------- */
+(() => {
+  const NAMES = { minimal: 'Minimalism', glass: 'Glassmorphism', liquid: 'Liquid Glass', neu: 'Neumorphism', nb: 'Neo-brutalism', bru: 'Brutalism', mat: 'Material', flat: 'Flat', skeu: 'Skeuomorphism', clay: 'Claymorphism', dark: 'Dark UI', retro: 'Retro / Y2K' };
+  const SYS = 'system-ui,-apple-system,"Segoe UI",Roboto,sans-serif';
+  const neuOut = (x, b) => `${x}px ${x}px ${b}px color-mix(in srgb,var(--k-surface-solid) 84%,#000),-${x}px -${x}px ${b}px color-mix(in srgb,var(--k-surface-solid) 40%,#fff)`;
+  const neuIn = 'inset 3px 3px 6px color-mix(in srgb,var(--k-surface-solid) 84%,#000),inset -3px -3px 6px color-mix(in srgb,var(--k-surface-solid) 40%,#fff)';
+  // Four groups. Colours: every colour role. Shape: border widths and corner radii. Depth: shadows, blur, text shadow. Type: font, size, spacing, weights.
+  const G = {
+    C: ['stage', 'fg', 'muted', 'surface', 'surface-solid', 'card-bc', 'accent', 'on-accent', 'accent-ink', 'line', 'field', 'field-ink', 'field-bc', 'btn-bc'],
+    S: ['bw', 'btn-bw', 'field-bw', 'radius', 'radius-btn', 'radius-field'],
+    D: ['shadow', 'btn-shadow', 'field-shadow', 'blur', 'tshadow'],
+    T: ['font', 'scale', 'track', 'head-weight', 'btn-weight']
+  };
+  const GN = { C: 'Colours', S: 'Shape', D: 'Depth', T: 'Type' };
+  const row = (keys, vals) => Object.fromEntries(keys.map((k, i) => [k, vals[i]]));
+  const def = (c, s, d, t) => ({ C: row(G.C, c), S: row(G.S, s), D: row(G.D, d), T: row(G.T, t) });
+  const W = 'rgba(255,255,255,';
+  const BEVEL = '#fff #404040 #404040 #fff', SUNK = '#404040 #fff #fff #404040';
+  const T = {
+    minimal: def(['#ffffff', '#111111', '#666666', '#ffffff', '#ffffff', '#e6e6e6', '#111111', '#ffffff', '#111111', '#d9d9d9', '#ffffff', '#111111', '#cfcfcf', 'transparent'],
+      ['1px', '1px', '1px', '6px', '4px', '4px'], ['none', 'none', 'none', 'none', 'none'], [SYS, '1', 'normal', '600', '600']),
+    glass: def(['radial-gradient(circle at 20% 25%,#ff6fae 0,transparent 35%),radial-gradient(circle at 80% 75%,#6f8bff 0,transparent 40%),#191d3a', '#ffffff', W + '.78)', W + '.14)', '#3a3f66', W + '.4)', W + '.92)', '#222222', '#ffffff', W + '.35)', W + '.12)', '#ffffff', W + '.4)', 'transparent'],
+      ['1px', '1px', '1px', '18px', '10px', '10px'], ['0 8px 32px rgba(0,0,0,.25)', 'none', 'none', 'blur(14px)', 'none'], [SYS, '1', 'normal', '600', '600']),
+    liquid: def(['repeating-linear-gradient(60deg,rgba(255,255,255,.1) 0 14px,transparent 14px 28px),linear-gradient(150deg,#ff9966,#ff5e62 35%,#8e2de2 70%,#00c6ff)', '#ffffff', W + '.85)', W + '.1)', '#9a4a8a', W + '.5)', W + '.3)', '#ffffff', '#ffffff', W + '.45)', W + '.14)', '#ffffff', W + '.5)', W + '.5)'],
+      ['0px', '0px', '1px', '28px', '999px', '999px'], ['inset 1.5px 1.5px 0 rgba(255,255,255,.8),inset -1px -1px 0 rgba(255,255,255,.3),inset 0 0 20px rgba(255,255,255,.2),0 10px 26px rgba(0,0,0,.22)', 'inset 1px 1px 0 rgba(255,255,255,.8)', 'inset 1px 1px 0 rgba(255,255,255,.5)', 'blur(3px) saturate(190%)', '0 1px 3px rgba(0,0,0,.25)'], [SYS, '1', 'normal', '600', '600']),
+    neu: def(['#e2e7ee', '#4f5867', '#6b7483', '#e2e7ee', '#e2e7ee', 'transparent', '#e2e7ee', '#2f6fd8', '#3b82f6', '#c9d0da', '#e2e7ee', '#3b4351', 'transparent', 'transparent'],
+      ['0px', '0px', '0px', '18px', '12px', '12px'], [neuOut(9, 18), neuOut(5, 10), neuIn, 'none', 'none'], [SYS, '1', 'normal', '700', '700']),
+    nb: def(['#ffe066', '#000000', '#333333', '#ffffff', '#ffffff', '#000000', '#ff6b9d', '#000000', '#ff6b9d', '#000000', '#ffffff', '#000000', '#000000', '#000000'],
+      ['3px', '3px', '3px', '10px', '8px', '8px'], ['7px 7px 0 var(--k-fg)', '4px 4px 0 var(--k-fg)', '3px 3px 0 var(--k-fg)', 'none', 'none'], [SYS, '1', 'normal', '800', '700']),
+    bru: def(['#ffffff', '#000000', '#333333', '#ffffff', '#ffffff', '#000000', '#eeeeee', '#000000', '#0000ee', '#000000', '#ffffff', '#000000', '#767676', '#f4f4f4 #767676 #767676 #f4f4f4'],
+      ['1px', '2px', '1px', '0px', '0px', '0px'], ['none', 'none', 'none', 'none', 'none'], ['"Times New Roman",Times,serif', '1.08', 'normal', '700', '400']),
+    mat: def(['#fdf7ff', '#1d1b20', '#49454f', '#ffffff', '#ffffff', 'transparent', '#6750a4', '#ffffff', '#6750a4', '#cac4d0', '#ffffff', '#1d1b20', '#79747e', 'transparent'],
+      ['0px', '0px', '1px', '16px', '20px', '4px'], ['0 2px 6px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.1)', 'none', 'none', 'none', 'none'], ['Roboto,' + SYS, '1', '.01em', '500', '500']),
+    flat: def(['#ecf0f1', '#ffffff', '#eaf4fb', '#3498db', '#3498db', 'transparent', '#e74c3c', '#ffffff', '#2ecc71', W + '.5)', '#ffffff', '#2c3e50', 'transparent', 'transparent'],
+      ['0px', '0px', '0px', '0px', '0px', '0px'], ['none', 'none', 'none', 'none', 'none'], [SYS, '1', 'normal', '700', '700']),
+    skeu: def(['repeating-linear-gradient(90deg,#8a5a34 0 14px,#7d5030 14px 28px,#94633b 28px 40px)', '#3b2a1a', '#6b5640', 'linear-gradient(#fdfbf5,#ece6d6)', '#f5f0e4', '#b9ab8c', 'linear-gradient(#6fcf6f,#2f8f2f)', '#ffffff', '#3f9f3f', '#cbbd9e', '#ffffff', '#3b2a1a', '#a8997a', '#1f6b1f'],
+      ['1px', '1px', '1px', '8px', '8px', '5px'], ['0 10px 20px rgba(0,0,0,.45),inset 0 1px 0 #fff', 'inset 0 1px 0 rgba(255,255,255,.5),0 2px 3px rgba(0,0,0,.3)', 'inset 0 2px 3px rgba(0,0,0,.18)', 'none', '0 1px 0 rgba(255,255,255,.7)'], ['Georgia,"Times New Roman",serif', '1', 'normal', '700', '700']),
+    clay: def(['#efe4ff', '#3b2a5c', '#6a5a8c', '#ffffff', '#ffffff', 'transparent', '#ffb4c6', '#3b2a5c', '#8a63d2', '#e2d6f7', '#f6f0ff', '#3b2a5c', 'transparent', 'transparent'],
+      ['0px', '0px', '0px', '30px', '18px', '16px'], ['12px 14px 26px rgba(138,99,210,.35),inset -6px -6px 14px rgba(160,120,220,.25),inset 6px 6px 12px #fff', 'inset -4px -4px 8px rgba(0,0,0,.12),inset 4px 4px 8px rgba(255,255,255,.6),4px 6px 12px rgba(255,120,160,.35)', 'inset 3px 3px 6px rgba(138,99,210,.18),inset -3px -3px 6px #fff', 'none', 'none'], [SYS, '1', 'normal', '800', '700']),
+    dark: def(['#0c0e12', '#e8eaf0', '#9aa3b2', '#171a21', '#171a21', '#262b35', '#8aa2ff', '#0c0e12', '#8aa2ff', '#2e3440', '#0f1116', '#e8eaf0', '#2e3440', 'transparent'],
+      ['1px', '1px', '1px', '12px', '8px', '8px'], ['0 10px 30px rgba(0,0,0,.4)', 'none', 'none', 'none', 'none'], [SYS, '1', 'normal', '600', '600']),
+    retro: def(['#008080', '#000000', '#404040', '#c0c0c0', '#c0c0c0', BEVEL, '#c0c0c0', '#000000', '#000080', '#808080', '#ffffff', '#000000', SUNK, BEVEL],
+      ['2px', '2px', '2px', '0px', '0px', '0px'], ['none', 'none', 'none', 'none', 'none'], ['"VT323",monospace', '1.2', 'normal', '400', '400'])
+  };
+  const SCR = [
+    ['pricing', 'Pricing', '<div class="kx-card kx-pad kx-w220 kx-stack"><span class="kx-small kx-muted">PRO PLAN</span><div class="kx-price kx-h">₹499<span> / month</span></div><ul class="kx-list"><li>Unlimited projects</li><li>Priority support</li><li>Custom domain</li></ul><button class="kx-btn kx-full" type="button">Upgrade</button></div>'],
+    ['signin', 'Sign in', '<div class="kx-card kx-pad kx-w260 kx-stack"><div class="kx-h kx-title">Sign in</div><label class="kx-lab">Email<input class="kx-field" type="email" value="asha@studio.in" autocomplete="off"></label><label class="kx-lab">Password<input class="kx-field" type="password" value="northwind22" autocomplete="off"></label><span class="kx-small kx-muted">Forgot password?</span><button class="kx-btn kx-full" type="button">Sign in</button></div>'],
+    ['navbar', 'Navbar', '<div class="kx-col"><div class="kx-card kx-bar"><span class="kx-h">Northwind</span><span class="kx-links"><span class="on">Home</span><span>Docs</span><span class="hide-n">Pricing</span></span><button class="kx-btn kx-sm" type="button">Sign up</button></div><div class="kx-card kx-pad kx-stack"><div class="kx-h kx-title">Run your shop from one place</div><p class="kx-p kx-muted">Payments, stock and invoices together.</p><div class="kx-row"><button class="kx-btn" type="button">Start free</button><button class="kx-btn kx-ghost" type="button">See demo</button></div></div></div>'],
+    ['product', 'Product card', '<div class="kx-card kx-prod kx-w220"><div class="kx-img"></div><div class="kx-pads kx-stack"><div class="kx-row kx-between"><span class="kx-h">Desk lamp</span><span class="kx-h">₹1,299</span></div><span class="kx-small kx-muted">Warm white, rated 4.6 of 5</span><button class="kx-btn kx-full" type="button">Add to cart</button></div></div>'],
+    ['settings', 'Settings', '<div class="kx-card kx-pad kx-w260"><div class="kx-h kx-title" style="margin-bottom:.5em">Notifications</div>' + [['Email updates', 1], ['Push alerts', 0], ['Weekly summary', 1]].map(([l, on]) => `<div class="kx-set"><span>${l}</span><button class="kx-tog" type="button" role="switch" aria-checked="${!!on}" aria-label="${l}"></button></div>`).join('') + '<div class="kx-row kx-end" style="margin-top:.7em"><button class="kx-btn kx-ghost kx-sm" type="button">Cancel</button><button class="kx-btn kx-sm" type="button">Save</button></div></div>'],
+    ['stats', 'Dashboard', '<div class="kx-col" style="width:min(100%,300px)"><div class="kx-stats"><div class="kx-card kx-pads"><div class="kx-small kx-muted">Revenue</div><div class="kx-num kx-h">₹4.2L</div><div class="kx-small kx-muted">up 12% this month</div></div><div class="kx-card kx-pads"><div class="kx-small kx-muted">Orders</div><div class="kx-num kx-h">1,284</div><div class="kx-small kx-muted">38 waiting</div></div></div><div class="kx-card kx-pads"><div class="kx-row kx-between kx-small"><span class="kx-h">Weekly sales</span><span class="kx-muted">Mon to Sun</span></div><div class="kx-bars">' + [42, 58, 50, 71, 64, 88, 76].map(h => `<i style="--h:${h}%"></i>`).join('') + '</div></div></div>'],
+    ['dialog', 'Dialog', '<div class="kx-behind" aria-hidden="true"><div class="kx-card"><i style="width:40%"></i></div><div class="kx-card"><i style="width:70%"></i><i style="width:50%"></i></div><div class="kx-card"><i style="width:60%"></i><i style="width:35%"></i></div></div><div class="kx-scrim"></div><div class="kx-card kx-pad kx-w260 kx-stack kx-dialog"><div class="kx-h kx-title">Delete this project?</div><p class="kx-p kx-muted">Northwind and its 24 files move to Trash. You can restore them for 30 days.</p><div class="kx-row kx-end"><button class="kx-btn kx-ghost kx-sm" type="button">Cancel</button><button class="kx-btn kx-sm" type="button">Delete</button></div></div>']
+  ];
+  const tabs = $('#cmp-tabs'), panels = $$('.cmpp');
+  if (!tabs || panels.length < 2) return;
+  let scr = 'pricing';
+  tabs.innerHTML = SCR.map(s => `<button type="button" data-scr="${s[0]}" aria-pressed="${s[0] === scr}">${s[1]}</button>`).join('');
+
+  // Colour maths for the contrast readout. A colour the browser can't read as one flat colour (a gradient) or a see-through one can't be measured honestly, so it says so.
+  const probe = document.createElement('i'); probe.style.display = 'none'; document.body.appendChild(probe);
+  const rgb = v => { probe.style.color = ''; probe.style.color = v; if (!probe.style.color) return null; const m = getComputedStyle(probe).color.match(/[\d.]+/g); return m ? m.map(Number) : null; };
+  const lum = c => { const f = x => (x /= 255) <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
+  const ratio = (fg, bg) => { const a = rgb(fg), b = rgb(bg); if (!a || !b || (b[3] !== undefined && b[3] < 1) || (a[3] !== undefined && a[3] < 1)) return null; const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+  const grade = r => r === null ? 'see-through, check by eye' : r.toFixed(1) + ':1 ' + (r >= 7 ? 'passes AAA' : r >= 4.5 ? 'passes AA' : r >= 3 ? 'large text only' : 'fails');
+  const isFlat = v => !/gradient/.test(v);
+
+  panels.forEach((p, n) => {
+    const side = n ? 'Right' : 'Left', sel = $('select', p), st = $('.cmpst', p), mix = $$('.cmpmix select', p), read = $('.cmpread', p), hint = $('.cmphint', p), copy = $('.cmpcopy', p);
+    sel.innerHTML = Object.keys(T).map(k => `<option value="${k}">${NAMES[k]}</option>`).join('');
+    sel.value = n ? 'nb' : 'neu';
+    mix.forEach(m => { m.innerHTML = `<option value="">Same as ${side.toLowerCase()} style</option>` + Object.keys(T).map(k => `<option value="${k}">${NAMES[k]}</option>`).join(''); });
+    const src = g => { const m = mix.find(x => x.dataset.g === g); return (m && m.value) || sel.value; };
+    const tokens = () => { const o = {}; Object.keys(G).forEach(g => Object.assign(o, T[src(g)][g])); return o; };
+    const label = () => { const base = sel.value, diff = Object.keys(G).filter(g => src(g) !== base); return diff.length ? NAMES[base] + ' with ' + diff.map(g => GN[g].toLowerCase() + ' from ' + NAMES[src(g)]).join(', ') : NAMES[base]; };
+    const draw = () => {
+      const t = tokens();
+      st.className = 'cmpst v-' + sel.value;
+      st.dataset.type = src('T');
+      Object.entries(t).forEach(([k, v]) => st.style.setProperty('--k-' + k, v));
+      if (t.blur !== 'none') st.dataset.blur = ''; else delete st.dataset.blur;
+      st.innerHTML = SCR.find(s => s[0] === scr)[2];
+      const body = ratio(t.fg, t.surface), btn = ratio(t['on-accent'], t.accent);
+      read.innerHTML = `<span><b>Text</b> ${grade(body)}</span> <span><b>Button</b> ${grade(btn)}</span>`;
+      $$('span', read).forEach((s, i) => { const r = i ? btn : body; s.classList.toggle('fail', r !== null && r < 4.5); });
+      const h = [];
+      if (/blur/.test(t.blur) && isFlat(t.stage)) h.push('Blur only shows over a busy background. On a plain one this card just looks faded.');
+      if (/color-mix/.test(t.shadow) && rgb(t.surface) && rgb(t.stage) && rgb(t.surface).join() !== rgb(t.stage).join()) h.push('Neumorphic shadows only read when the card is the same colour as the background.');
+      if (/var\(--k-fg\)/.test(t.shadow) && rgb(t.fg) && lum(rgb(t.fg)) > 0.5) h.push('Hard offset shadows use the text colour, so light text gives a light shadow that barely shows.');
+      hint.textContent = h.join(' ');
+      hint.hidden = !h.length;
+    };
+    copy.addEventListener('click', () => {
+      const t = tokens(), css = `/* ${label()}: tokens from kindofui Compare */\n:root {\n` + Object.keys(G).map(g => `  /* ${GN[g]} */\n` + G[g].map(k => `  --${k}: ${t[k].replace(/--k-/g, '--')};`).join('\n')).join('\n') + '\n}\n';
+      const done = () => { copy.textContent = 'Copied ✓'; setTimeout(() => { copy.textContent = 'Copy tokens'; }, 1400); };
+      try { navigator.clipboard.writeText(css).then(done, done); } catch (_) { done(); }
+    });
+    sel.addEventListener('change', draw); mix.forEach(m => m.addEventListener('change', draw));
+    p._draw = draw; draw();
+  });
+  tabs.addEventListener('click', e => { const b = e.target.closest('button[data-scr]'); if (!b) return; scr = b.dataset.scr; $$('button', tabs).forEach(x => x.setAttribute('aria-pressed', x === b)); panels.forEach(p => p._draw()); });
+  $('#compare').addEventListener('click', e => { const t = e.target.closest('.kx-tog'); if (t) t.setAttribute('aria-checked', t.getAttribute('aria-checked') !== 'true'); });
 })();
 
 /* ---------- "Good for / Watch out" notes (injected under every card) ---------- */
@@ -3808,22 +3966,42 @@ function codeFor(st) {
   return '<!-- HTML -->\n' + html + '\n\n/* CSS */\n' + out + (js ? '\n\n/* JS */\n' + js : '');
 }
 
+/* A prompt per card, written only from what the card itself says: its name, description, good for / watch out, and where it is seen. */
+const KIND = { styles: 'Design this interface in the {t} visual style.', layouts: 'Build this layout for my page: {t}.', navigation: 'Build this navigation pattern for my app: {t}.', interaction: 'Build this UI pattern for my app: {t}.', ai: 'Build this AI interface pattern for my app: {t}.' };
+const BASE_RULES = ['Match my existing stack, components and design tokens. If I have none, use semantic HTML, CSS and a little vanilla JavaScript.', 'Every control must work with the keyboard and show a visible focus ring.', 'Keep text contrast at WCAG AA or better (4.5:1 for body text, 3:1 for large text and icons).', 'Respect prefers-reduced-motion and keep any motion calm and short.', 'Make it work from 320px wide up to large desktops with no sideways scrolling.', 'Use realistic content instead of lorem ipsum, and do not add features I did not ask for.'];
+function promptFor(a) {
+  const sec = a.closest('section').id, m = $('.meta', a), t = $('h3', m).firstChild.textContent.trim();
+  const desc = ($('p:not(.seen):not(.ua)', m) || {}).textContent || '', seen = (($('.seen', m) || {}).textContent || '').replace(/^Seen in:\s*/, ''), u = UA[a.id];
+  const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Fix both|Add a task|Rate it|Swipe)\b|to try it/i.test(x)).join('').trim();
+  const facts = [about && 'What it is: ' + about, u && 'Good for: ' + u[0] + '.', u && 'Watch out: ' + u[1] + '.', seen && 'Seen in: ' + seen.trim()].filter(Boolean).join('\n');
+  const list = r => r.map((x, i) => (i + 1) + '. ' + x).join('\n');
+  if (KIND[sec]) return KIND[sec].replace('{t}', t) + '\n\n' + facts + '\n\nRequirements:\n' + list(BASE_RULES) + '\n\nUse the kindofui reference code below for the look and behaviour. Adapt it to my project instead of pasting it as is.';
+  if (sec === 'laws') return 'Review my UI against ' + t + '.\n\n' + facts + '\n\nFor each screen or component I share:\n' + list(['Point to the exact places where it breaks this law and say why it matters to the user.', 'Suggest a concrete fix for each one, smallest change first.', 'Apply the fixes in code when I say so, keeping my existing styles.', 'Tell me how to check the result, for example with a quick user test or a measurement.']) + '\n\nThe kindofui example below shows the law in a small working demo.';
+  if (sec === 'access') return 'Make my UI follow this accessibility and motion practice: ' + t + '.\n\n' + facts + '\n\nSteps:\n' + list(['Audit every page and component I share against this practice and list each problem with its element.', 'Fix the problems in code without changing the visual design more than needed.', 'Follow WCAG 2.2 AA and say which success criterion each fix covers.', 'Tell me how to test it myself: keyboard only, a screen reader, 200% zoom and reduced motion.']) + '\n\nThe kindofui example below shows the practice in a small working demo.';
+  return 'Help me use ' + t + ' on my project.\n\n' + facts + '\n\nSteps:\n' + list(['Ask me the few questions you need about my product and users first.', 'Walk me through the method step by step for my case, not in general.', 'Produce the outputs the method needs (for example notes, a table or a checklist) in plain text I can share.', 'Tell me what to do next and how to know it worked.']) + '\n\nThe kindofui example below shows the method in a small working demo.';
+}
+
 $$('article.demo').forEach(a => {
   const m = $('.meta', a), u = UA[a.id];
   if (u) { const p = document.createElement('p'); p.className = 'ua'; p.innerHTML = `<span><b>Good for:</b> ${u[0]}</span><span><b>Watch out:</b> ${u[1]}</span>`; $('.seen', m).before(p); }
-  const b = document.createElement('button'); b.type = 'button'; b.className = 'codebtn'; b.textContent = '</> View code'; b.setAttribute('aria-expanded', 'false'); m.appendChild(b);
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'codebtn'; b.textContent = '</> Code and prompt'; b.setAttribute('aria-expanded', 'false'); m.appendChild(b);
   let box = null;
   b.addEventListener('click', () => {
     if (box) box.hidden = !box.hidden;
     else { box = document.createElement('div'); box.className = 'code';
-      box.innerHTML = '<div class="code-bar"><span></span><button type="button">Copy</button></div><pre><code></code></pre>';
+      box.innerHTML = '<div class="pr-bar"><span>Prompt for Claude or any AI assistant</span><button type="button">Copy prompt</button></div><div class="ptxt" tabindex="0" role="region" aria-label="Prompt text"></div><div class="code-bar"><span></span><button type="button">Copy</button></div><pre><code></code></pre>';
       const src = codeFor($('.stage', a)); $('code', box).textContent = src;
+      const pr = promptFor(a); $('.ptxt', box).textContent = pr + '\n\n(Copy prompt adds the code below as the reference.)';
+      $('.pr-bar button', box).addEventListener('click', ev => { const t = ev.currentTarget, txt = pr + '\n\n' + src;
+        const done = () => { t.textContent = 'Copied ✓'; setTimeout(() => t.textContent = 'Copy prompt', 1500); };
+        const sel = () => { const r = document.createRange(); r.selectNodeContents($('.ptxt', box)); const g = getSelection(); g.removeAllRanges(); g.addRange(r); t.textContent = 'Selected, press Ctrl+C'; };
+        try { navigator.clipboard.writeText(txt).then(done, sel); } catch (_) { sel(); } });
         $('.code-bar span', box).textContent = /\n\/\* JS \*\/\n/.test(src) ? 'HTML + CSS + JS' : 'HTML + CSS · no JavaScript needed'; m.appendChild(box);
       $('.code-bar button', box).addEventListener('click', ev => { const t = ev.currentTarget, c = $('code', box);
         const done = () => { t.textContent = 'Copied ✓'; setTimeout(() => t.textContent = 'Copy', 1500); };
         const sel = () => { const r = document.createRange(); r.selectNodeContents(c); const s = getSelection(); s.removeAllRanges(); s.addRange(r); t.textContent = 'Selected, press Ctrl+C'; };
         try { navigator.clipboard.writeText(c.textContent).then(done, sel); } catch (_) { sel(); } }); }
-    b.setAttribute('aria-expanded', !box.hidden); b.textContent = box.hidden ? '</> View code' : '</> Hide code';
+    b.setAttribute('aria-expanded', !box.hidden); b.textContent = box.hidden ? '</> Code and prompt' : '</> Hide code and prompt';
   });
 });
 
