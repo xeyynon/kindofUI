@@ -7,7 +7,7 @@
 
 **Stop looking at screenshots of interfaces. Touch them.**
 
-135 live, clickable, copyable examples of how interfaces are designed, on one page.
+145 live, clickable, copyable examples of how interfaces are designed, on one page.
 
 [**Open the live site**](https://kindofui.vercel.app) &nbsp;·&nbsp; [Why it exists](#why-this-exists) &nbsp;·&nbsp; [What is inside](#what-is-inside) &nbsp;·&nbsp; [Run it](#run-it) &nbsp;·&nbsp; [Add an entry](#add-an-entry)
 
@@ -51,11 +51,11 @@ It is for people who design or build interfaces and learn by seeing and trying: 
 |---|---:|---|
 | **Visual styles** | 38 | Bento, glassmorphism, neumorphism, neo-brutalism, aurora, vaporwave, liquid glass, 3D tilt, e-ink, Apple and Windows design languages |
 | **Layouts** | 18 | Masonry, dashboard, holy grail, 12-column grid, kanban you can drag, carousel, scrollytelling, parallax, scroll-snap sections |
-| **Navigation** | 18 | Command palette, mega menu, magnifying dock, speed-dial button, scroll-spy contents, bottom tab bar |
-| **Components & UX patterns** | 26 | Skeleton loaders, last known value, drag-to-reorder, OTP input, pull to refresh, optimistic updates, form validation, faceted search |
+| **Navigation** | 19 | Command palette, mega menu, magnifying dock, speed-dial button, scroll-spy contents, bottom tab bar |
+| **Components & UX patterns** | 34 | Skeleton loaders, last known value, error summary, double-submit protection, drag-to-reorder, OTP input, pull to refresh, optimistic updates, form validation, faceted search |
 | **AI patterns** | 5 | Prompt box, streaming answer with a stop button, suggestions, citations, voice input |
 | **UX laws** | 10 | Fitts's law as a timing game, Hick's law, the Doherty threshold, felt as a 1.5 s response next to one under 400 ms |
-| **Accessibility & motion** | 8 | A colour-blindness simulator, focus rings, ARIA, reduced motion, easing curves |
+| **Accessibility & motion** | 9 | A colour-blindness simulator, focus rings, ARIA, reduced motion, easing curves |
 | **Process & methods** | 12 | Personas, journey maps, card sorting, A/B test statistics, design tokens you can switch live |
 
 Plus a **compare tool**: put any two of twelve styles side by side on the *same* pricing card and see how much the style alone changes the feel.
@@ -68,7 +68,7 @@ Plus a **compare tool**: put any two of twelve styles side by side on the *same*
 
 ## The anatomy of an entry
 
-Every one of the 135 follows the same five-part shape:
+Every one of the 145 follows the same five-part shape:
 
 <table>
 <tr>
