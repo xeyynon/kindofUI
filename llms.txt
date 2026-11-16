@@ -1,0 +1,183 @@
+# kindofui
+
+> 145 live UI and UX patterns. Each one has when to use it, when it hurts, what it is based on or where it is seen, a ready prompt for AI assistants, and copyable HTML, CSS and JavaScript. Build 1012.
+
+Read these files instead of scraping the page. Every pattern has its own Markdown page with the full prompt and code.
+
+- [All patterns as JSON](https://kindofui.vercel.app/patterns.json): every pattern with its facts, prompt and code, plus the decision guides, the UX audit and the Compare screens
+- [Which should I use?](https://kindofui.vercel.app/p/decisions.md): 11 decision guides, for example modal vs drawer vs toast, spinner vs skeleton vs last known value, when to show form errors
+- [UX audit checklist](https://kindofui.vercel.app/p/ux-audit.md): 26 checks to review an interface, each linked to its pattern
+
+## Visual styles
+
+- [Bento grid](https://kindofui.vercel.app/p/bento.md): Rounded tiles of different sizes packed into one grid.
+- [Glassmorphism](https://kindofui.vercel.app/p/glass.md): Frosted, semi-transparent panels that blur what sits behind them, with a thin light border.
+- [Neumorphism](https://kindofui.vercel.app/p/neu.md): Elements look pushed out of, or pressed into, the same-colored surface using one light and one dark shadow.
+- [Minimalism](https://kindofui.vercel.app/p/minimal.md): Lots of white space, one or two colors and only the elements the task needs.
+- [Material Design](https://kindofui.vercel.app/p/material.md): Google's system: layered surfaces with elevation shadows, a top app bar, chips, and a floating action button for the main action.
+- [Flat design](https://kindofui.vercel.app/p/flat.md): Solid colors, no shadows, no gradients, no textures.
+- [Skeuomorphism](https://kindofui.vercel.app/p/skeuo.md): Digital objects copy real materials: leather, wood, paper, brushed metal.
+- [Neo-brutalism](https://kindofui.vercel.app/p/neobrutal.md): Thick black borders, hard offset shadows with no blur, loud flat colors and chunky type.
+- [Brutalism](https://kindofui.vercel.app/p/brutal.md): Raw, default-browser look: system serif fonts, blue underlined links, plain tables, no polish on purpose.
+- [Dark UI](https://kindofui.vercel.app/p/darkui.md): Light text on near-black surfaces.
+- [Aurora / mesh gradient](https://kindofui.vercel.app/p/aurora.md): Large, heavily blurred color blobs that slowly drift behind the content, like northern lights.
+- [Claymorphism](https://kindofui.vercel.app/p/clay.md): Puffy, inflated shapes with big rounded corners, soft outer shadows and inner highlights so they look like soft clay.
+- [Retro / Y2K / pixel](https://kindofui.vercel.app/p/retro.md): Nostalgic computer looks: beveled grey windows, pixel fonts, blue title bars, chrome and early-2000s colors.
+- [Editorial / typography-led](https://kindofui.vercel.app/p/editorial.md): Big expressive type carries the design, laid out like a magazine with kickers, bylines, columns and drop caps.
+- [Illustration-led](https://kindofui.vercel.app/p/illus.md): Custom drawings give the brand its personality and explain the product before the copy does.
+- [Swiss / International style](https://kindofui.vercel.app/p/swiss.md): A strict grid, sans-serif type, flush-left text, and bold geometric shapes in red, black and white.
+- [Memphis](https://kindofui.vercel.app/p/memphis.md): 1980s-inspired chaos: squiggles, triangles, dot patterns and clashing bright colors.
+- [Cyberpunk / synthwave neon](https://kindofui.vercel.app/p/neon.md): Glowing cyan and magenta text on black, neon outlines and a retro perspective grid.
+- [Liquid Glass](https://kindofui.vercel.app/p/liquidglass.md): Apple's newer take on glass: clear, lens-like controls with bright edge highlights that bend the colors behind them.
+- [Vaporwave](https://kindofui.vercel.app/p/vaporwave.md): Pink and teal sunsets, striped suns, checkerboard floors, wide-spaced letters and 90s computer nostalgia.
+- [Pixel art](https://kindofui.vercel.app/p/pixel.md): Chunky square pixels, limited palettes, pixel fonts and stepped button edges, like 8-bit and 16-bit games.
+- [Retro-futurism](https://kindofui.vercel.app/p/retrofuture.md): The future as imagined in the 1950s and 60s: atoms, starbursts, boomerang shapes, cream, orange and teal.
+- [3D / hyperrealism](https://kindofui.vercel.app/p/threed.md): Objects with real depth, lighting and reflections that tilt as you move.
+- [HUD / sci-fi interface](https://kindofui.vercel.app/p/hud.md): Thin glowing lines, corner brackets, radar sweeps and monospaced readouts, like a cockpit or a film's computer screen.
+- [Spatial UI](https://kindofui.vercel.app/p/spatial.md): Floating glass windows placed in a real room, with side "ornaments" for tabs and a grab bar to move the window.
+- [Kinetic typography](https://kindofui.vercel.app/p/kinetic.md): Type that moves: letters stretch, squash and scroll so the words themselves become the animation.
+- [Organic / biophilic](https://kindofui.vercel.app/p/organic.md): Soft blob shapes, earthy greens and clay tones, gentle serifs and slow natural movement inspired by plants and nature.
+- [Gen Z maximalism / anti-design](https://kindofui.vercel.app/p/genz.md): Deliberate chaos: clashing fonts, rotated stickers, starbursts, scrolling strips and loud neon.
+- [ASCII / dithering](https://kindofui.vercel.app/p/ascii.md): Pictures made of text characters and dot patterns, monospaced type and terminal colors.
+- [Bauhaus](https://kindofui.vercel.app/p/bauhaus.md): Primary colors, pure circles, squares and triangles, bold sans-serif type and strong asymmetric balance.
+- [Art Deco](https://kindofui.vercel.app/p/artdeco.md): Gold on deep navy or black, fan and sunburst patterns, double borders, symmetry and tall, elegant capitals.
+- [Monochrome](https://kindofui.vercel.app/p/monochrome.md): Only black, white and greys.
+- [Duotone](https://kindofui.vercel.app/p/duotone.md): A photo turned into just two colors, one for shadows and one for highlights, often with bold type on top.
+- [Grain / noise texture](https://kindofui.vercel.app/p/grain.md): A fine film-like noise over gradients and flat colors.
+- [Holographic / iridescent](https://kindofui.vercel.app/p/holographic.md): Shifting rainbow pastels with shiny streaks, like a hologram sticker or foil card.
+- [E-ink / paper](https://kindofui.vercel.app/p/eink.md): Grey paper, black serif text, no color and no animation.
+- [Apple HIG (iOS style)](https://kindofui.vercel.app/p/ios.md): Apple's Human Interface Guidelines: large titles, grouped rounded lists, colored icon squares, chevrons and green switches.
+- [Fluent (Windows style)](https://kindofui.vercel.app/p/fluent.md): Microsoft's design system: soft tinted backgrounds, light cards, a blue accent bar on the selected item and rounded toggles.
+
+## Layouts
+
+- [Card layout](https://kindofui.vercel.app/p/cards.md): Equal cards in a grid, each a self-contained preview with image, title and key facts.
+- [Masonry grid](https://kindofui.vercel.app/p/masonry.md): Columns of items with different heights that stack tightly with no gaps, like a brick wall.
+- [Dashboard](https://kindofui.vercel.app/p/dashboard.md): Sidebar navigation, a top bar with filters, summary numbers first and charts below them.
+- [Split screen](https://kindofui.vercel.app/p/split.md): Two halves with different jobs: one sells or shows a picture, the other holds the action, often a form.
+- [Hero + sections](https://kindofui.vercel.app/p/hero.md): The classic landing page: navigation, a big headline with one call to action, then feature blocks as you scroll.
+- [Scrollytelling](https://kindofui.vercel.app/p/scrolly.md): A visual stays pinned while text scrolls past it, and the visual changes with each step of the story.
+- [Asymmetric / broken grid](https://kindofui.vercel.app/p/asym.md): Elements overlap, rotate and break out of a regular grid on purpose to feel editorial and dynamic.
+- [F-pattern & Z-pattern](https://kindofui.vercel.app/p/fz.md): How eyes scan a screen.
+- [Holy grail layout](https://kindofui.vercel.app/p/holygrail.md): Header on top, footer at the bottom, and three columns between them: navigation, main content and a side panel.
+- [12-column grid](https://kindofui.vercel.app/p/grid12.md): The page is split into 12 equal columns with gutters.
+- [List-detail (master-detail)](https://kindofui.vercel.app/p/listdetail.md): A list on one side and the selected item's full content on the other.
+- [Kanban board](https://kindofui.vercel.app/p/kanban.md): Columns for each stage of work, with cards that move left to right.
+- [Carousel / slider](https://kindofui.vercel.app/p/carousel.md): One slide at a time with arrows and dots.
+- [Horizontal scroll rows (shelves)](https://kindofui.vercel.app/p/shelf.md): Rows of items that scroll sideways, one row per category.
+- [Timeline](https://kindofui.vercel.app/p/timeline.md): Events in order along a line, with done, current and upcoming steps clearly marked.
+- [Pricing table](https://kindofui.vercel.app/p/pricing.md): Plans side by side with the recommended one raised and highlighted.
+- [Parallax scrolling](https://kindofui.vercel.app/p/parallax.md): Background layers move slower than the foreground, which creates a feeling of depth.
+- [Full-screen sections (scroll snap)](https://kindofui.vercel.app/p/fullscreen.md): Each section fills the screen and scrolling snaps from one to the next, like slides.
+
+## Navigation
+
+- [Top navbar (sticky header)](https://kindofui.vercel.app/p/stickynav.md): A horizontal menu at the top that stays pinned while the page scrolls under it.
+- [Mega menu](https://kindofui.vercel.app/p/mega.md): A wide dropdown that shows many grouped links at once, often with a promo tile.
+- [Hamburger menu](https://kindofui.vercel.app/p/hamburger.md): Three lines that open a hidden menu, saving space on small screens.
+- [Bottom tab bar](https://kindofui.vercel.app/p/tabbar.md): Three to five main sections pinned to the bottom of a phone screen, within easy reach of the thumb.
+- [Sidebar / drawer](https://kindofui.vercel.app/p/sidebar.md): A vertical panel on the left listing sections or channels.
+- [Command palette](https://kindofui.vercel.app/p/cmdk.md): A search box that runs any action by typing.
+- [Breadcrumbs](https://kindofui.vercel.app/p/crumbs.md): A trail that shows where you are in a hierarchy and lets you jump back up a level.
+- [Stepper / wizard](https://kindofui.vercel.app/p/stepper.md): Breaks a long task into ordered steps and shows progress.
+- [Tabs & segmented control](https://kindofui.vercel.app/p/tabs.md): Switch between views of the same thing without leaving the page.
+- [Dropdown menu](https://kindofui.vercel.app/p/dropdown.md): A button that opens a short list of actions or links, then closes.
+- [Fat footer](https://kindofui.vercel.app/p/fatfooter.md): A large footer with grouped links, a newsletter box and legal info.
+- [Navigation rail](https://kindofui.vercel.app/p/navrail.md): A slim vertical bar of icons with labels, made for tablets and desktop.
+- [Dock](https://kindofui.vercel.app/p/dock.md): A row of app icons that grow under the pointer, with dots under running apps.
+- [Floating action button (speed dial)](https://kindofui.vercel.app/p/fab.md): One round button for the main action, floating above the content.
+- [Table of contents (scroll spy)](https://kindofui.vercel.app/p/toc.md): A list of the page's sections that highlights where you are as you scroll, and jumps to a section when clicked.
+- [Accordion](https://kindofui.vercel.app/p/accordion.md): Stacked headers that expand to show their content.
+- [Back-to-top button](https://kindofui.vercel.app/p/backtotop.md): A small button that appears after you scroll down and takes you back to the top.
+- [Back button closes overlays](https://kindofui.vercel.app/p/backbutton.md): People expect Back to undo what looks like a new page: a photo opened full screen, a filter, a step.
+- [Search-first navigation](https://kindofui.vercel.app/p/searchfirst.md): A big search box is the main way to get around, with recent searches and live suggestions.
+
+## Components and UX patterns
+
+- [Microinteractions](https://kindofui.vercel.app/p/micro.md): Small animations that confirm an action happened: a heart that pops, a switch that slides, a button that says "Copied".
+- [Skeleton loading](https://kindofui.vercel.app/p/skeleton.md): Grey shimmering shapes stand in for content while it loads, so the page feels faster and doesn't jump.
+- [Last known value (stale-while-revalidate)](https://kindofui.vercel.app/p/lastknown.md): While fresh data loads, keep showing the data from last time with a small "Updating" note and when it was last updated, then change the numbers in place.
+- [Delayed spinner (no flash of loading)](https://kindofui.vercel.app/p/delayspin.md): Fast requests show no loader at all.
+- [Reserve space (no layout shift)](https://kindofui.vercel.app/p/reserve.md): Give images, ads, banners and anything that loads late a fixed slot, so the page never jumps.
+- [Error summary on submit](https://kindofui.vercel.app/p/errsummary.md): When a form fails, a box at the top lists every problem, each one a link to its field, and keyboard focus moves to it.
+- [Label placement](https://kindofui.vercel.app/p/labels.md): Where a field's name lives.
+- [Password field done right](https://kindofui.vercel.app/p/password.md): Show the rules before people type and tick them off live, offer a show password button, and let paste and password managers work.
+- [Double-submit protection](https://kindofui.vercel.app/p/doublesubmit.md): Make Pay and Submit safe to click twice: show the pressed state at once, ignore repeat clicks while the request runs, and let the server drop duplicates with an idempotency key.
+- [Search as you type, done right](https://kindofui.vercel.app/p/debounce.md): Wait for a short pause in typing before searching, and cancel or ignore older requests.
+- [Inline message vs toast](https://kindofui.vercel.app/p/inlinestatus.md): Put errors and results next to where the person acted, and keep them until they are fixed.
+- [Infinite scroll vs pagination](https://kindofui.vercel.app/p/infinite.md): Infinite scroll keeps loading as you reach the bottom, good for browsing.
+- [Progressive disclosure](https://kindofui.vercel.app/p/disclosure.md): Show the few options most people need, and hide the rest behind "Advanced" or "Show more" until someone asks.
+- [Empty states & onboarding](https://kindofui.vercel.app/p/empty.md): Left: an empty screen that explains what will appear and how to start.
+- [Gesture-based UI](https://kindofui.vercel.app/p/swipe.md): Swipe, drag, pinch, long-press and pull-to-refresh instead of buttons.
+- [Conversational UI](https://kindofui.vercel.app/p/chat.md): Users get things done by chatting, with quick-reply buttons for common answers.
+- [Modals & toasts](https://kindofui.vercel.app/p/modal.md): A modal blocks the page to ask for a decision.
+- [Dark patterns](https://kindofui.vercel.app/p/darkpat.md): Tricks that push people into choices they didn't intend: fake timers, pre-ticked add-ons, fees revealed late, and guilt-trip opt-out links.
+- [Inline form validation](https://kindofui.vercel.app/p/validation.md): Fields check themselves as you type and say exactly how to fix the problem, with a live password strength meter.
+- [Faceted search & filters](https://kindofui.vercel.app/p/facets.md): Checkboxes narrow a list by several attributes at once, with a live result count and removable filter chips.
+- [Autocomplete](https://kindofui.vercel.app/p/autocomplete.md): Suggestions appear as you type, with the matching letters highlighted and keyboard support.
+- [Sortable data table](https://kindofui.vercel.app/p/datatable.md): Rows of records with a sticky header.
+- [Drag and drop reorder](https://kindofui.vercel.app/p/dragdrop.md): Grab a handle and drag items into a new order.
+- [Optimistic UI](https://kindofui.vercel.app/p/optimistic.md): The change shows up instantly while it saves in the background, and only asks you to retry if saving fails.
+- [Notification center](https://kindofui.vercel.app/p/notifications.md): A bell with an unread count opens a panel of recent activity.
+- [Tooltips & popovers](https://kindofui.vercel.app/p/tooltip.md): A tooltip is a short label that appears on hover or focus.
+- [Pull to refresh](https://kindofui.vercel.app/p/pulltorefresh.md): Drag a list down past the top and let go to load new items, with a spinner while it works.
+- [Lazy loading (blur-up)](https://kindofui.vercel.app/p/lazyload.md): Images load only when they scroll into view, starting as a blurry preview and sharpening when ready.
+- [Error states](https://kindofui.vercel.app/p/errors.md): Good errors say what happened and how to fix it: a plain 404, an offline notice, an inline field error and a failed-payment message with a way to retry.
+- [Loaders & progress](https://kindofui.vercel.app/p/loaders.md): Spinners for short unknown waits, progress bars and rings when you know how far along it is, and buttons that show they're working.
+- [Login & OTP verification](https://kindofui.vercel.app/p/auth.md): One-time code boxes that jump to the next box as you type and accept a pasted code, plus passwordless options.
+- [Settings page](https://kindofui.vercel.app/p/settings.md): Preferences grouped under clear headings, with switches that act right away and risky actions set apart in a danger zone.
+- [Ratings & reviews](https://kindofui.vercel.app/p/ratings.md): An average score, a breakdown bar for each star level, and a star input that previews on hover.
+- [Live collaboration](https://kindofui.vercel.app/p/collab.md): See who else is here: avatar stack, named cursors, other people's selections and typing carets, all updating live.
+
+## AI patterns
+
+- [Prompt box](https://kindofui.vercel.app/p/promptbox.md): A roomy input that grows with your text, holds attachments, shows the model or mode, and only enables Send when there's something to send.
+- [Streaming response](https://kindofui.vercel.app/p/streaming.md): The answer appears word by word so people can start reading at once, with a Stop button while it writes.
+- [Suggested prompts](https://kindofui.vercel.app/p/suggestions.md): Starter cards on an empty screen show what the AI can do and fill the input in one tap.
+- [Inline citations](https://kindofui.vercel.app/p/citations.md): Numbered markers link each claim to its source, with a preview card so people can check the answer.
+- [Voice & multimodal input](https://kindofui.vercel.app/p/voice.md): A mic button with a live waveform and transcript, so people can see they're being heard.
+
+## UX laws
+
+- [Fitts's law](https://kindofui.vercel.app/p/fitts.md): The bigger and closer a target is, the faster people can hit it.
+- [Hick's law](https://kindofui.vercel.app/p/hick.md): The more choices people see at once, the longer they take to decide.
+- [Jakob's law](https://kindofui.vercel.app/p/jakob.md): People spend most of their time on other sites, so they expect yours to work the same way.
+- [Miller's law (chunking)](https://kindofui.vercel.app/p/miller.md): Short-term memory holds only a handful of items, often given as 7 ± 2.
+- [Gestalt principles](https://kindofui.vercel.app/p/gestalt.md): How the eye groups things: by closeness, by similar looks, by filling gaps, and by shared containers.
+- [Von Restorff effect](https://kindofui.vercel.app/p/vonrestorff.md): The item that looks different from the rest is the one people remember and notice first.
+- [Tesler's law](https://kindofui.vercel.app/p/tesler.md): Every task has some complexity that can't be removed.
+- [Doherty threshold](https://kindofui.vercel.app/p/doherty.md): People stay engaged when the system responds in under about 400 ms.
+- [Aesthetic-usability effect](https://kindofui.vercel.app/p/aesthetic.md): People think good-looking designs are easier to use, and forgive small problems in them.
+- [Nielsen's 10 heuristics](https://kindofui.vercel.app/p/nielsen.md): Jakob Nielsen's ten rules of thumb for usable interfaces.
+
+## Accessibility and motion
+
+- [Accessibility-first (WCAG)](https://kindofui.vercel.app/p/a11y.md): Design so everyone can use it, including people with low vision, motor issues or screen readers: enough contrast, big targets, real labels and keyboard focus.
+- [WCAG POUR principles](https://kindofui.vercel.app/p/pour.md): The four principles the Web Content Accessibility Guidelines are built on.
+- [Color-blind safe design](https://kindofui.vercel.app/p/colorblind.md): About 1 in 12 men has some color blindness.
+- [Visible focus states](https://kindofui.vercel.app/p/focus.md): Keyboard users need to see where they are.
+- [Focus after actions](https://kindofui.vercel.app/p/focusafter.md): After a delete, a closed dialog or a new view, put keyboard focus somewhere sensible: the next item, or the button that opened the dialog.
+- [Semantic HTML & ARIA](https://kindofui.vercel.app/p/aria.md): Use real buttons, labels and alt text so screen readers can announce what things are.
+- [Reduced motion](https://kindofui.vercel.app/p/reducedmotion.md): Some people get dizzy or sick from movement.
+- [Easing curves](https://kindofui.vercel.app/p/easing.md): Easing controls how motion speeds up and slows down.
+- [Page transitions](https://kindofui.vercel.app/p/transitions.md): Motion between screens shows where you came from and where you went.
+
+## Process and methods
+
+- [Mobile-first & responsive](https://kindofui.vercel.app/p/responsive.md): Design for the smallest screen first, then let the same content reflow into more columns as space grows.
+- [Design systems](https://kindofui.vercel.app/p/designsystem.md): A shared library of tokens (colors, type, spacing) and components so every screen looks and behaves the same.
+- [Atomic design](https://kindofui.vercel.app/p/atomic.md): Build UIs from the smallest parts upward: atoms (a button) make molecules (a search field), which make organisms (a header), then templates and real pages.
+- [Human-centered design process](https://kindofui.vercel.app/p/hcd.md): Start from real users, not assumptions.
+- [HCI: Human-Computer Interaction](https://kindofui.vercel.app/p/hci.md): HCI studies how people perceive, think and act when they use computers.
+- [User persona](https://kindofui.vercel.app/p/persona.md): A short profile of a typical user, built from research, with goals, frustrations and context.
+- [Customer journey map](https://kindofui.vercel.app/p/journey.md): The stages a person goes through, what they do and feel at each one, where it hurts, and ideas to fix it.
+- [Card sorting](https://kindofui.vercel.app/p/cardsort.md): Users sort topics into groups that make sense to them, which shows how to structure menus and categories.
+- [Information architecture (sitemap)](https://kindofui.vercel.app/p/ia.md): A map of every page and how it's grouped, planned before any visual design so people can find things.
+- [Wireframe vs mockup vs prototype](https://kindofui.vercel.app/p/fidelity.md): Three levels of detail.
+- [A/B testing](https://kindofui.vercel.app/p/abtest.md): Show two versions to similar groups of real users and keep the one that performs better, only once the result is statistically reliable.
+- [Design tokens](https://kindofui.vercel.app/p/tokens.md): Named values for color, radius, type and spacing that components read from.
+
+## Optional
+
+- [Live site](https://kindofui.vercel.app/): every pattern as an interactive demo, the Compare tool (21 screens in 12 visual styles) and the tools
+- [Source](https://github.com/xeyynon/kindofUI)

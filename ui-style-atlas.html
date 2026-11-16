@@ -6,6 +6,8 @@
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <title>kindofui</title>
+<link rel="alternate" type="text/plain" href="/llms.txt" title="kindofui for AI agents">
+<link rel="alternate" type="application/json" href="/patterns.json" title="kindofui patterns as data">
 <meta name="author" content="Surya Pratik">
 <meta name="description" content="145 live, clickable and copyable examples of how interfaces are designed: visual styles, layouts, navigation, components, AI patterns, UX laws, accessibility and methods, all on one page.">
 <meta name="theme-color" content="#eceff3" media="(prefers-color-scheme: light)">
@@ -52,10 +54,13 @@ header.top{display:block}
 .kf-mark{width:28px;height:25px}
 .kh-brand{display:inline-flex;align-items:center;gap:10px;font:800 24px/1 var(--display);letter-spacing:-.02em;color:var(--fg);text-decoration:none;border-radius:6px}
 .kh-end{display:flex;align-items:center;gap:10px}
-.kh-gh{display:inline-flex;align-items:stretch;height:36px;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;flex:none;white-space:nowrap}
+.kh-gh{display:inline-flex;align-items:stretch;height:36px;border:1px solid var(--line);border-radius:999px 8px 8px 999px;background:var(--surface);overflow:hidden;flex:none;white-space:nowrap}
 .kh-gh>a,.kh-gh>button{display:inline-flex;align-items:center;gap:8px;padding:0 12px;border:0;background:none;color:var(--fg);font:600 13px var(--body);text-decoration:none;transition:background-color .15s}
 .kh-gh>a:hover,.kh-gh>button:hover{background:var(--bg)}
 .kh-gh>a:focus-visible,.kh-gh>button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;border-radius:8px}
+.kh-gh>a:focus-visible{border-radius:999px 0 0 999px}
+.kh-gh>a{justify-content:center;width:40px;padding:0!important}
+.kh-gh .kh-repo{display:none}
 .kh-gh svg{width:16px;height:16px;flex:none}
 .kh-theme{flex:none;white-space:nowrap}
 .kh-gh .kh-build{border-left:1px solid var(--line);color:var(--muted);font:500 12px var(--mono);gap:6px;cursor:pointer}
@@ -65,11 +70,12 @@ header.top{display:block}
 @media (max-width:360px){.kh-gh .kh-bw{display:none}.kh-gh>a,.kh-gh>button{padding:0 8px}.kh-end{gap:8px}}
 .wn{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);padding:0;width:min(92vw,520px);max-height:min(82vh,720px);font:14px/1.55 var(--body)}
 .wn::backdrop{background:rgba(10,12,20,.5)}
-.wn-in{display:flex;flex-direction:column;max-height:inherit}
+.wn{overflow:hidden}
+.wn-in{display:flex;flex-direction:column;max-height:calc(min(82vh,720px) - 2px)}
 .wn-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px 12px;border-bottom:1px solid var(--line)}
 .wn-head h2{margin:0;font:700 19px var(--display)}
 .wn-head p{margin:2px 0 0;color:var(--muted);font-size:13px}
-.wn-list{list-style:none;margin:0;padding:4px 22px 8px;overflow:auto}
+.wn-list{list-style:none;margin:0;padding:4px 22px 8px;overflow:auto;min-height:0;flex:1}
 .wn-b{padding:14px 0;border-top:1px solid var(--line)}
 .wn-b:first-child{border-top:0}
 .wn-b h3{margin:0;font:700 15px var(--body);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
@@ -127,7 +133,8 @@ header.top{display:block}
 .kf-sep{width:1px;height:20px;margin:0 20px;background:var(--line)}
 .kf-top{display:inline-flex;align-items:center;gap:6px;padding:8px 4px;border:0;border-radius:6px;background:none;color:var(--muted);font:inherit}
 .kf-top:hover{color:var(--fg)}
-#kf-keys{margin-right:16px}
+#kf-keys,#kf-agents{margin-right:16px}
+#kf-agents{text-decoration:none}
 @media (hover:none) and (pointer:coarse){#kf-keys{display:none}}
 .kf-top svg{width:14px;height:14px}
 @media (max-width:520px){.kf-sep{display:none}.kf-end{gap:2px 22px}.kf-user{margin-left:6px}.kf-folio{margin-left:0}}
@@ -963,15 +970,55 @@ nav.index button.on .kn{color:inherit}
 .jump-more svg{width:12px;height:12px;transition:transform .15s}
 .jump-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 .cmpside{display:none}
-.kh-clear[hidden],.kh-count[hidden],.noresult[hidden],.saved-note[hidden],.kh-new[hidden]{display:none!important}
+.kh-link{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 6px;border:0;background:none;color:var(--muted);font:600 13px var(--body);white-space:nowrap;flex:none}
+.kh-link:hover{color:var(--fg)}
+.kh-link svg{width:16px;height:16px}
+#kh-keys{margin-right:6px}
+.kh-ag{position:relative;display:inline-flex}
+.kh-ag #kh-agents svg{width:13px;height:13px}
+.kh-ag #kh-agents[aria-expanded="true"]{color:var(--fg)}
+.kh-ag #kh-agents[aria-expanded="true"] svg{transform:rotate(180deg)}
+.kh-agtree{position:absolute;top:calc(100% + 8px);left:var(--ag-left,0);z-index:40;width:290px;display:grid;grid-template-rows:0fr;visibility:hidden;border:1px solid transparent;border-radius:12px;background:var(--surface);transition:grid-template-rows .22s ease,visibility 0s linear .22s,border-color .22s}
+.kh-agtree.open{grid-template-rows:1fr;visibility:visible;border-color:var(--line);box-shadow:0 10px 30px rgba(0,0,0,.16);transition:grid-template-rows .22s ease,border-color .22s}
+.kh-agin{min-height:0;overflow:hidden}
+.kh-ag::after{content:"";position:absolute;top:calc(100% - 3px);left:var(--ag-x,50%);width:1px;height:12px;background:var(--muted);opacity:0;transition:opacity .22s}
+.kh-ag.open::after{opacity:1}
+.kh-agkids{position:relative;padding:8px 10px 8px 36px}
+.kh-agkids::before{content:"";position:absolute;left:18px;top:0;bottom:var(--ag-tail,31px);width:1px;background:var(--muted)}
+.kh-agkids button{position:relative;display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;width:100%;padding:9px 10px 9px 8px;border:0;border-radius:8px;background:none;color:var(--fg);text-align:left;font:inherit;cursor:pointer}
+.kh-agkids button::before{content:"";position:absolute;left:-18px;top:19px;width:14px;height:1px;background:var(--muted)}
+.kh-agkids button::after{content:"";position:absolute;left:-7px;top:16px;width:5px;height:5px;border-top:1px solid var(--muted);border-right:1px solid var(--muted);transform:rotate(45deg)}
+.kh-agkids button:hover{background:var(--bg)}
+.kh-agkids button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.kh-agkids svg{width:16px;height:16px;margin-top:2px;color:var(--muted)}
+.kh-agkids b{display:block;font:600 14px var(--body)}
+.kh-agkids small{display:block;margin-top:1px;color:var(--muted);font:13px/1.4 var(--body)}
+.kh-ag #kh-agents svg{transition:transform .22s}
+@media (max-width:899px){.kh-link,.kh-ag{display:none}}
+.agd{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);padding:20px 22px;width:min(92vw,560px);font:14px/1.55 var(--body)}
+.agd::backdrop{background:rgba(10,12,20,.5)}
+.agd h2{margin:0 0 6px;font:700 19px var(--display)}
+.agd p{margin:0 0 12px;color:var(--muted)}
+.agd h3{margin:14px 0 6px;font:600 13px var(--body)}
+.agd .ag-ex{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;border:1px solid var(--line);border-radius:8px;background:var(--bg);padding:10px 12px}
+.agd .ag-ex code{font:12.5px/1.5 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.agd .ag-ex button,.agd .ag-foot button{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:6px 12px;font:600 13px var(--body);white-space:nowrap}
+.agd ul{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:8px}
+.agd li{display:grid;gap:1px;padding:8px 12px;border-top:1px solid var(--line)}
+.agd li:first-child{border-top:0}
+.agd li a{color:var(--fg);font:600 13px var(--mono);text-decoration:none}
+.agd li a:hover{text-decoration:underline}
+.agd li span{color:var(--muted);font-size:13px}
+.agd .ag-foot{display:flex;justify-content:flex-end;margin-top:16px}
+.kh-clear[hidden],.kh-count[hidden],.noresult[hidden],.saved-note[hidden],.kh-new[hidden],nav.index button[hidden]{display:none!important}
 nav.index button{border-radius:0}
 .wrap.searching{display:flex;flex-direction:column}
 .wrap.searching>.kf{order:999999}
 .tl-tabd{display:none}
 .stage.is-off,.stage.is-off *,.stage.is-off *::before,.stage.is-off *::after{animation-play-state:paused!important}
-@media (max-width:480px){.kh-gh .kh-bw{display:none}.kh-gh .kh-v{display:inline}.kh-end{gap:8px}}
+@media (max-width:480px){.kh-gh .kh-bw{display:none}.kh-gh .kh-v{display:inline}.kh-end{gap:6px}.kh-gh>a,.kh-gh>button{padding:0 9px}.kh-gh .kh-build{gap:5px}.kh-brand{gap:8px}}
 @media (max-width:420px){.kh-saved .kh-sv{display:none}.kh-saved{padding:0 10px}}
-@media (max-width:360px){.kh-gh>a{display:none}.kh-gh .kh-build{border-left:0}.kh-saved{padding:0 8px}.kh-end{gap:6px}.kh-brand{font-size:19px;gap:7px}.kh-brand .kh-mark{width:26px;height:23px}}
+@media (max-width:360px){.kh-gh>a{display:none}.kh-gh{border-radius:8px}.kh-gh .kh-build{border-left:0}.kh-saved{padding:0 7px}.kh-end{gap:5px}.kh-gh>button{padding:0 7px}.kh-brand{font-size:18px;gap:6px}.kh-brand .kh-mark{width:26px;height:23px}}
 @media (max-width:700px){
   .jump:not(.open){display:none}
   .jump-more{display:inline-flex}
@@ -2086,7 +2133,7 @@ nav.index button{border-radius:0}
 <header class="top" id="top">
   <div class="kh-bar">
     <a class="kh-brand" href="#top" aria-label="kindofui, back to the top"><span class="kh-mark" aria-hidden="true"></span>kindofui</a>
-    <div class="kh-end"><button type="button" class="kh-saved" id="kh-saved" aria-pressed="false" aria-label="Saved cards, 0"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 2.5h8v11l-4-3-4 3z"/></svg><span class="kh-sv">Saved</span><span class="kh-svn" id="saved-n">0</span></button><div class="kh-gh"><a href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofui on GitHub (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofui</span></a><button type="button" class="kh-build" id="kh-build" aria-haspopup="dialog" aria-label="What's new in build 1011"><span class="kh-new" hidden></span><span class="kh-bw">Build </span><span class="kh-v">v</span>1011</button></div><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
+    <div class="kh-end"><span class="kh-ag"><button type="button" class="kh-link" id="kh-agents" aria-expanded="false" aria-controls="kh-agmenu">For AI agents<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><div class="kh-agtree" id="kh-agmenu"><div class="kh-agin"><div class="kh-agkids"><button type="button" data-ag="copy"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M3 10.5V3.5A1 1 0 0 1 4 2.5h6.5"/></svg><span><b>Copy</b><small>Ready to paste into any AI chat</small></span></button><button type="button" data-ag="show"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8Z"/><circle cx="8" cy="8" r="2"/></svg><span><b>Show</b><small>How agents use it, the files and a ready prompt</small></span></button><button type="button" data-ag="download"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg><span><b>Download</b><small>Save it as kindofui.md</small></span></button></div></div></div></span><button type="button" class="kh-link" id="kh-keys" aria-haspopup="dialog"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="4" width="13" height="8.5" rx="1.5"/><path d="M4 6.8h.01M6.3 6.8h.01M8.6 6.8h.01M10.9 6.8h.01M5 9.8h6"/></svg>Shortcuts</button><button type="button" class="kh-saved" id="kh-saved" aria-pressed="false" aria-label="Saved cards, 0"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 2.5h8v11l-4-3-4 3z"/></svg><span class="kh-sv">Saved</span><span class="kh-svn" id="saved-n">0</span></button><div class="kh-gh"><a href="https://github.com/xeyynon/kindofUI" target="_blank" rel="noopener noreferrer" aria-label="kindofui on GitHub (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span class="kh-repo">kindofui</span></a><button type="button" class="kh-build" id="kh-build" aria-haspopup="dialog" aria-label="What's new in build 1012"><span class="kh-new" hidden></span><span class="kh-bw">Build </span><span class="kh-v">v</span>1012</button></div><button type="button" class="kh-theme" id="kh-theme" data-mode="dark" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 1.6a6.5 6.5 0 1 0 8.2 8.2A5.5 5.5 0 0 1 6.2 1.6Z"/></svg><svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg></button></div>
   </div>
   <div class="kh-intro">
     <p class="kh-eyebrow">The interactive UI/UX library</p>
@@ -3704,14 +3751,13 @@ nav.index button{border-radius:0}
     <a class="kf-user" href="https://github.com/xeyynon" target="_blank" rel="noopener noreferrer" aria-label="xeyynon on GitHub (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>@xeyynon</a>
     <a class="kf-folio" href="https://suryapratik.vercel.app/" target="_blank" rel="author noopener noreferrer" aria-label="Surya Pratik's portfolio (opens in a new tab)">Portfolio<svg class="kf-snitch" viewBox="0 4 120 40" aria-hidden="true" focusable="false"><defs><radialGradient id="kf-gold" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe7b3"/><stop offset=".45" stop-color="#d8a94a"/><stop offset="1" stop-color="#5e3d0c"/></radialGradient></defs><g class="wing"><path class="sail" d="M72 30Q96 29 116 7Q102.14 32.74 85.06 36.99Q77.39 39.1 72 30Z"/><path class="rib" d="M75.97 29.69L73.47 36.77M79.89 29.08L77.39 38.1M83.75 28.19L81.25 38.02M87.56 27L85.06 36.99M91.31 25.52L88.81 35.19M95 23.75L92.5 32.75M98.64 21.69L96.14 29.74M102.22 19.33L99.72 26.22M105.75 16.69L103.25 22.23M109.22 13.75L106.72 17.77M112.64 10.52L110.14 12.82"/><path class="spine" d="M72 30Q96 29 116 7"/></g><g transform="translate(120 0) scale(-1 1)"><g class="wing"><path class="sail" d="M72 30Q96 29 116 7Q102.14 32.74 85.06 36.99Q77.39 39.1 72 30Z"/><path class="rib" d="M75.97 29.69L73.47 36.77M79.89 29.08L77.39 38.1M83.75 28.19L81.25 38.02M87.56 27L85.06 36.99M91.31 25.52L88.81 35.19M95 23.75L92.5 32.75M98.64 21.69L96.14 29.74M102.22 19.33L99.72 26.22M105.75 16.69L103.25 22.23M109.22 13.75L106.72 17.77M112.64 10.52L110.14 12.82"/><path class="spine" d="M72 30Q96 29 116 7"/></g></g><circle cx="60" cy="34" r="13" fill="url(#kf-gold)"/><path class="relief" d="M47.5 34H72.5"/><path class="relief" d="M50 30Q58 22 70 29M49 39Q60 44 71 38"/><circle class="joint" cx="72" cy="30" r="2.2"/><circle class="joint" cx="48" cy="30" r="2.2"/></svg><svg class="kf-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
     <span class="kf-sep" aria-hidden="true"></span>
-    <button type="button" class="kf-top" id="kf-keys" aria-haspopup="dialog">Keyboard shortcuts</button>
     <button type="button" class="kf-top" id="kf-top">Back to top <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
   </div>
 </footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
-<script type="application/json" id="kui-builds">[{"n": 1011, "d": "2026-11-17", "t": "Add What's new, 10 new patterns and a clearer, faster site", "c": ["What's new: click the build number in the header to see what changed in every build. A small dot tells you when something is new since your last visit.", "10 new patterns, each with a live demo of the wrong way and the right way: delayed spinner, reserve space, error summary, label placement, password field, double-submit protection, search as you type, inline message vs toast, focus after actions, and a Back button that closes overlays.", "Each new pattern names what it is based on (NN/g, Baymard, GOV.UK, NIST, WCAG, web.dev), and says so when the evidence is mixed.", "5 new \"Which should I use?\" helpers: when to show form errors; switch, checkbox or radio; radios, dropdown or autocomplete; live filters or Apply; toast, inline message, banner or dialog.", "Search ranks the best match first, ignores words inside demos, knows other names (snackbar finds toasts) and forgives small typos. It shows how many results it found.", "Saved moves to the header with its count, and the Saved view links straight to the Brief builder. The section bar shows which section you are in.", "On phones the library starts about half as far down: Compare shows one side at a time with a switch, Tools open from a short list, and long lists of links fold away.", "Opening Code and prompt no longer stretches the whole row; three columns on 1280 px laptops, two on tablets; reduced motion now stops every animation; keyboard focus never hides under the sticky bar."]}, {"n": 1010, "d": "2026-11-16", "t": "Add last known value pattern", "c": ["New entry: Last known value. One data tile refreshed with a spinner, a skeleton and the last known value side by side, each timing how long you are left with nothing to read.", "Which should I use? now starts the loading question with \"Is there already data on screen?\"", "The UX audit has a check for screens that refresh data, and the Style finder suggests the pattern for SaaS."]}, {"n": 1009, "d": "2026-11-16", "t": "Add Vercel Web Analytics", "c": ["Page view counts through Vercel Web Analytics, so we can see which parts are used. No package added; the page is still one file."]}, {"n": 1008, "d": "2026-11-15", "t": "Add 14 screens, states and prompts to Compare", "c": ["Compare grows to 21 screens in three groups: Marketing, Web app and Mobile app, including inbox, editor, chat, data table, checkout, onboarding, feed, search and profile.", "A State switch on each side: hover, focus, disabled, error and loading.", "Copy prompt writes a prompt to build the current screen in the chosen style or mix.", "The contrast readout now explains what the numbers mean."]}, {"n": 1007, "d": "2026-11-15", "t": "Add tools, saved cards, share links and keyboard shortcuts", "c": ["A Tools section: Style finder, Which should I use?, Brief builder and UX audit.", "Save cards to a Saved tab, kept in your browser with no account.", "Copy link on every card; search, section and Compare settings stay in the address bar.", "Keyboard shortcuts: j and k to move, s to save, l to copy a link, ? for the list."]}, {"n": 1006, "d": "2026-11-15", "t": "Rebuild Compare with more screens and style mixing, add prompts and repo link", "c": ["Compare rebuilt: the 12 styles on 7 screens, with Mix styles, a contrast check and Copy tokens.", "A prompt for Claude or any AI assistant on every card, next to the code.", "The GitHub link and build number in the header."]}, {"n": 1005, "d": "2026-11-08", "t": "Fix edge cases, add skip link and sharing tags, improve copied code", "c": ["A Skip to content link, link previews when the site is shared, and copied code that brings its fonts and colour tokens with it."]}, {"n": 1004, "d": "2026-11-08", "t": "Improve performance and fix mobile layout", "c": ["Cards that are off screen cost nothing until you scroll near them, so the page stays smooth; mobile layout fixes."]}, {"n": 1003, "d": "2026-11-08", "t": "Redesign header and footer", "c": ["A new header with the rotating headline word and theme switch, and a new footer."]}, {"n": 1002, "d": "2026-11-08", "t": "Add footer and fix drag demo snippets", "c": ["A footer with the credit, and copied code for the drag demos now loads SortableJS by itself."]}, {"n": 1001, "d": "2026-11-08", "t": "Include JavaScript in copied code snippets", "c": ["View code now includes each demo's JavaScript, not only HTML and CSS."]}, {"n": 1000, "d": "2026-11-08", "t": "Update project name", "c": ["The library gets its name: kindofui."]}]</script>
+<script type="application/json" id="kui-builds">[{"n": 1012, "d": "2026-11-17", "t": "Add files for AI agents", "c": ["AI agents can now use kindofui directly: kindofui.vercel.app/llms.txt lists every pattern, patterns.json has the whole library as data, and each pattern has its own Markdown page with the prompt and the code.", "The decision helpers and the UX audit are included, so an agent can answer \"which should I use?\" and review a UI the same way the site does.", "A \"For AI agents\" menu in the header: copy the index for any chat, see how agents use it, or download it as kindofui.md. Keyboard shortcuts are in the header too.", "The header fits on small phones again for returning visitors, when the \"new\" dot is showing."]}, {"n": 1011, "d": "2026-11-17", "t": "Add What's new, 10 new patterns and a clearer, faster site", "c": ["What's new: click the build number in the header to see what changed in every build. A small dot tells you when something is new since your last visit.", "10 new patterns, each with a live demo of the wrong way and the right way: delayed spinner, reserve space, error summary, label placement, password field, double-submit protection, search as you type, inline message vs toast, focus after actions, and a Back button that closes overlays.", "Each new pattern names what it is based on (NN/g, Baymard, GOV.UK, NIST, WCAG, web.dev), and says so when the evidence is mixed.", "5 new \"Which should I use?\" helpers: when to show form errors; switch, checkbox or radio; radios, dropdown or autocomplete; live filters or Apply; toast, inline message, banner or dialog.", "Search ranks the best match first, ignores words inside demos, knows other names (snackbar finds toasts) and forgives small typos. It shows how many results it found.", "Saved moves to the header with its count, and the Saved view links straight to the Brief builder. The section bar shows which section you are in.", "On phones the library starts about half as far down: Compare shows one side at a time with a switch, Tools open from a short list, and long lists of links fold away.", "Opening Code and prompt no longer stretches the whole row; three columns on 1280 px laptops, two on tablets; reduced motion now stops every animation; keyboard focus never hides under the sticky bar."]}, {"n": 1010, "d": "2026-11-16", "t": "Add last known value pattern", "c": ["New entry: Last known value. One data tile refreshed with a spinner, a skeleton and the last known value side by side, each timing how long you are left with nothing to read.", "Which should I use? now starts the loading question with \"Is there already data on screen?\"", "The UX audit has a check for screens that refresh data, and the Style finder suggests the pattern for SaaS."]}, {"n": 1009, "d": "2026-11-16", "t": "Add Vercel Web Analytics", "c": ["Page view counts through Vercel Web Analytics, so we can see which parts are used. No package added; the page is still one file."]}, {"n": 1008, "d": "2026-11-15", "t": "Add 14 screens, states and prompts to Compare", "c": ["Compare grows to 21 screens in three groups: Marketing, Web app and Mobile app, including inbox, editor, chat, data table, checkout, onboarding, feed, search and profile.", "A State switch on each side: hover, focus, disabled, error and loading.", "Copy prompt writes a prompt to build the current screen in the chosen style or mix.", "The contrast readout now explains what the numbers mean."]}, {"n": 1007, "d": "2026-11-15", "t": "Add tools, saved cards, share links and keyboard shortcuts", "c": ["A Tools section: Style finder, Which should I use?, Brief builder and UX audit.", "Save cards to a Saved tab, kept in your browser with no account.", "Copy link on every card; search, section and Compare settings stay in the address bar.", "Keyboard shortcuts: j and k to move, s to save, l to copy a link, ? for the list."]}, {"n": 1006, "d": "2026-11-15", "t": "Rebuild Compare with more screens and style mixing, add prompts and repo link", "c": ["Compare rebuilt: the 12 styles on 7 screens, with Mix styles, a contrast check and Copy tokens.", "A prompt for Claude or any AI assistant on every card, next to the code.", "The GitHub link and build number in the header."]}, {"n": 1005, "d": "2026-11-08", "t": "Fix edge cases, add skip link and sharing tags, improve copied code", "c": ["A Skip to content link, link previews when the site is shared, and copied code that brings its fonts and colour tokens with it."]}, {"n": 1004, "d": "2026-11-08", "t": "Improve performance and fix mobile layout", "c": ["Cards that are off screen cost nothing until you scroll near them, so the page stays smooth; mobile layout fixes."]}, {"n": 1003, "d": "2026-11-08", "t": "Redesign header and footer", "c": ["A new header with the rotating headline word and theme switch, and a new footer."]}, {"n": 1002, "d": "2026-11-08", "t": "Add footer and fix drag demo snippets", "c": ["A footer with the credit, and copied code for the drag demos now loads SortableJS by itself."]}, {"n": 1001, "d": "2026-11-08", "t": "Include JavaScript in copied code snippets", "c": ["View code now includes each demo's JavaScript, not only HTML and CSS."]}, {"n": 1000, "d": "2026-11-08", "t": "Update project name", "c": ["The library gets its name: kindofui."]}]</script>
 <script id="app-js">
 (function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -4401,6 +4447,7 @@ on('#fid-x', 'click', () => { $('#fid-p .v2').hidden = true; $('#fid-p .v1').hid
       "Couldn't turn on notifications. Check your phone settings.", 'Turning on…', 'A notification permission prompt shown before the system one: an icon, the question, one honest line on what they will get, and Not now and Allow.']
   ].map(([id, label, group, html, err, busy, what]) => ({ id, label, group, html, err, busy, what }));
   const GROUPS = [['mkt', 'Marketing'], ['web', 'Web app'], ['app', 'Mobile app']];
+  $('#compare')._agent = { styles: NAMES, groups: GROUPS, screens: SCR.map(({ id, label, group, what }) => ({ id, label, group, what })) };
   const STATES = [['', 'Normal'], ['hover', 'Hover'], ['focus', 'Focus'], ['disabled', 'Disabled'], ['error', 'Error'], ['loading', 'Loading']];
   const CARD = { minimal: 'minimal', glass: 'glass', liquid: 'liquidglass', neu: 'neu', nb: 'neobrutal', bru: 'brutal', mat: 'material', flat: 'flat', skeu: 'skeuo', clay: 'clay', dark: 'darkui', retro: 'retro' };
   const tabs = $('#cmp-tabs'), groups = $('#cmp-groups'), panels = $$('.cmpp');
@@ -4767,13 +4814,13 @@ const KIND = { styles: 'Design this interface in the {t} visual style.', layouts
 const BASE_RULES = ['Match my existing stack, components and design tokens. If I have none, use semantic HTML, CSS and a little vanilla JavaScript.', 'Every control must work with the keyboard and show a visible focus ring.', 'Keep text contrast at WCAG AA or better (4.5:1 for body text, 3:1 for large text and icons).', 'Respect prefers-reduced-motion and keep any motion calm and short.', 'Make it work from 320px wide up to large desktops with no sideways scrolling.', 'Use realistic content instead of lorem ipsum, and do not add features I did not ask for.'];
 function factsFor(a) {
   const m = $('.meta', a), desc = ($('p:not(.seen):not(.ua)', m) || {}).textContent || '', sl = (($('.seen', m) || {}).textContent || '').trim(), lab = /^Based on:/.test(sl) ? 'Based on' : 'Seen in', seen = sl.replace(/^(Seen in|Based on):\s*/, ''), u = UA[a.id];
-  const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Fix both|Add a task|Rate it|Swipe)\b|to try it/i.test(x)).join('').trim();
+  const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Move|Fix both|Add a task|Rate it|Swipe|Look away)\b|to try it/i.test(x)).join('').trim();
   return [about && 'What it is: ' + about, u && 'Good for: ' + u[0] + '.', u && 'Watch out: ' + u[1] + '.', seen && lab + ': ' + seen.trim()].filter(Boolean).join('\n');
 }
 function promptFor(a) {
   const sec = a.closest('section').id, m = $('.meta', a), t = $('h3', m).firstChild.textContent.trim();
   const desc = ($('p:not(.seen):not(.ua)', m) || {}).textContent || '', sl = (($('.seen', m) || {}).textContent || '').trim(), lab = /^Based on:/.test(sl) ? 'Based on' : 'Seen in', seen = sl.replace(/^(Seen in|Based on):\s*/, ''), u = UA[a.id];
-  const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Fix both|Add a task|Rate it|Swipe)\b|to try it/i.test(x)).join('').trim();
+  const about = (desc.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [desc]).filter((x, i) => !i || !/^\s*(Try|Click|Tap|Scroll|Hover|Press|Drag|Type|Open|Toggle|Switch|Resize|Pick|Change|Move|Fix both|Add a task|Rate it|Swipe|Look away)\b|to try it/i.test(x)).join('').trim();
   const facts = factsFor(a);
   const list = r => r.map((x, i) => (i + 1) + '. ' + x).join('\n');
   if (KIND[sec]) return KIND[sec].replace('{t}', t) + '\n\n' + facts + '\n\nRequirements:\n' + list(BASE_RULES) + '\n\nUse the kindofui reference code below for the look and behaviour. Adapt it to my project instead of pasting it as is.';
@@ -5056,6 +5103,7 @@ applyFilter();
       ['focus', 'Every control shows a clear focus ring when using the keyboard.'], ['colorblind', 'Color is never the only signal; status also has text or an icon.']]],
     ['Motion', [['reducedmotion', 'Animation calms down or stops when the system asks for reduced motion.'], ['easing', 'Motion is short and eases out when things enter.'], ['transitions', 'Transitions show where content came from and went.']]]
   ].map(([g, items]) => [g, items.filter(x => card(x[0]))]);
+  root._agent = { topics: TOPICS, audit: AUD };
   const au = $('.tl-audit', root); let ans = store('kui-audit') || {};
   au.innerHTML = '<p class="tl-src">Answer for your own product. Each check links to the card that explains it. Answers stay in this browser.</p><div class="tl-score" aria-live="polite"></div>'
     + AUD.map(([g, items]) => `<fieldset class="tl-group"><legend>${g}</legend>` + items.map(([id, q]) => `<div class="tl-check-row" data-id="${id}"><p>${esc(q)} <a href="#${id}">${esc(title(id))}</a></p><div class="tl-seg" role="radiogroup" aria-label="${esc(title(id))}">`
@@ -5164,13 +5212,13 @@ applyFilter();
   const sw = $('.kbdsw', dlg); const syncSw = () => sw.setAttribute('aria-checked', keysOn);
   sw.addEventListener('click', () => { keysOn = !keysOn; try { localStorage.setItem(KK, keysOn ? 'on' : 'off'); } catch (_) {} syncSw(); say(keysOn ? 'Single-key shortcuts on' : 'Single-key shortcuts off'); }); syncSw();
   const help = () => { if (!dlg.open) dlg.showModal(); };
-  const kb = $('#kf-keys'); if (kb) kb.addEventListener('click', help);
+  const kb = $('#kh-keys'); if (kb) kb.addEventListener('click', help);
   const visible = () => cards.filter(a => !a.hidden && !a.closest('section').hidden).sort((x, y) => x.offsetTop - y.offsetTop || x.offsetLeft - y.offsetLeft);
   const current = () => { const f = document.activeElement && document.activeElement.closest && document.activeElement.closest('article.demo'); if (f && !f.hidden) return f;
     const v = visible(); let best = null, bd = Infinity; v.forEach(a => { const d = Math.abs(a.getBoundingClientRect().top - 130); if (d < bd) { bd = d; best = a; } }); return best; };
   addEventListener('keydown', e => {
     if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey || dlg.open || !keysOn) return;
-    const t = e.target; if (t.closest && (t.closest('input,textarea,select,[contenteditable="true"],.stage,.cmpst,.cmpmix,dialog,#tools'))) return;
+    const t = e.target; if (t.closest && (t.closest('input,textarea,select,[contenteditable="true"],.stage,.cmpst,.cmpmix,dialog,#tools,.kh-agtree'))) return;
     const k = e.key; if (!['j', 'k', 's', 'l', 'o', '/', '?'].includes(k)) return;
     e.preventDefault();
     if (k === '?') return help();
@@ -5292,6 +5340,55 @@ applyFilter();
   $$('.stage').forEach(st => off.observe(st));
 })();
 
+/* ---------- For AI agents: a short explanation for people, with the files agents read ---------- */
+(() => {
+  const SITE = 'https://kindofui.vercel.app';
+  let n = 0; try { n = JSON.parse($('#kui-builds').textContent) && $$('article.demo').length; } catch (_) { n = $$('article.demo').length; }
+  const EX = `Read ${SITE}/llms.txt, then build my checkout page using the error summary and double-submit protection patterns from kindofui.`;
+  const FILES = [['/llms.txt', `Start here: an index of all ${n} patterns with links`], ['/patterns.json', 'The whole library as data: facts, prompts and code for every pattern, plus the decision guides and the UX audit'], ['/p/delayspin.md', 'One Markdown page per pattern (any card id works), with its prompt and code'], ['/p/decisions.md', 'Every "Which should I use?" guide as questions and answers'], ['/p/ux-audit.md', 'The UX audit checklist, each check linked to its pattern']];
+  const dlg = document.createElement('dialog'); dlg.className = 'agd'; dlg.setAttribute('aria-labelledby', 'ag-t');
+  dlg.innerHTML = `<h2 id="ag-t">Use kindofui from an AI agent</h2><p>Point Claude, Cursor or any AI agent at these files. It can look up patterns, follow the decision guides and review an interface against the audit, using the same facts, prompts and code you see on this page.</p>`
+    + `<h3>Try this prompt</h3><div class="ag-ex"><code>${EX}</code><button type="button" class="ag-copy">Copy</button></div>`
+    + `<h3>The files</h3><ul>${FILES.map(([f, d]) => `<li><a href="${f}" target="_blank" rel="noopener">${f}</a><span>${d}</span></li>`).join('')}</ul>`
+    + '<form method="dialog" class="ag-foot"><button>Close</button></form>';
+  document.body.appendChild(dlg);
+  const open = e => { if (e) e.preventDefault(); if (!dlg.open) dlg.showModal(); };
+  [$('#kf-agents')].forEach(b => b && b.addEventListener('click', open));
+  // the header menu: Copy for AI, Show, Download .md. The Markdown is the same index agents read (llms.txt); if that file
+  // cannot be reached (offline, opened from disk) the same kind of index is built from the cards on the page.
+  const btn = $('#kh-agents'), menu = $('#kh-agmenu'), items = $$('[data-ag]', menu); let md = null;
+  const fromPage = () => { const secs = {}; $$('article.demo').forEach(a => { const s = a.closest('section'), h = $('h2', s).textContent; (secs[h] = secs[h] || []).push(`- [${$('h3', a).firstChild.textContent.trim()}](${SITE}/p/${a.id}.md)`); });
+    return `# kindofui\n\n> ${$$('article.demo').length} live UI and UX patterns with when to use them, when they hurt, a ready AI prompt and copyable code.\n\n` + Object.entries(secs).map(([h, l]) => `## ${h}\n\n${l.join('\n')}\n`).join('\n'); };
+  const load = () => md ? Promise.resolve(md) : fetch('/llms.txt').then(r => r.ok ? r.text() : Promise.reject()).catch(fromPage).then(t => (md = t));
+  const isOpen = () => menu.classList.contains('open');
+  const close = (focus = true) => { menu.classList.remove('open'); btn.parentElement.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); if (focus) btn.focus(); };
+  addEventListener('resize', () => { if (menu.classList.contains('open')) place(); });
+  const RAIL = 19;   // the tree line's x inside the card (1px border + 18px)
+  const place = () => { const wrap = btn.parentElement, w = wrap.getBoundingClientRect(), c = $('svg', btn).getBoundingClientRect(), x = Math.round(c.left + c.width / 2 - w.left);
+    wrap.style.setProperty('--ag-x', x + 'px'); const left = Math.min(x - RAIL, innerWidth - 16 - 290 - w.left); menu.style.setProperty('--ag-left', left + 'px');
+    const kids = $('.kh-agkids', menu), last = kids.lastElementChild; kids.style.setProperty('--ag-tail', (kids.clientHeight - last.offsetTop - 19) + 'px'); };
+  const openMenu = () => { place(); menu.classList.add('open'); btn.parentElement.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); load(); };
+  btn.addEventListener('click', () => (isOpen() ? close(false) : openMenu()));
+  btn.addEventListener('keydown', e => { if (e.key === 'ArrowDown' && isOpen()) { e.preventDefault(); items[0].focus(); } });
+  menu.addEventListener('keydown', e => { const i = items.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); items[Math.min(i + 1, items.length - 1)].focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); i <= 0 ? btn.focus() : items[i - 1].focus(); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen()) { e.preventDefault(); close(); } });
+  document.addEventListener('click', e => { if (isOpen() && !e.target.closest('.kh-ag')) close(false); });
+  const flash = (it, text) => { const b = $('b', it), was = b.dataset.t || (b.dataset.t = b.textContent); b.textContent = text; setTimeout(() => { b.textContent = was; }, 1400); };
+  menu.addEventListener('click', e => { const it = e.target.closest('[data-ag]'); if (!it) return;
+    const k = it.dataset.ag;
+    if (k === 'show') { close(false); open(); return; }
+    load().then(t => {
+      if (k === 'copy') { try { navigator.clipboard.writeText(t).then(() => { flash(it, 'Copied'); setTimeout(() => close(), 1100); }, () => flash(it, 'Copy failed, use Download')); } catch (_) { flash(it, 'Copy failed, use Download'); } }
+      if (k === 'download') { const u = URL.createObjectURL(new Blob([t], { type: 'text/markdown' })), a = document.createElement('a'); a.href = u; a.download = 'kindofui.md'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); flash(it, 'Downloaded'); setTimeout(() => close(), 1100); }
+    });
+  });
+  $('.ag-copy', dlg).addEventListener('click', e => { const b = e.currentTarget, done = t => { b.textContent = t; setTimeout(() => { b.textContent = 'Copy'; }, 1500); };
+    try { navigator.clipboard.writeText(EX).then(() => done('Copied'), () => done('Copy failed')); } catch (_) { done('Copy failed'); } });
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+})();
+
 /* ---------- Hero heading: rotating word ---------- */
 /* Calm by design. It gives the line a moment, goes through the words once, settles back on "designed"
    and then stays still. It gives way to the person: any scroll, key press or click ends it, and it holds still under the pointer. */
@@ -5317,6 +5414,30 @@ applyFilter();
   ['wheel', 'keydown', 'pointerdown', 'touchstart'].forEach(ev => addEventListener(ev, settle, { passive: true, once: true }));
   addEventListener('scroll', () => { if (Math.abs(scrollY - y0) > 80) settle(); }, { passive: true });
 })();
+
+/* ---------- For AI agents: the same facts, prompts and code the page shows, as data.
+   llms.txt, patterns.json and /p/*.md are generated from this by scripts/agent-files.cjs, and checked against it. ---------- */
+window.kindofui = {
+  build: (() => { try { return JSON.parse($('#kui-builds').textContent)[0].n; } catch (_) { return null; } })(),
+  export() {
+    const SEC = { styles: 'Visual styles', layouts: 'Layouts', navigation: 'Navigation', interaction: 'Components and UX patterns', ai: 'AI patterns', laws: 'UX laws', access: 'Accessibility and motion', approaches: 'Process and methods' };
+    const split = c => { const i = c.indexOf('\n/* CSS */\n'), j = c.indexOf('\n/* JS */\n'); return { html: c.slice(c.indexOf('\n') + 1, i), css: c.slice(i + 11, j < 0 ? undefined : j), js: j < 0 ? '' : c.slice(j + 10) }; };
+    const patterns = $$('article.demo').map(a => {
+      const m = $('.meta', a), sl = (($('.seen', m) || {}).textContent || '').trim(), u = UA[a.id] || [];
+      const o = { id: a.id, title: $('h3', m).firstChild.textContent.trim(), section: a.closest('section').id, sectionName: SEC[a.closest('section').id], description: ((factsFor(a).match(/^What it is: (.*)$/m) || [])[1] || (($('p:not(.seen):not(.ua)', m) || {}).textContent || '')).trim(), goodFor: u[0] || null, watchOut: u[1] || null };
+      o[/^Based on:/.test(sl) ? 'basedOn' : 'seenIn'] = sl.replace(/^(Seen in|Based on):\s*/, '');
+      o.prompt = promptFor(a); o.code = split(codeFor($('.stage', a))); return o;
+    });
+    const tools = ($('#tools') || {})._agent || {}, cmp = ($('#compare') || {})._agent || {};
+    const tree = n => n.q ? { question: n.q, answers: n.a.map(([label, next]) => ({ label, then: tree(next) })) } : { use: n.pick, why: n.why, pattern: n.id || null };
+    return {
+      name: 'kindofui', url: 'https://kindofui.vercel.app/', build: this.build, patterns,
+      decisions: (tools.topics || []).map(([id, title, node]) => ({ id, title, start: tree(node) })),
+      uxAudit: (tools.audit || []).map(([group, items]) => ({ group, checks: items.map(([id, check]) => ({ check, pattern: id })) })),
+      compare: { styles: Object.values(cmp.styles || {}), screens: cmp.screens || [] }
+    };
+  }
+};
 
 })();
 </script>
